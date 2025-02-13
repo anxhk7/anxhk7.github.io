@@ -1,149 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Hi Stalker :D -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Angelo Kodra Portfolio</title>
-  <style>
-    body {
-      font-family: Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #e6f0fa; 
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angelo Kodra Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        /* GLOBAL STYLES! */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f7fc;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        /* NAVBAR! */
+        .navbar {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
 
-    header {
-      background-color: #0275d8;
-      color: #fff;
-      padding: 2em;
-      text-align: center;
-    }
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
 
-    nav {
-      text-align: center;
-      margin: 1em 0;
-    }
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    nav a {
-      color: #0275d8;
-      text-decoration: none;
-      margin: 0 1em;
-      font-weight: bold;
-    }
+            .navbar-nav .nav-link:hover {
+                color: #fff;
+            }
+        /* HERO! */
+        .hero {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            color: #fff;
+            text-align: center;
+            padding: 140px 15px;
+            position: relative;
+        }
 
-    section {
-      padding: 2em;
-      max-width: 800px;
-      margin: auto;
-    }
+            .hero h1 {
+                font-size: 3.5rem;
+                margin-bottom: 20px;
+            }
 
-    .section-title {
-      color: #0275d8;
-      margin-bottom: 1em;
-      border-bottom: 2px solid #0275d8;
-      padding-bottom: 0.5em;
-    }
+            .hero p {
+                font-size: 1.5rem;
+            }
+        /* SECTION TITLES! */
+        .section-title {
+            font-size: 2.5rem;
+            color: #2575fc;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
 
-    .experience-item, .project-item {
-      background-color: #fff;
-      padding: 1em;
-      margin-bottom: 1em;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+            .section-title::after {
+                content: '';
+                position: absolute;
+                width: 60%;
+                height: 5px;
+                background: linear-gradient(135deg, #6a11cb, #2575fc);
+                left: 50%;
+                bottom: -10px;
+                transform: translateX(-50%);
+                border-radius: 3px;
+            }
+        /* ABOUT! */
+        #about img {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #2575fc;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+        /* CARDS */
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+        }
 
-    footer {
-      text-align: center;
-      padding: 1em;
-      background-color: #0275d8;
-      color: #fff;
-    }
-  </style>
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+            }
+
+            .card img.icon {
+                width: auto;
+                height: 40px;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+        /* BUTTONS */
+        .btn-custom {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            border: none;
+            color: #fff;
+            transition: background 0.3s;
+        }
+
+            .btn-custom:hover {
+                background: linear-gradient(135deg, #6a11cb, #2575fc);
+            }
+        /* SOCIAL ICONS */
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+            .social-icons img:hover {
+                transform: scale(1.1);
+            }
+        /* CONTACT SECTION */
+        #contact p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        /* FOOTER */
+        footer {
+            background: #2575fc;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        /* RESPONSIVE STUFFZ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>Angelo Kodra</h1>
-    <p>Welcome to my portfolio website!</p>
-  </header>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="80">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Angelo Kodra</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <nav>
-    <a href="#about">About Me</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-  </nav>
+    <!-- HERO -->
+    <section class="hero d-flex align-items-center" id="home">
+        <div class="container">
+            <h1>Angelo Kodra</h1>
+            <p>Digital Innovator | Software Engineer | Technology Lover | Repair Technician</p>
+        </div>
+    </section>
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p>
-      My name is Angelo Kodra and I am a 3rd year Computer Science student @ Wayne State
-      University. I have had a strong interest in computers and technology since I was young,
-      and this was the main reason I decided to pursue this path. Here, you can find my 
-      portfolio.
-    </p>
-  </section>
+    <!-- ABOUT -->
+    <section id="about" class="py-5">
+        <div class="container text-center">
+            <h2 class="section-title">About Me</h2>
+            <img src="ak-face.jpeg" alt="Angelo Kodra" class="img-fluid">
+            <p class="mt-4">
+                Hello, I'm Angelo Kodra, a passionate 3rd-year Computer Science student at Wayne State University.
+                My journey in technology began at a young age, and my love for innovation has driven me to explore cutting-edge solutions.
+                From developing robust software to designing intuitive user experiences, I blend creativity with technical expertise.
+                This portfolio is a snapshot of my work, showcasing projects that push the boundaries of what's possible.
+                Let's connect and create something amazing together!
+            </p>
+            <div class="social-icons mt-4">
+                <a href="https://github.com/anxhk7" target="_blank"><img src="icons/github.png" alt="GitHub"></a>
+                <a href="https://linkedin.com/in/angelo-kodra" target="_blank"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+                <a href="mailto:angkodra@gmail.com"><img src="icons/email.png" alt="Email"></a>
+            </div>
+        </div>
+    </section>
 
-  <section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <div class="experience-item">
-      <h3>Advanced Repair Agent - Best Buy - Geek Squad</h3>
-      <p><strong>Duration:</strong> October 2022 - present</p>
-      <p>
-        At Geek Squad, I consult and educate clients on service options and pricing. I 
-        mainly diagnose, repair, and provide service for Windows/Mac PCs and Android/iOS
-        devices. This includes data services (backups/clones/recovery,) replacing/repairing hardware
-        and software, building custom PCs, and more. Daily, I professionally note the work
-        performed and future recommendations for coworkers and clients. During my time here,
-        I have also trained onboarding agents.
-      </p>
-    </div>
-    <div class="experience-item">
-      <h3>Teaching Assistant (BE 1200) - Wayne State University - College of Engineering</h3>
-      <p><strong>Duration:</strong> August 2023 - present</p>
-      <p>
-        As a teaching assistant for BE 1200, I aided in lecturing and assisting students
-        with creating and analyzing approaches to 3D modeling with NX and creating
-        Arduino circuits and code. I also used 3D printers and 3D printing software
-        to print manufactured designs. To assist students, I created help guides for students
-        to learn different Arduino parts and functions. I coordinated and guided student groups
-        for their final project.
-      </p>
-    </div>
-  </section>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Experience</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h4 class="card-title">
+                            <img src="icons/geeksquad.png" alt="Repair Icon" class="icon"> Advanced Repair Agent - Best Buy - Geek Squad
+                        </h4>
+                        <p class="text-muted"><small>October 2022 - present</small></p>
+                        <p class="card-text">
+                            At Geek Squad, I consult and educate clients on service options and pricing while diagnosing, repairing, and servicing Windows/Mac PCs and Android/iOS devices.
+                            My responsibilities include data backups, hardware/software repairs, custom PC builds, and more.
+                            I meticulously document work performed and provide future recommendations for both colleagues and clients, as well as train new agents.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h4 class="card-title">
+                            <img src="icons/teaching.png" alt="Teaching Icon" class="icon"> Teaching Assistant (BE 1200) - Wayne State University - College of Engineering
+                        </h4>
+                        <p class="text-muted"><small>August 2023 - present</small></p>
+                        <p class="card-text">
+                            As a teaching assistant for BE 1200, I support lectures and assist students in developing and analyzing approaches to 3D modeling with NX, as well as creating Arduino circuits and coding.
+                            I utilize 3D printers and printing software to bring designs to life, create comprehensive help guides for Arduino components, and coordinate student groups for their final projects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="project-item">
-      <h3>Digital Windex (ongoing)</h3>
-      <p>
-        I conceptualized and proposed the idea for Digital Windex, which was selected
-        among a group of student submissions and presentations. With my group, we are
-        developing a user-friendly all-in-one Windows maintenance tool to automate system 
-        diagnostics, repair, and optimizations. We use Visual Studio 2022, including
-        C#, .NET, and WPF, focusing on a jargon-free, modular design for non-technical 
-        users. We plan to consolidate existing Windows tools including DISM, Windows
-         Memory Diagnostics, Windows Update, and more in the program.
-      </p>
-      <p>
-        <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank">
-          View on GitHub
-        </a>
-      </p>
-    </div>
-    <!-- Add more project items as needed -->
-  </section>
-  
-  <section id=" resume">
-      <h2>Resume</h2>
-      <p>
-          <a href="Angelo Rei Kodra Resume 2025.docx" download>
-             Download My Resume (DOCX)
-          </a>
-      </p>
-  </section>  
-  <footer>
-    <p>&copy; 2025 Angelo Kodra. All Rights Reserved.</p>
-  </footer>
+    <!-- PROJECTS -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Projects</h2>
+            <div class="row g-4">
+                <!-- DIGITAL WINDEX -->
+                <div class="col-md-6">
+                    <div class="card p-4 h-100">
+                        <h4 class="card-title">
+                            <img src="icons/windows.png" alt="Digital Windex Icon" class="icon"> Digital Windex (ongoing)
+                        </h4>
+                        <p class="card-text">
+                            Digital Windex is an innovative project that I conceptualized and pitched, earning selection among a competitive pool of student ideas.
+                            Along with my talented team, we’re developing an all-in-one Windows maintenance tool designed to automate system diagnostics, repair, and optimization tasks.
+                            Built in Visual Studio 2022 using C#, .NET, and WPF, our solution features a clean, jargon-free, and modular design tailored for non-technical users.
+                            By consolidating powerful Windows utilities—such as DISM, Windows Memory Diagnostics, and Windows Update—into a single intuitive application, Digital Windex empowers users to effortlessly maintain their systems at peak performance.
+                        </p>
+                        <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" class="btn btn-custom mt-3">View on GitHub</a>
+                    </div>
+                </div>
+                <!-- MOVIE ANALYSIS -->
+                <div class="col-md-6">
+                    <div class="card p-4 h-100">
+                        <h4 class="card-title">
+                            <img src="icons/data.png" alt="Data Analysis Icon" class="icon"> Predictive Analysis on Movie Attendance
+                        </h4>
+                        <p class="card-text">
+                            In a group project, I explored movie-going behaviors to help optimize strategies for the film industry.
+                            We integrated primary survey data from Google Forms with secondary data from Statista and analyzed demographic factors, genre preferences, and movie viewing habits using Python.
+                            Our approach combined statistical methods—such as descriptive statistics, chi-square tests, and correlation analysis—with predictive modeling techniques including decision trees, logistic regression, and artificial neural networks (ANN).
+                            This analysis provided actionable insights into consumer behavior and movie attendance trends.
+                        </p>
+                        <p class="card-text"><strong>Tools Used:</strong> Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, Graphviz, TensorFlow (Keras API), Google Forms, and Statista.</p>
+                        <a href="BE2100_G08_FinalPaper.pdf" download class="btn btn-custom mt-3">Download Report (PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="mb-4">I'd love to hear from you! Feel free to reach out. I'm always excited to collaborate and create something.</p>
+            <a href="mailto:angkodra@gmail.com" class="btn btn-custom btn-lg">Get in Touch</a>
+            <div class="social-icons mt-4">
+                <a href="https://github.com/anxhk7" target="_blank"><img src="icons/github.png" alt="GitHub"></a>
+                <a href="https://linkedin.com/in/angelo-kodra" target="_blank"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+                <a href="mailto:angkodra@gmail.com"><img src="icons/email.png" alt="Email"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="py-5">
+        <div class="container text-center">
+            <h2 class="section-title">Resume</h2>
+            <a href="Angelo Rei Kodra Resume 2025.docx" download class="btn btn-lg btn-outline-light">Download My Resume (DOCX)</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Angelo Kodra. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
