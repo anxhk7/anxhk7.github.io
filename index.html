@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angelo Kodra Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* GLOBAL STYLES! */
         body {
             font-family: 'Roboto', sans-serif;
             background: #f4f7fc;
             color: #333;
             scroll-behavior: smooth;
         }
-        /* NAVBAR! */
+
         .navbar {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
         }
@@ -30,10 +29,10 @@
             transition: color 0.3s;
         }
 
-            .navbar-nav .nav-link:hover {
-                color: #fff;
-            }
-        /* HERO! */
+        .navbar-nav .nav-link:hover {
+            color: #fff;
+        }
+
         .hero {
             background: linear-gradient(135deg, #2575fc, #6a11cb);
             color: #fff;
@@ -42,15 +41,17 @@
             position: relative;
         }
 
-            .hero h1 {
-                font-size: 3.5rem;
-                margin-bottom: 20px;
-            }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
 
-            .hero p {
-                font-size: 1.5rem;
-            }
-        /* SECTION TITLES! */
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
         .section-title {
             font-size: 2.5rem;
             color: #2575fc;
@@ -59,18 +60,18 @@
             display: inline-block;
         }
 
-            .section-title::after {
-                content: '';
-                position: absolute;
-                width: 60%;
-                height: 5px;
-                background: linear-gradient(135deg, #6a11cb, #2575fc);
-                left: 50%;
-                bottom: -10px;
-                transform: translateX(-50%);
-                border-radius: 3px;
-            }
-        /* ABOUT! */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 5px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
         #about img {
             width: 240px;
             height: 240px;
@@ -80,7 +81,7 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             margin-bottom: 20px;
         }
-        /* CARDS */
+
         .card {
             border: none;
             border-radius: 15px;
@@ -89,18 +90,18 @@
             background-color: #fff;
         }
 
-            .card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-            }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
 
-            .card img.icon {
-                width: auto;
-                height: 40px;
-                margin-right: 10px;
-                vertical-align: middle;
-            }
-        /* BUTTONS */
+        .card img.icon {
+            width: auto;
+            height: 40px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
         .btn-custom {
             background: linear-gradient(135deg, #2575fc, #6a11cb);
             border: none;
@@ -108,10 +109,11 @@
             transition: background 0.3s;
         }
 
-            .btn-custom:hover {
-                background: linear-gradient(135deg, #6a11cb, #2575fc);
-            }
-        /* SOCIAL ICONS */
+        .btn-custom:hover {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
         .social-icons img {
             width: 40px;
             height: 40px;
@@ -119,29 +121,29 @@
             transition: transform 0.3s;
         }
 
-            .social-icons img:hover {
-                transform: scale(1.1);
-            }
-        /* CONTACT SECTION */
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
         #contact p {
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
-        /* FOOTER */
+
         footer {
             background: #2575fc;
             color: #fff;
             padding: 20px 0;
             text-align: center;
         }
-        /* RESPONSIVE STUFFZ */
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.8rem;
             }
 
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
             .section-title {
@@ -175,7 +177,7 @@
     <section class="hero d-flex align-items-center" id="home">
         <div class="container">
             <h1>Angelo Kodra</h1>
-            <p>IT Support (Tier 1/2) | Enterprise Endpoints | Windows Imaging & M365 | C#, C++, Python, Java</p>
+            <p>Computer Science Student | Software Developer | IT Intern | C#, C++, Python, React Native, FastAPI, OpenGL, NX</p>
         </div>
     </section>
 
@@ -185,10 +187,11 @@
             <h2 class="section-title">About Me</h2>
             <img src="ak-face.jpeg" alt="Angelo Kodra" class="img-fluid">
             <p class="mt-4">
-                I’m a 4th-year Computer Science student at Wayne State and an IT intern supporting an enterprise environment. 
-                I handle Tier-1/2 endpoint support (Windows/macOS), imaging and new-hire deployments, VPN/MFA setup, and daily 
-                administration of multiple platforms. On the dev side, I build small C#/.NET and Python tools 
-                that automate routine tasks and improve support workflows. I focus on clear documentation, fast resolution, and reliable systems.
+                I’m a senior Computer Science student at Wayne State University and an IT intern supporting an enterprise environment.
+                My background combines software development, technical support, and hands-on engineering tools. I’ve built projects in
+                C#, C++, Python, React Native, FastAPI, and OpenGL, and I have experience with Unity-adjacent graphics concepts, NX 3D modeling,
+                debugging, documentation, and cross-functional collaboration. I enjoy building reliable software, learning quickly, and solving
+                technical problems across both development and IT environments.
             </p>
             <div class="social-icons mt-4">
                 <a href="https://github.com/anxhk7" target="_blank"><img src="icons/github.png" alt="GitHub"></a>
@@ -204,41 +207,43 @@
             <h2 class="section-title text-center">Experience</h2>
             <div class="row g-4">
                 <div class="col-md-6">
-                    <div class="card p-4">
+                    <div class="card p-4 h-100">
                         <h4 class="card-title">
                             <img src="icons/geeksquad.png" alt="Repair Icon" class="icon"> Advanced Repair Agent @ Geek Squad
                         </h4>
-                        <p class="text-muted"><small>October 2022 - present</small></p>
+                        <p class="text-muted"><small>October 2022 - Present</small></p>
                         <p class="card-text">
-                            At Geek Squad, I consult and educate clients on service options and pricing while diagnosing, repairing, and servicing Windows/Mac PCs and Android/iOS devices.
-                            My responsibilities include data backups, hardware/software repairs, custom PC builds, and more.
-                            I meticulously document work performed, provide future recommendations for colleagues and clients, and train new agents.
+                            Diagnose, repair, and service Windows/Mac PCs and Android/iOS devices while consulting clients on service options and pricing.
+                            Responsibilities include hardware/software troubleshooting, data backup, system repair, custom PC work, documentation,
+                            customer communication, and training new agents.
                         </p>
                     </div>
                 </div>
+
                 <div class="col-md-6">
-                    <div class="card p-4">
+                    <div class="card p-4 h-100">
                         <h4 class="card-title">
                             <img src="icons/teaching.png" alt="Teaching Icon" class="icon"> Teaching Assistant @ Wayne State University
                         </h4>
                         <p class="text-muted"><small>August 2023 - August 2024</small></p>
                         <p class="card-text">
-                            As a teaching assistant for BE 1200, I support lectures and assist students in developing and analyzing approaches to 3D modeling with NX, creating Arduino circuits, and coding.
-                            I utilize 3D printers and printing software to bring designs to life, create comprehensive help guides for Arduino components, and coordinate student groups for their final projects.
+                            Supported engineering students in Siemens NX 3D modeling, Arduino circuitry, and introductory programming.
+                            Assisted with labs, troubleshooting, project coordination, and 3D printing workflows while creating guides and helping students
+                            develop and refine technical solutions.
                         </p>
                     </div>
                 </div>
+
                 <div class="col-md-6">
-                    <div class="card p-4">
+                    <div class="card p-4 h-100">
                         <h4 class="card-title">
-                            <img src="icons/owlservices.png" alt="Owl Icon" class="icon"> Information Technology Intern @ OWL Services
+                            <img src="icons/owlservices.png" alt="OWL Services Icon" class="icon"> Information Technology Intern @ OWL Services
                         </h4>
-                        <p class="text-muted"><small>August 2025 - present</small></p>
+                        <p class="text-muted"><small>August 2025 - Present</small></p>
                         <p class="card-text">
-                            At OWL Services, I provide Tier-1/2 support in an enterprise environment, keeping desktop, laptop, and mobile endpoints running smoothly. I diagnose and resolve hardware, 
-                            software, and networking issues; handle OS updates, imaging, and new-device deployments; and support distributed users via remote-assist tools. I work with Microsoft 365 
-                            daily for accounts and mail, and use Active Directory for group access, basic admin tasks, and escalations. I document fixes and SOPs in the knowledge base, 
-                            contribute to incident triage/escalation, and partner with senior staff to improve workflows.
+                            Provide Tier 1/2 support in an enterprise environment across desktop, laptop, and mobile endpoints.
+                            Handle hardware, software, imaging, account support, Microsoft 365, Active Directory tasks, remote troubleshooting,
+                            documentation, and workflow improvement in collaboration with senior IT staff.
                         </p>
                     </div>
                 </div>
@@ -251,38 +256,69 @@
         <div class="container">
             <h2 class="section-title text-center">Projects</h2>
             <div class="row g-4">
+
+                <!-- SPEECHMATCH -->
+                <div class="col-md-6">
+                    <div class="card p-4 h-100">
+                        <h4 class="card-title">
+                            <img src="icons/data.png" alt="SpeechMatch Icon" class="icon"> SpeechMatch
+                        </h4>
+                        <p class="card-text">
+                            SpeechMatch is a senior capstone mobile application focused on pronunciation feedback and language learning.
+                            As Frontend Lead, I worked on React Native screens, UI flow, API integration, debugging, and collaboration across the frontend,
+                            backend, and database layers. The system combines speech processing workflows with account management, practice activities,
+                            and feedback-driven user interaction.
+                        </p>
+                        <p class="card-text"><strong>Tools Used:</strong> React Native, Expo, FastAPI, PostgreSQL, JavaScript, Python.</p>
+                    </div>
+                </div>
+
+                <!-- OPENGL GRAPHICS PROJECT -->
+                <div class="col-md-6">
+                    <div class="card p-4 h-100">
+                        <h4 class="card-title">
+                            <img src="icons/data.png" alt="3D Graphics Project Icon" class="icon"> Interactive 3D Graphics Environment
+                        </h4>
+                        <p class="card-text">
+                            Built an interactive 3D graphics project in C++ using OpenGL/GLUT that renders imported OBJ cow models inside a textured room.
+                            Implemented model loading, normal computation, texture mapping, lighting/material setup, transformations, and real-time camera
+                            and object controls. The project also included rendering/debug features such as wireframe mode, shading toggles, and lighting controls.
+                        </p>
+                        <p class="card-text"><strong>Tools Used:</strong> C++, OpenGL, GLUT, stb_image.</p>
+                    </div>
+                </div>
+
                 <!-- DIGITAL WINDEX -->
                 <div class="col-md-6">
                     <div class="card p-4 h-100">
                         <h4 class="card-title">
-                            <img src="icons/windows.png" alt="Digital Windex Icon" class="icon"> Digital Windex (ongoing)
+                            <img src="icons/windows.png" alt="Digital Windex Icon" class="icon"> Digital Windex
                         </h4>
                         <p class="card-text">
-                            Digital Windex is a project that I conceptualized and pitched, earning selection among a pool of student ideas.
-                            My talented team is also developing an all-in-one Windows maintenance tool designed to automate system diagnostics, repair, and optimization tasks.
-                            Built in Visual Studio 2022 using C#, .NET, and WPF, our solution features a clean, jargon-free, modular design tailored for non-technical users.
-                            By consolidating powerful Windows utilities—such as DISM, Windows Memory Diagnostics, and Windows Update—into a single intuitive application, Digital Windex empowers users to effortlessly maintain their systems at peak performance.
+                            Digital Windex is a Windows maintenance application that I conceptualized and pitched, and it was selected from a pool of student ideas.
+                            Built with C#, .NET, and WPF, the project is designed to simplify system diagnostics, repair, and optimization for non-technical users
+                            through a clean, modular interface.
                         </p>
-                        <p class="card-text"><strong>Tools Used:</strong> Visual Studio 2022, C#, WPF.</p>
+                        <p class="card-text"><strong>Tools Used:</strong> Visual Studio 2022, C#, .NET, WPF.</p>
                         <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" class="btn btn-custom mt-3">View on GitHub</a>
                     </div>
                 </div>
-                <!-- MOVIE ANALYSIS -->
+
+                <!-- PORTFOLIO WEBSITE -->
                 <div class="col-md-6">
                     <div class="card p-4 h-100">
                         <h4 class="card-title">
-                            <img src="icons/data.png" alt="Data Analysis Icon" class="icon"> Predictive Analysis on Movie Attendance
+                            <img src="icons/github.png" alt="Portfolio Website Icon" class="icon"> Personal Portfolio Website
                         </h4>
                         <p class="card-text">
-                            In a group project, I explored movie-going behaviors to help optimize strategies for the film industry.
-                            We integrated primary survey data from Google Forms with secondary data from Statista and analyzed demographic factors, genre preferences, and movie viewing habits using Python.
-                            Our approach combined statistical methods, such as descriptive statistics, chi-square tests, and correlation analysis, with predictive modeling techniques including decision trees, logistic regression, and artificial neural networks (ANN).
-                            This analysis provided actionable insights into consumer behavior and movie attendance trends.
+                            Designed and built a responsive personal portfolio website to showcase experience, projects, and contact information.
+                            The site uses Bootstrap for layout and responsiveness, custom CSS for styling, and structured sections for experience,
+                            projects, resume access, and professional links.
                         </p>
-                        <p class="card-text"><strong>Tools Used:</strong> Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, Graphviz, TensorFlow (Keras API), Google Forms, and Statista.</p>
-                        <a href="BE2100_G08_FinalPaper.pdf" download class="btn btn-custom mt-3">Download Report (PDF)</a>
+                        <p class="card-text"><strong>Tools Used:</strong> HTML, CSS, Bootstrap, JavaScript.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -291,11 +327,11 @@
     <section id="contact" class="py-5 bg-light">
         <div class="container text-center">
             <h2 class="section-title">Let's Connect</h2>
-            <p class="mb-4">I'd love to hear from you! Feel free to reach out. I'm always excited to collaborate and create something.</p>
+            <p class="mb-4">I'd love to hear from you. Feel free to reach out — I'm always excited to connect, collaborate, and build something meaningful.</p>
             <a href="mailto:angkodra@gmail.com" class="btn btn-custom btn-lg">Get in Touch</a>
             <div class="social-icons mt-4">
                 <a href="https://github.com/anxhk7" target="_blank"><img src="icons/github.png" alt="GitHub"></a>
-                <a href="https://linkedin.com/in/angelo-kodra" target="_blank"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://linkedin.com/in/angelo-kodra-aa08a821b" target="_blank"><img src="icons/linkedin.png" alt="LinkedIn"></a>
                 <a href="mailto:angkodra@gmail.com"><img src="icons/email.png" alt="Email"></a>
             </div>
         </div>
@@ -312,9 +348,10 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Angelo Kodra. All Rights Reserved.</p>
+            <p>&copy; 2026 Angelo Kodra. All Rights Reserved.</p>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
