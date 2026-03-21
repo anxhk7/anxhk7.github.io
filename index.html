@@ -701,6 +701,95 @@
             color: #62708e;
             font-weight: 600;
         }
+        .project-media {
+            margin: 0.25rem 0 1rem;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(79, 124, 255, 0.14);
+            background: linear-gradient(135deg, #eef3ff, #f7f9ff);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-shot {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center;
+            background: #eef3ff;
+        }
+        
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-actions .btn-card,
+        .project-actions .btn-card-secondary {
+            margin-top: 0;
+            margin-right: 0;
+        }
+        
+        .project-controls {
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid rgba(79, 124, 255, 0.10);
+            padding-top: 0.9rem;
+        }
+        
+        .project-controls summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #36508c;
+            list-style: none;
+        }
+        
+        .project-controls summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        .project-controls summary::after {
+            content: " +";
+            font-weight: 800;
+        }
+        
+        .project-controls[open] summary::after {
+            content: " −";
+        }
+        
+        .project-controls ul {
+            margin: 0.8rem 0 0;
+            padding-left: 1.1rem;
+            color: #3a4663;
+            line-height: 1.7;
+        }
+        
+        .project-controls li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .project-note {
+            margin-top: 0.9rem;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.65;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .project-actions .btn-card,
+            .project-actions .btn-card-secondary {
+                width: 100%;
+            }
+        }
 
         /* RESPONSIVE */
         @media (max-width: 991px) {
@@ -1022,9 +1111,10 @@
                     <div class="col-lg-6">
                         <div class="card-clean featured-project">
                             <div class="featured-badge">Featured • Graphics</div>
+                    
                             <div class="card-top">
                                 <div class="card-icon-wrap">
-                                    <img src="icons/Opengl.png" alt="3D Graphics Project Icon">
+                                    <img src="icons/opengl.png" alt="OpenGL project icon">
                                 </div>
                                 <div>
                                     <h4 class="card-title">Interactive 3D Graphics Environment</h4>
@@ -1032,15 +1122,21 @@
                                 </div>
                             </div>
                     
-                            <!-- screenshot -->
-                            <img src="images/opengl-cows.png" alt="Screenshot of OpenGL graphics project"
-                                 style="width:100%; border-radius:16px; margin-bottom:1rem; border:1px solid rgba(79,124,255,0.12);">
+                            <div class="project-media">
+                                <img
+                                    src="images/opengl-cows.png"
+                                    alt="Screenshot of OpenGL graphics project"
+                                    class="project-shot"
+                                    loading="lazy"
+                                    onerror="this.parentElement.style.display='none';"
+                                >
+                            </div>
                     
                             <p class="card-text">
                                 Built an interactive 3D graphics project in C++ using OpenGL/GLUT that renders imported
                                 OBJ cow models inside a textured room. Implemented model loading, normal computation,
                                 texture mapping, lighting/material setup, transformations, and real-time camera/object controls.
-                                Added rendering/debug options, including wireframe mode, shading toggles, lighting controls,
+                                Added rendering and debugging options including wireframe mode, shading toggles, lighting controls,
                                 and adjustable camera parameters.
                             </p>
                     
@@ -1053,18 +1149,40 @@
                                 <span class="tag">Lighting</span>
                             </div>
                     
-                            <div class="tag-row" style="margin-top: 1rem;">
-                                <span class="tag">W/A/S/D + Q/E camera movement</span>
-                                <span class="tag">Mouse drag rotation</span>
-                                <span class="tag">Wireframe / shading toggles</span>
+                            <div class="project-actions">
+                                <a href="Assignment3_AK.exe" download class="btn-card">
+                                    Download Demo (.exe)
+                                </a>
+                                <a href="Assignment3_AK.cpp" download class="btn-card-secondary">
+                                    Download Source (.cpp)
+                                </a>
                             </div>
                     
-                            <a href="Assignment3_AK.exe" download class="btn-card">
-                                Download Demo (.exe)
-                            </a>
-                            <a href="Assignment3_AK.cpp" download class="btn-card-secondary">
-                                Download Source (.cpp)
-                            </a>
+                            <details class="project-controls">
+                                <summary>View controls</summary>
+                                <ul>
+                                    <li><strong>W / S</strong> — move camera forward / backward</li>
+                                    <li><strong>A / D</strong> — move camera left / right</li>
+                                    <li><strong>Q / E</strong> — move camera up / down</li>
+                                    <li><strong>I / K</strong> — move model forward / backward</li>
+                                    <li><strong>J / L</strong> — move model left / right</li>
+                                    <li><strong>U / O</strong> — move model up / down</li>
+                                    <li><strong>X / Y / Z</strong> — rotate model axes</li>
+                                    <li><strong>Mouse drag</strong> — rotate model</li>
+                                    <li><strong>F</strong> — wireframe toggle</li>
+                                    <li><strong>G / g</strong> — flat / smooth shading</li>
+                                    <li><strong>T</strong> — texture toggle</li>
+                                    <li><strong>L</strong> — lighting toggle</li>
+                                    <li><strong>0 / 1</strong> — toggle lights</li>
+                                    <li><strong>V / H / N / M</strong> — adjust camera and clipping settings</li>
+                                    <li><strong>Esc</strong> — exit</li>
+                                </ul>
+                            </details>
+                    
+                            <p class="project-note">
+                                Desktop demo for Windows. For web hosting, make sure your filenames and paths match exactly,
+                                including capitalization.
+                            </p>
                         </div>
                     </div>
 
