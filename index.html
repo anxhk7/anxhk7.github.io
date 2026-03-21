@@ -5,165 +5,562 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angelo Kodra Portfolio</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #f4f7fc;
-            color: #333;
+        :root {
+            --bg: #0b1020;
+            --bg-soft: #121936;
+            --surface: rgba(255, 255, 255, 0.82);
+            --surface-strong: rgba(255, 255, 255, 0.94);
+            --text: #15203b;
+            --muted: #5f6b85;
+            --line: rgba(27, 39, 82, 0.1);
+            --primary: #4f7cff;
+            --primary-2: #7c4dff;
+            --accent: #00c2ff;
+            --shadow: 0 18px 45px rgba(18, 25, 54, 0.12);
+            --shadow-lg: 0 24px 60px rgba(18, 25, 54, 0.18);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 16px;
+            --container-max: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(124, 77, 255, 0.16), transparent 30%),
+                radial-gradient(circle at top right, rgba(79, 124, 255, 0.16), transparent 28%),
+                linear-gradient(180deg, #eef4ff 0%, #f7f9ff 35%, #edf3ff 100%);
+            margin: 0;
+            padding-top: 90px;
+        }
+
+        h1, h2, h3, h4, .navbar-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: var(--container-max);
+        }
+
+        /* NAVBAR */
         .navbar {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background: rgba(11, 16, 32, 0.74);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
         }
 
         .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #fff !important;
         }
 
         .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.78) !important;
             font-weight: 500;
-            transition: color 0.3s;
+            margin-left: 0.4rem;
+            padding: 0.7rem 0.95rem !important;
+            border-radius: 999px;
+            transition: all 0.25s ease;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: #fff;
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus {
+            color: #fff !important;
+            background: rgba(255, 255, 255, 0.08);
         }
 
+        /* HERO */
         .hero {
-            background: linear-gradient(135deg, #2575fc, #6a11cb);
-            color: #fff;
-            text-align: center;
-            padding: 140px 15px;
             position: relative;
+            overflow: hidden;
+            padding: 5.5rem 0 4.5rem;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        .hero::before {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(124, 77, 255, 0.32) 0%, rgba(124, 77, 255, 0) 70%);
+            top: -80px;
+            left: -70px;
+        }
+
+        .hero::after {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(0, 194, 255, 0.24) 0%, rgba(0, 194, 255, 0) 72%);
+            right: -120px;
+            top: -60px;
+        }
+
+        .hero-shell {
+            position: relative;
+            z-index: 1;
+            background:
+                linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(42, 64, 148, 0.92)),
+                linear-gradient(135deg, var(--primary), var(--primary-2));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 4.25rem 2rem;
+            text-align: center;
+            color: #fff;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .hero-shell::before {
+            content: "";
+            position: absolute;
+            inset: auto -10% -45% auto;
+            width: 440px;
+            height: 440px;
+            background: radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0));
+            border-radius: 50%;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: rgba(255,255,255,0.92);
+            font-size: 0.92rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.35rem;
-            max-width: 950px;
+            max-width: 900px;
             margin: 0 auto;
+            font-size: clamp(1.05rem, 2vw, 1.28rem);
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-main,
+        .btn-outline-glass {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-width: 180px;
+            padding: 0.95rem 1.3rem;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, #ffffff, #dbe7ff);
+            color: #18213d;
+            box-shadow: 0 14px 30px rgba(6, 10, 26, 0.18);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            color: #111827;
+        }
+
+        .btn-outline-glass {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        .btn-outline-glass:hover {
+            transform: translateY(-2px);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        /* SECTION WRAPPERS */
+        section {
+            position: relative;
+        }
+
+        .section-wrap {
+            padding: 2rem 0 1rem;
+        }
+
+        .section-panel {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            padding: 2.2rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            color: #2575fc;
-            margin-bottom: 40px;
-            position: relative;
             display: inline-block;
+            position: relative;
+            margin: 0;
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 700;
+            color: #101828;
         }
 
         .section-title::after {
-            content: '';
-            position: absolute;
-            width: 60%;
+            content: "";
+            display: block;
+            width: 72%;
             height: 5px;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            left: 50%;
-            bottom: -10px;
-            transform: translateX(-50%);
-            border-radius: 3px;
+            margin: 0.7rem auto 0;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-2), var(--accent));
         }
 
-        #about img {
-            width: 240px;
-            height: 240px;
+        .section-subtitle {
+            margin: 1rem auto 0;
+            max-width: 760px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 1.02rem;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.2rem;
+            align-items: center;
+        }
+
+        .about-photo-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-photo {
+            width: 250px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid #2575fc;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
+            border-radius: 28px;
+            border: 4px solid rgba(255,255,255,0.65);
+            box-shadow: 0 18px 45px rgba(25, 40, 78, 0.22);
+            background: #dfe8ff;
         }
 
-        .card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: #fff;
+        .about-copy p {
+            margin: 0;
+            font-size: 1.03rem;
+            line-height: 1.95;
+            color: #334155;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.4rem;
         }
 
-        .card img.icon {
-            width: auto;
-            height: 40px;
-            margin-right: 10px;
-            vertical-align: middle;
+        .chip {
+            padding: 0.6rem 0.95rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(79, 124, 255, 0.12), rgba(124, 77, 255, 0.12));
+            border: 1px solid rgba(79, 124, 255, 0.12);
+            color: #2d3b66;
+            font-weight: 600;
+            font-size: 0.93rem;
         }
 
-        .btn-custom {
-            background: linear-gradient(135deg, #2575fc, #6a11cb);
-            border: none;
+        /* SOCIALS */
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: 1.7rem;
+        }
+
+        .social-link {
+            width: 52px;
+            height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: var(--surface-strong);
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 24px rgba(20, 32, 70, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px rgba(20, 32, 70, 0.14);
+        }
+
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        /* CARDS */
+        .card-clean {
+            height: 100%;
+            background: var(--surface-strong);
+            border: 1px solid rgba(24, 33, 61, 0.08);
+            border-radius: 24px;
+            padding: 1.4rem;
+            box-shadow: 0 14px 36px rgba(20, 32, 70, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .card-clean:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 50px rgba(20, 32, 70, 0.14);
+            border-color: rgba(79, 124, 255, 0.22);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon-wrap {
+            flex-shrink: 0;
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(79, 124, 255, 0.14), rgba(124, 77, 255, 0.14));
+            border: 1px solid rgba(79, 124, 255, 0.12);
+        }
+
+        .card-icon-wrap img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        .card-title {
+            margin: 0;
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .card-meta {
+            margin: 0.2rem 0 0;
+            color: var(--muted);
+            font-size: 0.93rem;
+            font-weight: 500;
+        }
+
+        .card-text {
+            color: #3a4663;
+            line-height: 1.82;
+            margin-bottom: 0.95rem;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 0.8rem;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.42rem 0.72rem;
+            border-radius: 999px;
+            background: #eef3ff;
+            color: #36508c;
+            font-size: 0.84rem;
+            font-weight: 700;
+            border: 1px solid rgba(54, 80, 140, 0.08);
+        }
+
+        .btn-card,
+        .btn-card-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+            margin-right: 0.7rem;
+            padding: 0.78rem 1.1rem;
+            border-radius: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-card {
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
             color: #fff;
-            transition: background 0.3s;
+            box-shadow: 0 12px 24px rgba(79, 124, 255, 0.24);
         }
 
-        .btn-custom:hover {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        .btn-card:hover {
             color: #fff;
+            transform: translateY(-2px);
         }
 
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            margin: 0 10px;
-            transition: transform 0.3s;
+        .btn-card-secondary {
+            background: #eef3ff;
+            color: #263a6b;
+            border: 1px solid rgba(79, 124, 255, 0.12);
         }
 
-        .social-icons img:hover {
-            transform: scale(1.1);
+        .btn-card-secondary:hover {
+            color: #263a6b;
+            transform: translateY(-2px);
         }
 
-        #contact p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+        /* CONTACT / RESUME */
+        .cta-panel {
+            background:
+                linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(40, 59, 138, 0.96)),
+                linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            border-radius: 28px;
+            padding: 2.3rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .cta-panel p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .resume-card {
+            text-align: center;
+            background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,248,255,0.95));
         }
 
         footer {
-            background: #2575fc;
-            color: #fff;
-            padding: 20px 0;
+            margin-top: 2rem;
+            padding: 2rem 0 2.4rem;
             text-align: center;
+            color: #62708e;
+            font-weight: 500;
+        }
+
+        /* SPACING */
+        .section-space {
+            padding-bottom: 1.2rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            body {
+                padding-top: 84px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
+            .hero-shell {
+                padding: 3.4rem 1.3rem;
+                border-radius: 26px;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .section-panel,
+            .cta-panel {
+                padding: 1.4rem;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .card-clean {
+                border-radius: 20px;
+            }
+
+            .btn-main,
+            .btn-outline-glass {
+                width: 100%;
+                max-width: 320px;
             }
         }
     </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="80">
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Angelo Kodra</a>
+            <a class="navbar-brand" href="#home">Angelo Kodra</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -174,77 +571,172 @@
     </nav>
 
     <!-- HERO -->
-    <section class="hero d-flex align-items-center" id="home">
+    <section class="hero" id="home">
         <div class="container">
-            <h1>Angelo Kodra</h1>
-            <p>Computer Science Student | Software Developer | IT Intern | C#, C++, Python, React Native, FastAPI, OpenGL, NX</p>
+            <div class="hero-shell">
+                <div class="eyebrow">Software • IT • Graphics • Full-Stack</div>
+                <h1>Angelo Kodra</h1>
+                <p>
+                    Senior Computer Science student at Wayne State University building across software development,
+                    technical support, graphics, and full-stack systems.
+                    I work with C#, C++, Python, React Native, FastAPI, OpenGL, PostgreSQL, and NX.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-main">View Projects</a>
+                    <a href="AngeloKodra.docx" download class="btn-outline-glass">Download Resume</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="py-5">
-        <div class="container text-center">
-            <h2 class="section-title">About Me</h2>
-            <img src="ak-face.jpeg" alt="Angelo Kodra" class="img-fluid">
-            <p class="mt-4">
-                I’m a senior Computer Science student at Wayne State University and an IT intern supporting an enterprise environment.
-                My background combines software development, technical support, and hands-on engineering tools. I’ve built projects in
-                C#, C++, Python, React Native, FastAPI, and OpenGL, and I have experience with Unity-adjacent graphics concepts, NX 3D modeling,
-                debugging, documentation, and cross-functional collaboration. I enjoy building reliable software, learning quickly, and solving
-                technical problems across both development and IT environments.
-            </p>
-            <div class="social-icons mt-4">
-                <a href="https://github.com/anxhk7" target="_blank"><img src="icons/github.png" alt="GitHub"></a>
-                <a href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank"><img src="icons/linkedin.png" alt="LinkedIn"></a>
-                <a href="mailto:angkodra@gmail.com"><img src="icons/email.png" alt="Email"></a>
+    <section id="about" class="section-wrap">
+        <div class="container section-space">
+            <div class="section-panel">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">
+                        A blend of software developer, builder, and technical problem solver.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-photo-wrap">
+                        <img src="ak-face.jpeg" alt="Angelo Kodra" class="about-photo">
+                    </div>
+
+                    <div class="about-copy">
+                        <p>
+                            I’m a senior Computer Science student at Wayne State University and an IT intern supporting
+                            enterprise environments. My background combines software development, technical support,
+                            engineering tools, and hands-on debugging. I’ve built projects in C#, C++, Python,
+                            React Native, FastAPI, and OpenGL, while also working with Siemens NX, system imaging,
+                            account administration, documentation, and cross-functional collaboration.
+                            I like building reliable software, solving messy technical problems, and learning fast.
+                        </p>
+
+                        <div class="skill-chips">
+                            <span class="chip">C#</span>
+                            <span class="chip">C++</span>
+                            <span class="chip">Python</span>
+                            <span class="chip">React Native</span>
+                            <span class="chip">FastAPI</span>
+                            <span class="chip">PostgreSQL</span>
+                            <span class="chip">OpenGL</span>
+                            <span class="chip">Siemens NX</span>
+                            <span class="chip">IT Support</span>
+                            <span class="chip">Technical Documentation</span>
+                        </div>
+
+                        <div class="social-icons">
+                            <a class="social-link" href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer">
+                                <img src="icons/github.png" alt="GitHub">
+                            </a>
+                            <a class="social-link" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer">
+                                <img src="icons/linkedin.png" alt="LinkedIn">
+                            </a>
+                            <a class="social-link" href="mailto:angkodra@gmail.com">
+                                <img src="icons/email.png" alt="Email">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center">Experience</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card p-4 h-100">
-                        <h4 class="card-title">
-                            <img src="icons/geeksquad.png" alt="Repair Icon" class="icon"> Advanced Repair Agent @ Geek Squad
-                        </h4>
-                        <p class="text-muted"><small>October 2022 - Present</small></p>
-                        <p class="card-text">
-                            Diagnose, repair, and service Windows/Mac PCs and Android/iOS devices while consulting clients on service options and pricing.
-                            Responsibilities include hardware/software troubleshooting, data backup, system repair, custom PC work, documentation,
-                            customer communication, and training new agents.
-                        </p>
-                    </div>
+    <section id="experience" class="section-wrap">
+        <div class="container section-space">
+            <div class="section-panel">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                    <p class="section-subtitle">
+                        Technical experience across enterprise support, device repair, and engineering education.
+                    </p>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="card p-4 h-100">
-                        <h4 class="card-title">
-                            <img src="icons/teaching.png" alt="Teaching Icon" class="icon"> Teaching Assistant @ Wayne State University
-                        </h4>
-                        <p class="text-muted"><small>August 2023 - August 2024</small></p>
-                        <p class="card-text">
-                            Supported engineering students in Siemens NX 3D modeling, Arduino circuitry, and introductory programming.
-                            Assisted with labs, troubleshooting, project coordination, and 3D printing workflows while creating guides and helping students
-                            develop and refine technical solutions.
-                        </p>
-                    </div>
-                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/geeksquad.png" alt="Geek Squad Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">Advanced Repair Agent</h4>
+                                    <p class="card-meta">Geek Squad • Oct 2022 - Present</p>
+                                </div>
+                            </div>
 
-                <div class="col-md-6">
-                    <div class="card p-4 h-100">
-                        <h4 class="card-title">
-                            <img src="icons/owlservices.png" alt="OWL Services Icon" class="icon"> Information Technology Intern @ OWL Services
-                        </h4>
-                        <p class="text-muted"><small>August 2025 - Present</small></p>
-                        <p class="card-text">
-                            Provide Tier 1/2 support in an enterprise environment across desktop, laptop, and mobile endpoints.
-                            Handle hardware, software, imaging, account support, Microsoft 365, Active Directory tasks, remote troubleshooting,
-                            documentation, and workflow improvement in collaboration with senior IT staff.
-                        </p>
+                            <p class="card-text">
+                                Diagnose, repair, and service Windows/Mac PCs and Android/iOS devices while consulting
+                                clients on service options and pricing. Work includes hardware and software troubleshooting,
+                                data backup, system repair, custom PC work, documentation, customer communication, and
+                                training new agents.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">Hardware Repair</span>
+                                <span class="tag">Troubleshooting</span>
+                                <span class="tag">Client Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/teaching.png" alt="Teaching Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">Teaching Assistant</h4>
+                                    <p class="card-meta">Wayne State University • Aug 2023 - Aug 2024</p>
+                                </div>
+                            </div>
+
+                            <p class="card-text">
+                                Supported engineering students in Siemens NX 3D modeling, Arduino circuitry, and
+                                introductory programming. Assisted with labs, troubleshooting, project coordination,
+                                3D printing workflows, and technical guidance while helping students refine
+                                project solutions.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">Siemens NX</span>
+                                <span class="tag">Arduino</span>
+                                <span class="tag">3D Printing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/owlservices.png" alt="OWL Services Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">Information Technology Intern</h4>
+                                    <p class="card-meta">OWL Services • Aug 2025 - Present</p>
+                                </div>
+                            </div>
+
+                            <p class="card-text">
+                                Provide Tier 1/2 support across desktop, laptop, and mobile endpoints in an enterprise
+                                environment. Handle hardware and software issues, imaging, Microsoft 365 support,
+                                Active Directory tasks, remote troubleshooting, documentation, and workflow improvement
+                                with senior IT staff.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">Microsoft 365</span>
+                                <span class="tag">Active Directory</span>
+                                <span class="tag">Endpoint Support</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -252,96 +744,217 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center">Projects</h2>
-            <div class="row g-4">
-
-                <!-- SPEECHMATCH -->
-                <div class="col-md-6">
-                    <div class="card p-4 h-100">
-                        <h4 class="card-title">
-                            <img src="icons/data.png" alt="SpeechMatch Icon" class="icon"> SpeechMatch
-                        </h4>
-                        <p class="card-text">
-                            SpeechMatch is a senior capstone mobile application focused on pronunciation feedback and language learning.
-                            As Frontend Lead, I worked on React Native screens, UI flow, API integration, debugging, and collaboration across the frontend,
-                            backend, and database layers. The system combines speech processing workflows with account management, practice activities,
-                            and feedback-driven user interaction.
-                        </p>
-                        <p class="card-text"><strong>Tools Used:</strong> React Native, Expo, FastAPI, PostgreSQL, JavaScript, Python.</p>
-                    </div>
+    <section id="projects" class="section-wrap">
+        <div class="container section-space">
+            <div class="section-panel">
+                <div class="section-header">
+                    <h2 class="section-title">Projects</h2>
+                    <p class="section-subtitle">
+                        A mix of software engineering, graphics, analytics, and personal development work.
+                    </p>
                 </div>
 
-                <!-- OPENGL GRAPHICS PROJECT -->
-                <div class="col-md-6">
-                    <div class="card p-4 h-100">
-                        <h4 class="card-title">
-                            <img src="icons/data.png" alt="3D Graphics Project Icon" class="icon"> Interactive 3D Graphics Environment
-                        </h4>
-                        <p class="card-text">
-                            Built an interactive 3D graphics project in C++ using OpenGL/GLUT that renders imported OBJ cow models inside a textured room.
-                            Implemented model loading, normal computation, texture mapping, lighting/material setup, transformations, and real-time camera
-                            and object controls. The project also included rendering/debug features such as wireframe mode, shading toggles, and lighting controls.
-                        </p>
-                        <p class="card-text"><strong>Tools Used:</strong> C++, OpenGL, GLUT, stb_image.</p>
+                <div class="row g-4">
+                    <!-- SpeechMatch -->
+                    <div class="col-lg-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/SpeechMatchLogo.png" alt="SpeechMatch Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">SpeechMatch</h4>
+                                    <p class="card-meta">Senior Capstone Project</p>
+                                </div>
+                            </div>
+
+                            <p class="card-text">
+                                SpeechMatch is a mobile application focused on pronunciation feedback and language learning.
+                                As Frontend Lead, I worked on React Native screens, UI flow, API integration, debugging,
+                                and collaboration across the frontend, backend, and database layers. The system combines
+                                speech-processing workflows with user accounts, practice sessions, and feedback-driven interaction.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">React Native</span>
+                                <span class="tag">Expo</span>
+                                <span class="tag">FastAPI</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OpenGL -->
+                    <div class="col-lg-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/data.png" alt="3D Graphics Project Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">Interactive 3D Graphics Environment</h4>
+                                    <p class="card-meta">Computer Graphics Project</p>
+                                </div>
+                            </div>
+
+                            <p class="card-text">
+                                Built an interactive 3D graphics project in C++ using OpenGL/GLUT that renders imported
+                                OBJ cow models inside a textured room. Implemented model loading, normal computation,
+                                texture mapping, lighting and material setup, transformations, and real-time camera
+                                and object controls. Also added rendering/debug features such as wireframe mode,
+                                shading toggles, and lighting controls.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">C++</span>
+                                <span class="tag">OpenGL</span>
+                                <span class="tag">GLUT</span>
+                                <span class="tag">stb_image</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital Windex -->
+                    <div class="col-lg-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/windows.png" alt="Digital Windex Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">Digital Windex</h4>
+                                    <p class="card-meta">Windows Utility Application</p>
+                                </div>
+                            </div>
+
+                            <p class="card-text">
+                                Digital Windex is a Windows maintenance application that I conceptualized and pitched,
+                                and it was selected from a pool of student ideas. Built with C#, .NET, and WPF,
+                                the project is designed to simplify system diagnostics, repair, and optimization for
+                                non-technical users through a clean, modular interface.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">C#</span>
+                                <span class="tag">.NET</span>
+                                <span class="tag">WPF</span>
+                                <span class="tag">Windows Utilities</span>
+                            </div>
+
+                            <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer" class="btn-card">
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Movie Attendance -->
+                    <div class="col-lg-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/data.png" alt="Movie Attendance Project Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">Predictive Analysis on Movie Attendance</h4>
+                                    <p class="card-meta">Data Analysis Project</p>
+                                </div>
+                            </div>
+
+                            <p class="card-text">
+                                In a group project, I explored movie-going behavior using survey data and secondary datasets
+                                to uncover trends in demographics, genre preferences, and viewing habits. The project used
+                                descriptive statistics, chi-square tests, correlation analysis, and predictive modeling,
+                                including decision trees, logistic regression, and neural networks.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">Python</span>
+                                <span class="tag">Pandas</span>
+                                <span class="tag">scikit-learn</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Data Analysis</span>
+                            </div>
+
+                            <a href="BE2100_G08_FinalPaper.pdf" download class="btn-card-secondary">
+                                Download Report (PDF)
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio -->
+                    <div class="col-lg-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/github.png" alt="Portfolio Website Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">Personal Portfolio Website</h4>
+                                    <p class="card-meta">Responsive Web Project</p>
+                                </div>
+                            </div>
+
+                            <p class="card-text">
+                                Designed and built a responsive personal portfolio website to showcase experience,
+                                projects, and contact information. The site uses Bootstrap for layout and responsiveness,
+                                custom CSS for styling, and structured sections for project highlights, resume access,
+                                and professional links.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">Bootstrap</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- DIGITAL WINDEX -->
-                <div class="col-md-6">
-                    <div class="card p-4 h-100">
-                        <h4 class="card-title">
-                            <img src="icons/windows.png" alt="Digital Windex Icon" class="icon"> Digital Windex
-                        </h4>
-                        <p class="card-text">
-                            Digital Windex is a Windows maintenance application that I conceptualized and pitched, and it was selected from a pool of student ideas.
-                            Built with C#, .NET, and WPF, the project is designed to simplify system diagnostics, repair, and optimization for non-technical users
-                            through a clean, modular interface.
-                        </p>
-                        <p class="card-text"><strong>Tools Used:</strong> Visual Studio 2022, C#, .NET, WPF.</p>
-                        <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" class="btn btn-custom mt-3">View on GitHub</a>
-                    </div>
-                </div>
-
-                <!-- PORTFOLIO WEBSITE -->
-                <div class="col-md-6">
-                    <div class="card p-4 h-100">
-                        <h4 class="card-title">
-                            <img src="icons/github.png" alt="Portfolio Website Icon" class="icon"> Personal Portfolio Website
-                        </h4>
-                        <p class="card-text">
-                            Designed and built a responsive personal portfolio website to showcase experience, projects, and contact information.
-                            The site uses Bootstrap for layout and responsiveness, custom CSS for styling, and structured sections for experience,
-                            projects, resume access, and professional links.
-                        </p>
-                        <p class="card-text"><strong>Tools Used:</strong> HTML, CSS, Bootstrap, JavaScript.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="mb-4">I'd love to hear from you. Feel free to reach out — I'm always excited to connect, collaborate, and build something meaningful.</p>
-            <a href="mailto:angkodra@gmail.com" class="btn btn-custom btn-lg">Get in Touch</a>
-            <div class="social-icons mt-4">
-                <a href="https://github.com/anxhk7" target="_blank"><img src="icons/github.png" alt="GitHub"></a>
-                <a href="https://linkedin.com/in/angelo-kodra-aa08a821b" target="_blank"><img src="icons/linkedin.png" alt="LinkedIn"></a>
-                <a href="mailto:angkodra@gmail.com"><img src="icons/email.png" alt="Email"></a>
+    <section id="contact" class="section-wrap">
+        <div class="container section-space">
+            <div class="cta-panel text-center">
+                <div class="section-header mb-4">
+                    <h2 class="section-title text-white">Let’s Connect</h2>
+                    <p class="section-subtitle text-white-50">
+                        Reach out for opportunities, collaboration, or anything interesting you think I’d want to build.
+                    </p>
+                </div>
+
+                <div class="cta-row">
+                    <a href="mailto:angkodra@gmail.com" class="btn-main">Get in Touch</a>
+                    <a href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer" class="btn-outline-glass">
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer" class="btn-outline-glass">
+                        GitHub
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- RESUME -->
-    <section id="resume" class="py-5">
-        <div class="container text-center">
-            <h2 class="section-title">Resume</h2>
-            <a href="AngeloKodra.docx" download class="btn btn-lg btn-outline-dark">Download My Resume (DOCX)</a>
+    <section id="resume" class="section-wrap">
+        <div class="container section-space">
+            <div class="section-panel resume-card">
+                <div class="section-header">
+                    <h2 class="section-title">Resume</h2>
+                    <p class="section-subtitle">
+                        Download the latest version of my resume here.
+                    </p>
+                </div>
+
+                <a href="AngeloKodra.docx" download class="btn-card">
+                    Download My Resume (DOCX)
+                </a>
+            </div>
         </div>
     </section>
 
