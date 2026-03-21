@@ -516,6 +516,29 @@
             overflow: hidden;
         }
 
+        #projects .card-clean {
+            height: auto;
+        }
+        
+        #projects .col-lg-6,
+        #projects .col-12 {
+            display: block;
+        }
+
+        #projects .btn-card,
+        #projects .btn-card-secondary {
+            margin-right: 0.6rem;
+        }
+        
+        #projects .tag-row + .btn-card,
+        #projects .tag-row + .btn-card-secondary,
+        #projects .project-actions,
+        #projects .project-controls,
+        #projects .project-note {
+            position: relative;
+            z-index: 1;
+        }
+
         .card-clean::after {
             content: "";
             position: absolute;
