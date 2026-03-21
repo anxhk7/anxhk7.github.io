@@ -791,6 +791,55 @@
             }
         }
 
+        .featured-wide {
+            padding-bottom: 1.35rem;
+        }
+
+        .project-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.9rem;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(79, 124, 255, 0.08), rgba(124, 77, 255, 0.08));
+            border: 1px solid rgba(79, 124, 255, 0.12);
+            border-radius: 18px;
+            padding: 0.95rem 1rem;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.55);
+        }
+        
+        .highlight-label {
+            font-size: 0.74rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #5c6f9b;
+            margin-bottom: 0.35rem;
+        }
+        
+        .highlight-value {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #1d2b50;
+            margin-bottom: 0.3rem;
+        }
+        
+        .highlight-copy {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #425170;
+        }
+        
+        @media (max-width: 768px) {
+            .project-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 991px) {
             body {
@@ -1074,9 +1123,10 @@
 
                 <div class="row g-4">
                     <!-- SpeechMatch -->
-                    <div class="col-lg-6">
-                        <div class="card-clean featured-project">
+                    <div class="col-12">
+                        <div class="card-clean featured-project featured-wide">
                             <div class="featured-badge">Featured • Capstone</div>
+                    
                             <div class="card-top">
                                 <div class="card-icon-wrap">
                                     <img src="icons/speechmatch.png" alt="SpeechMatch Icon">
@@ -1086,7 +1136,7 @@
                                     <p class="card-meta">Senior Capstone Mobile Application</p>
                                 </div>
                             </div>
-
+                    
                             <p class="card-text">
                                 SpeechMatch is a mobile application focused on pronunciation feedback and language learning.
                                 As Frontend Lead, I worked on React Native screens, UI flow, API integration, debugging,
@@ -1094,7 +1144,33 @@
                                 The system combines speech-processing workflows with user accounts, practice sessions,
                                 and feedback-driven interaction.
                             </p>
-
+                    
+                            <div class="project-highlights">
+                                <div class="highlight-box">
+                                    <div class="highlight-label">Current Focus</div>
+                                    <div class="highlight-value">Mobile pronunciation app</div>
+                                    <div class="highlight-copy">
+                                        A capstone project centered around language practice, speech workflows, and user feedback.
+                                    </div>
+                                </div>
+                    
+                                <div class="highlight-box">
+                                    <div class="highlight-label">My Role</div>
+                                    <div class="highlight-value">Frontend Lead</div>
+                                    <div class="highlight-copy">
+                                        Built screens, handled UI flow, connected frontend logic to APIs, and helped debug cross-layer issues.
+                                    </div>
+                                </div>
+                    
+                                <div class="highlight-box">
+                                    <div class="highlight-label">Stack</div>
+                                    <div class="highlight-value">React Native + FastAPI</div>
+                                    <div class="highlight-copy">
+                                        TypeScript frontend with Expo, FastAPI backend services, PostgreSQL, Python, and GitHub-based teamwork.
+                                    </div>
+                                </div>
+                            </div>
+                    
                             <div class="tag-row">
                                 <span class="tag">React Native</span>
                                 <span class="tag">Expo</span>
@@ -1376,4 +1452,20 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/boo
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navCollapse = document.getElementById("navbarNav");
+            const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    if (navCollapse.classList.contains("show")) {
+                        new bootstrap.Collapse(navCollapse).hide();
+                    }
+                });
+            });
+        });
+    </script>
+    </body>
+    </html>
