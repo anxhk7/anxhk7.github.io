@@ -4,29 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Angelo Kodra Portfolio</title>
+    <title>Angelo Kodra | Portfolio</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg: #0b1020;
-            --bg-soft: #121936;
-            --surface: rgba(255, 255, 255, 0.82);
-            --surface-strong: rgba(255, 255, 255, 0.94);
-            --text: #15203b;
-            --muted: #5f6b85;
-            --line: rgba(27, 39, 82, 0.1);
+            --bg: #08111f;
+            --bg-2: #101a31;
+            --bg-3: #111b35;
+            --surface: rgba(255, 255, 255, 0.80);
+            --surface-strong: rgba(255, 255, 255, 0.93);
+            --surface-soft: rgba(255, 255, 255, 0.66);
+            --text: #10203c;
+            --text-soft: #334566;
+            --muted: #667796;
+            --line: rgba(17, 34, 70, 0.10);
             --primary: #4f7cff;
             --primary-2: #7c4dff;
             --accent: #00c2ff;
-            --shadow: 0 18px 45px rgba(18, 25, 54, 0.12);
-            --shadow-lg: 0 24px 60px rgba(18, 25, 54, 0.18);
-            --radius-xl: 28px;
-            --radius-lg: 20px;
+            --success: #2bc48a;
+            --shadow: 0 20px 50px rgba(15, 26, 53, 0.10);
+            --shadow-lg: 0 28px 80px rgba(11, 18, 38, 0.20);
+            --radius-xl: 30px;
+            --radius-lg: 22px;
             --radius-md: 16px;
-            --container-max: 1200px;
+            --container-max: 1220px;
         }
 
         * {
@@ -38,214 +42,102 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            background:
-                radial-gradient(circle at top left, rgba(124, 77, 255, 0.16), transparent 30%),
-                radial-gradient(circle at top right, rgba(79, 124, 255, 0.16), transparent 28%),
-                linear-gradient(180deg, #eef4ff 0%, #f7f9ff 35%, #edf3ff 100%);
             margin: 0;
             padding-top: 90px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(124, 77, 255, 0.14), transparent 22%),
+                radial-gradient(circle at 100% 0%, rgba(0, 194, 255, 0.16), transparent 24%),
+                radial-gradient(circle at 50% 20%, rgba(79, 124, 255, 0.08), transparent 30%),
+                linear-gradient(180deg, #edf4ff 0%, #f8faff 34%, #eef4ff 100%);
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(79, 124, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 124, 255, 0.03) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.22), transparent 65%);
+            z-index: -1;
         }
 
         h1, h2, h3, h4, .navbar-brand {
             font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
 
         .container {
             max-width: var(--container-max);
         }
 
-        /* NAVBAR */
-        .navbar {
-            background: rgba(11, 16, 32, 0.74);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .navbar-brand {
-            font-size: 1.55rem;
-            font-weight: 700;
-            color: #fff !important;
-        }
-
-        .navbar-nav .nav-link {
-            color: rgba(255, 255, 255, 0.78) !important;
-            font-weight: 500;
-            margin-left: 0.4rem;
-            padding: 0.7rem 0.95rem !important;
-            border-radius: 999px;
-            transition: all 0.25s ease;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link:focus {
-            color: #fff !important;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* HERO */
-        .hero {
-            position: relative;
-            overflow: hidden;
-            padding: 5.5rem 0 4.5rem;
-        }
-
-        .hero::before,
-        .hero::after {
-            content: "";
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(10px);
-            pointer-events: none;
-        }
-
-        .hero::before {
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, rgba(124, 77, 255, 0.32) 0%, rgba(124, 77, 255, 0) 70%);
-            top: -80px;
-            left: -70px;
-        }
-
-        .hero::after {
-            width: 420px;
-            height: 420px;
-            background: radial-gradient(circle, rgba(0, 194, 255, 0.24) 0%, rgba(0, 194, 255, 0) 72%);
-            right: -120px;
-            top: -60px;
-        }
-
-        .hero-shell {
-            position: relative;
-            z-index: 1;
-            background:
-                linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(42, 64, 148, 0.92)),
-                linear-gradient(135deg, var(--primary), var(--primary-2));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 32px;
-            padding: 4.25rem 2rem;
-            text-align: center;
-            color: #fff;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-        }
-
-        .hero-shell::before {
-            content: "";
-            position: absolute;
-            inset: auto -10% -45% auto;
-            width: 440px;
-            height: 440px;
-            background: radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0));
-            border-radius: 50%;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            padding: 0.55rem 0.95rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            color: rgba(255,255,255,0.92);
-            font-size: 0.92rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.8rem, 6vw, 4.8rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: clamp(1.05rem, 2vw, 1.28rem);
-            line-height: 1.75;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .hero-buttons {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .btn-main,
-        .btn-outline-glass {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            min-width: 180px;
-            padding: 0.95rem 1.3rem;
-            border-radius: 999px;
-            font-weight: 700;
+        a {
             text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-
-        .btn-main {
-            background: linear-gradient(135deg, #ffffff, #dbe7ff);
-            color: #18213d;
-            box-shadow: 0 14px 30px rgba(6, 10, 26, 0.18);
-        }
-
-        .btn-main:hover {
-            transform: translateY(-2px);
-            color: #111827;
-        }
-
-        .btn-outline-glass {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            color: #fff;
-        }
-
-        .btn-outline-glass:hover {
-            transform: translateY(-2px);
-            color: #fff;
-            background: rgba(255, 255, 255, 0.14);
-        }
-
-        /* SECTION WRAPPERS */
-        section {
-            position: relative;
         }
 
         .section-wrap {
-            padding: 2rem 0 1rem;
+            padding: 1.35rem 0;
+            position: relative;
+        }
+
+        .section-space {
+            padding-bottom: 1.05rem;
         }
 
         .section-panel {
             background: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.55);
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow);
-            padding: 2.2rem;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            padding: 2.3rem;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .section-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(124, 77, 255, 0.10), rgba(124, 77, 255, 0));
+            pointer-events: none;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(79, 124, 255, 0.08);
+            color: #2f4e9f;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 0.85rem;
         }
 
         .section-title {
             display: inline-block;
             position: relative;
             margin: 0;
-            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-size: clamp(2rem, 3vw, 2.9rem);
             font-weight: 700;
             color: #101828;
         }
@@ -264,16 +156,253 @@
             margin: 1rem auto 0;
             max-width: 760px;
             color: var(--muted);
-            line-height: 1.8;
+            line-height: 1.85;
             font-size: 1.02rem;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(9, 14, 29, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .navbar-brand {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #fff !important;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.18);
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.80) !important;
+            font-weight: 600;
+            margin-left: 0.35rem;
+            padding: 0.7rem 0.95rem !important;
+            border-radius: 999px;
+            transition: all 0.22s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus,
+        .navbar-nav .nav-link.active {
+            color: #fff !important;
+            background: rgba(255, 255, 255, 0.10);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 5.3rem 0 2.3rem;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(10px);
+        }
+
+        .hero::before {
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, rgba(124, 77, 255, 0.30) 0%, rgba(124, 77, 255, 0) 70%);
+            top: -85px;
+            left: -70px;
+        }
+
+        .hero::after {
+            width: 440px;
+            height: 440px;
+            background: radial-gradient(circle, rgba(0, 194, 255, 0.24) 0%, rgba(0, 194, 255, 0) 72%);
+            right: -110px;
+            top: -80px;
+        }
+
+        .hero-shell {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(11, 18, 38, 0.95), rgba(35, 57, 136, 0.93)),
+                linear-gradient(135deg, var(--primary), var(--primary-2));
+            border-radius: 34px;
+            padding: 4.1rem 2rem 3.2rem;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-shell::before {
+            content: "";
+            position: absolute;
+            right: -80px;
+            bottom: -160px;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.14), rgba(255,255,255,0));
+            pointer-events: none;
+        }
+
+        .hero-shell::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(255,255,255,0.04), transparent 35%, rgba(255,255,255,0.02) 60%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.58rem 0.95rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: rgba(255,255,255,0.94);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .eyebrow-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #7fffc6;
+            box-shadow: 0 0 0 6px rgba(127, 255, 198, 0.12);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.95rem);
+            line-height: 0.98;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .hero-lead {
+            max-width: 920px;
+            margin: 1.2rem auto 0;
+            font-size: clamp(1.05rem, 2vw, 1.22rem);
+            line-height: 1.82;
+            color: rgba(255, 255, 255, 0.90);
+        }
+
+        .hero-emphasis {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .hero-buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.95rem;
+        }
+
+        .btn-main,
+        .btn-outline-glass,
+        .btn-card,
+        .btn-card-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-main,
+        .btn-outline-glass {
+            min-width: 190px;
+            padding: 0.95rem 1.3rem;
+            border-radius: 999px;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, #ffffff, #dfe9ff);
+            color: #16213f;
+            box-shadow: 0 14px 30px rgba(6, 10, 26, 0.18);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            color: #111827;
+        }
+
+        .btn-outline-glass {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        .btn-outline-glass:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.14);
+            color: #fff;
+        }
+
+        .hero-stats {
+            margin-top: 2.1rem;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 20px;
+            padding: 1rem 1rem 0.9rem;
+            text-align: left;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.72);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
+        .stat-value {
+            margin-top: 0.25rem;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stat-copy {
+            margin-top: 0.35rem;
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.78);
+            line-height: 1.6;
         }
 
         /* ABOUT */
         .about-grid {
             display: grid;
-            grid-template-columns: 280px 1fr;
+            grid-template-columns: 285px 1fr;
             gap: 2.2rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .about-photo-wrap {
@@ -282,11 +411,11 @@
         }
 
         .about-photo {
-            width: 250px;
-            height: 250px;
+            width: 255px;
+            height: 255px;
             object-fit: cover;
-            border-radius: 28px;
-            border: 4px solid rgba(255,255,255,0.65);
+            border-radius: 30px;
+            border: 4px solid rgba(255,255,255,0.7);
             box-shadow: 0 18px 45px rgba(25, 40, 78, 0.22);
             background: #dfe8ff;
         }
@@ -295,27 +424,37 @@
             margin: 0;
             font-size: 1.03rem;
             line-height: 1.95;
-            color: #334155;
+            color: var(--text-soft);
+        }
+
+        .skill-chips,
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
         }
 
         .skill-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.4rem;
+            margin-top: 1.45rem;
+        }
+
+        .chip,
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            font-weight: 700;
         }
 
         .chip {
             padding: 0.6rem 0.95rem;
-            border-radius: 999px;
             background: linear-gradient(135deg, rgba(79, 124, 255, 0.12), rgba(124, 77, 255, 0.12));
             border: 1px solid rgba(79, 124, 255, 0.12);
             color: #2d3b66;
-            font-weight: 600;
             font-size: 0.93rem;
         }
 
-        /* SOCIALS */
+        /* SOCIAL */
         .social-icons {
             display: flex;
             flex-wrap: wrap;
@@ -324,16 +463,15 @@
         }
 
         .social-link {
-            width: 52px;
-            height: 52px;
+            width: 54px;
+            height: 54px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 16px;
+            border-radius: 18px;
             background: var(--surface-strong);
             border: 1px solid var(--line);
             box-shadow: 0 10px 24px rgba(20, 32, 70, 0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .social-link:hover {
@@ -347,21 +485,73 @@
             object-fit: contain;
         }
 
+        /* EXPERIENCE */
+        .experience-card {
+            position: relative;
+        }
+
+        .experience-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(79, 124, 255, 0.18), rgba(124, 77, 255, 0.12), rgba(0, 194, 255, 0.12));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
         /* CARDS */
         .card-clean {
             height: 100%;
             background: var(--surface-strong);
             border: 1px solid rgba(24, 33, 61, 0.08);
             border-radius: 24px;
-            padding: 1.4rem;
+            padding: 1.45rem;
             box-shadow: 0 14px 36px rgba(20, 32, 70, 0.08);
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-clean::after {
+            content: "";
+            position: absolute;
+            inset: auto -40px -70px auto;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(79, 124, 255, 0.09), rgba(79, 124, 255, 0));
+            pointer-events: none;
         }
 
         .card-clean:hover {
             transform: translateY(-8px);
             box-shadow: 0 24px 50px rgba(20, 32, 70, 0.14);
-            border-color: rgba(79, 124, 255, 0.22);
+            border-color: rgba(79, 124, 255, 0.20);
+        }
+
+        .featured-project {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,248,255,0.98));
+            border-color: rgba(79, 124, 255, 0.18);
+            box-shadow: 0 22px 54px rgba(20, 32, 70, 0.12);
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-bottom: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(79, 124, 255, 0.12), rgba(124, 77, 255, 0.12));
+            color: #3251a5;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .card-top {
@@ -369,6 +559,8 @@
             align-items: center;
             gap: 0.95rem;
             margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .card-icon-wrap {
@@ -381,6 +573,7 @@
             border-radius: 18px;
             background: linear-gradient(135deg, rgba(79, 124, 255, 0.14), rgba(124, 77, 255, 0.14));
             border: 1px solid rgba(79, 124, 255, 0.12);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.55);
         }
 
         .card-icon-wrap img {
@@ -397,49 +590,42 @@
         }
 
         .card-meta {
-            margin: 0.2rem 0 0;
+            margin: 0.22rem 0 0;
             color: var(--muted);
             font-size: 0.93rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .card-text {
             color: #3a4663;
             line-height: 1.82;
-            margin-bottom: 0.95rem;
+            margin-bottom: 0.9rem;
+            position: relative;
+            z-index: 1;
         }
 
         .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.55rem;
-            margin-top: 0.8rem;
+            margin-top: 0.85rem;
+            position: relative;
+            z-index: 1;
         }
 
         .tag {
-            display: inline-flex;
-            align-items: center;
             padding: 0.42rem 0.72rem;
-            border-radius: 999px;
             background: #eef3ff;
             color: #36508c;
             font-size: 0.84rem;
-            font-weight: 700;
             border: 1px solid rgba(54, 80, 140, 0.08);
         }
 
         .btn-card,
         .btn-card-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
             margin-top: 1rem;
             margin-right: 0.7rem;
-            padding: 0.78rem 1.1rem;
+            padding: 0.8rem 1.1rem;
             border-radius: 14px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .btn-card {
@@ -464,20 +650,34 @@
             transform: translateY(-2px);
         }
 
-        /* CONTACT / RESUME */
+        /* CTA / RESUME */
         .cta-panel {
             background:
-                linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(40, 59, 138, 0.96)),
+                linear-gradient(135deg, rgba(11, 18, 38, 0.96), rgba(33, 54, 133, 0.96)),
                 linear-gradient(135deg, var(--primary), var(--primary-2));
             color: #fff;
-            border-radius: 28px;
-            padding: 2.3rem;
+            border-radius: 30px;
+            padding: 2.5rem;
             box-shadow: var(--shadow-lg);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-panel::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            right: -80px;
+            top: -60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.14), rgba(255,255,255,0));
+            pointer-events: none;
         }
 
         .cta-panel p {
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.88);
             line-height: 1.8;
             margin-bottom: 1.2rem;
         }
@@ -491,20 +691,15 @@
 
         .resume-card {
             text-align: center;
-            background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,248,255,0.95));
+            background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(245,248,255,0.95));
         }
 
         footer {
-            margin-top: 2rem;
-            padding: 2rem 0 2.4rem;
+            margin-top: 1.8rem;
+            padding: 2rem 0 2.35rem;
             text-align: center;
             color: #62708e;
-            font-weight: 500;
-        }
-
-        /* SPACING */
-        .section-space {
-            padding-bottom: 1.2rem;
+            font-weight: 600;
         }
 
         /* RESPONSIVE */
@@ -518,24 +713,34 @@
                 text-align: center;
             }
 
-            .social-icons {
+            .social-icons,
+            .skill-chips {
                 justify-content: center;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding-top: 4.2rem;
+            }
+
             .hero-shell {
-                padding: 3.4rem 1.3rem;
+                padding: 3.3rem 1.3rem 2.6rem;
                 border-radius: 26px;
             }
 
             .section-panel,
             .cta-panel {
-                padding: 1.4rem;
+                padding: 1.45rem;
             }
 
             .card-clean {
                 border-radius: 20px;
+                padding: 1.2rem;
             }
 
             .btn-main,
@@ -573,18 +778,36 @@
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-shell">
-                <div class="eyebrow">Software • IT • Graphics • Full-Stack</div>
+            <div class="hero-shell text-center">
+                <div class="eyebrow"><span class="eyebrow-dot"></span> Software • IT • Graphics • Full-Stack</div>
                 <h1>Angelo Kodra</h1>
-                <p>
-                    Senior Computer Science student at Wayne State University, with a focus on software development,
-                    technical support, graphics, and full-stack systems.
-                    I work with C#, C++, Python, React Native, FastAPI, OpenGL, PostgreSQL, and NX.
+                <p class="hero-lead">
+                    Senior Computer Science student at <span class="hero-emphasis">Wayne State University</span> building across
+                    software development, technical support, graphics, and full-stack systems.
+                    I work with <span class="hero-emphasis">C#, C++, Python, TypeScript, React Native, FastAPI, Unity, OpenGL, PostgreSQL, and NX</span>.
                 </p>
 
                 <div class="hero-buttons">
                     <a href="#projects" class="btn-main">View Projects</a>
                     <a href="AngeloKodra.docx" download class="btn-outline-glass">Download Resume</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Focus</div>
+                        <div class="stat-value">Software + Systems</div>
+                        <div class="stat-copy">Building practical applications across mobile, desktop, graphics, and IT environments.</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Highlighted Stack</div>
+                        <div class="stat-value">React Native • FastAPI • Unity</div>
+                        <div class="stat-copy">A mix of frontend, backend, graphics, and interactive development experience.</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">GM-Relevant Strengths</div>
+                        <div class="stat-value">3D Graphics • Unity • C# / C++</div>
+                        <div class="stat-copy">Game-engine style work, rendering foundations, engineering tools, and debugging.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -595,6 +818,7 @@
         <div class="container section-space">
             <div class="section-panel">
                 <div class="section-header">
+                    <div class="section-kicker">Profile</div>
                     <h2 class="section-title">About Me</h2>
                     <p class="section-subtitle">
                         A blend of software developer, builder, and technical problem solver.
@@ -620,11 +844,12 @@
                             <span class="chip">C#</span>
                             <span class="chip">C++</span>
                             <span class="chip">Python</span>
+                            <span class="chip">TypeScript</span>
                             <span class="chip">React Native</span>
                             <span class="chip">FastAPI</span>
                             <span class="chip">PostgreSQL</span>
+                            <span class="chip">Unity</span>
                             <span class="chip">OpenGL</span>
-                            <span class="chip">Unity</span>   
                             <span class="chip">Siemens NX</span>
                             <span class="chip">IT Support</span>
                             <span class="chip">Technical Documentation</span>
@@ -652,15 +877,16 @@
         <div class="container section-space">
             <div class="section-panel">
                 <div class="section-header">
-                    <h2 class="section-title">Experience</h2>
+                    <div class="section-kicker">Experience</div>
+                    <h2 class="section-title">What I’ve Worked On</h2>
                     <p class="section-subtitle">
-                        Technical experience across enterprise support, device repair, and engineering education.
+                        Technical experience across enterprise support, device repair, engineering education, and software-adjacent problem solving.
                     </p>
                 </div>
 
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6">
-                        <div class="card-clean">
+                        <div class="card-clean experience-card">
                             <div class="card-top">
                                 <div class="card-icon-wrap">
                                     <img src="icons/geeksquad.png" alt="Geek Squad Icon">
@@ -687,7 +913,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6">
-                        <div class="card-clean">
+                        <div class="card-clean experience-card">
                             <div class="card-top">
                                 <div class="card-icon-wrap">
                                     <img src="icons/teaching.png" alt="Teaching Icon">
@@ -714,7 +940,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6">
-                        <div class="card-clean">
+                        <div class="card-clean experience-card">
                             <div class="card-top">
                                 <div class="card-icon-wrap">
                                     <img src="icons/owlservices.png" alt="OWL Services Icon">
@@ -749,39 +975,42 @@
         <div class="container section-space">
             <div class="section-panel">
                 <div class="section-header">
-                    <h2 class="section-title">Projects</h2>
+                    <div class="section-kicker">Projects</div>
+                    <h2 class="section-title">Selected Work</h2>
                     <p class="section-subtitle">
-                        A mix of software engineering, graphics, analytics, and personal development work.
+                        A mix of software engineering, graphics, Unity development, analytics, and personal project work.
                     </p>
                 </div>
 
                 <div class="row g-4">
                     <!-- SpeechMatch -->
                     <div class="col-lg-6">
-                        <div class="card-clean">
+                        <div class="card-clean featured-project">
+                            <div class="featured-badge">Featured • Capstone</div>
                             <div class="card-top">
                                 <div class="card-icon-wrap">
                                     <img src="icons/speechmatch.png" alt="SpeechMatch Icon">
                                 </div>
                                 <div>
                                     <h4 class="card-title">SpeechMatch</h4>
-                                    <p class="card-meta">Senior Capstone Project</p>
+                                    <p class="card-meta">Senior Capstone Mobile Application</p>
                                 </div>
                             </div>
 
                             <p class="card-text">
                                 SpeechMatch is a mobile application focused on pronunciation feedback and language learning.
                                 As Frontend Lead, I worked on React Native screens, UI flow, API integration, debugging,
-                                and collaboration across the frontend, backend, and database layers. The system combines
-                                speech-processing workflows with user accounts, practice sessions, and feedback-driven interaction.
+                                authentication flows, and collaboration across the frontend, backend, and database layers.
+                                The system combines speech-processing workflows with user accounts, practice sessions,
+                                and feedback-driven interaction.
                             </p>
 
                             <div class="tag-row">
                                 <span class="tag">React Native</span>
                                 <span class="tag">Expo</span>
+                                <span class="tag">TypeScript</span>
                                 <span class="tag">FastAPI</span>
                                 <span class="tag">PostgreSQL</span>
-                                <span class="tag">TypeScript</span>
                                 <span class="tag">Python</span>
                                 <span class="tag">GitHub</span>
                             </div>
@@ -790,7 +1019,8 @@
 
                     <!-- OpenGL -->
                     <div class="col-lg-6">
-                        <div class="card-clean">
+                        <div class="card-clean featured-project">
+                            <div class="featured-badge">Featured • Graphics</div>
                             <div class="card-top">
                                 <div class="card-icon-wrap">
                                     <img src="icons/Opengl.png" alt="3D Graphics Project Icon">
@@ -805,7 +1035,7 @@
                                 Built an interactive 3D graphics project in C++ using OpenGL/GLUT that renders imported
                                 OBJ cow models inside a textured room. Implemented model loading, normal computation,
                                 texture mapping, lighting and material setup, transformations, and real-time camera
-                                and object controls. Also added rendering/debug features such as wireframe mode,
+                                and object controls. Also added rendering and debugging features such as wireframe mode,
                                 shading toggles, and lighting controls.
                             </p>
 
@@ -814,7 +1044,43 @@
                                 <span class="tag">OpenGL</span>
                                 <span class="tag">GLUT</span>
                                 <span class="tag">stb_image</span>
+                                <span class="tag">3D Graphics</span>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Amazing Racer -->
+                    <div class="col-lg-6">
+                        <div class="card-clean">
+                            <div class="card-top">
+                                <div class="card-icon-wrap">
+                                    <img src="icons/unity.png" alt="Unity Icon">
+                                </div>
+                                <div>
+                                    <h4 class="card-title">Amazing Racer</h4>
+                                    <p class="card-meta">Unity Game Programming and Design Project</p>
+                                </div>
+                            </div>
+
+                            <p class="card-text">
+                                A Unity first-person racing prototype built around movement, level design, and environmental tension.
+                                I created a foggy course with multiple finish zones, checkpoint-based respawn changes, hazard resets,
+                                and custom C# scripts to manage race flow and player progression.
+                                The project focused on designing a more atmospheric and gameplay-driven 3D experience.
+                            </p>
+
+                            <div class="tag-row">
+                                <span class="tag">Unity</span>
+                                <span class="tag">C#</span>
+                                <span class="tag">First Person Controller</span>
+                                <span class="tag">Terrain Tools</span>
+                                <span class="tag">Checkpoint Logic</span>
+                                <span class="tag">Fog / Lighting</span>
+                            </div>
+
+                            <a href="Assignment 3 CSC 5430 Angelo Kodra.docx" download class="btn-card-secondary">
+                                Download Report (DOCX)
+                            </a>
                         </div>
                     </div>
 
@@ -889,40 +1155,6 @@
                         </div>
                     </div>
 
-                    <!-- Amazing Racer -->
-                    <div class="col-lg-6">
-                        <div class="card-clean">
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/unity.png" alt="Unity Icon">
-                                </div>
-                                <div>
-                                    <h4 class="card-title">Amazing Racer</h4>
-                                    <p class="card-meta">Unity - Game Programming and Design Project</p>
-                                </div>
-                            </div>
-
-                            <p class="card-text">
-                                A Unity first-person racing prototype mod built around movement, level design, and environmental tension. 
-                                I created a foggy course with multiple finish zones, checkpoint-based respawn changes, hazard resets, 
-                                and custom C# scripts to manage race flow and player progression.
-                            </p>
-
-                            <div class="tag-row">
-                                <span class="tag">Unity</span>
-                                <span class="tag">C#</span>
-                                <span class="tag">First Person Controller</span>
-                                <span class="tag">Terrain Tools</span>
-                                <span class="tag">Checkpoint Logic</span>
-                                <span class="tag">Fog / Lighting</span>
-                            </div>
-
-                            <a href="Assignment 3 CSC 5430 Angelo Kodra.docx" download class="btn-card-secondary">
-                                Download Report (DOCX)
-                            </a>
-                        </div>
-                    </div>
-
                     <!-- Portfolio -->
                     <div class="col-lg-6">
                         <div class="card-clean">
@@ -961,6 +1193,7 @@
         <div class="container section-space">
             <div class="cta-panel text-center">
                 <div class="section-header mb-4">
+                    <div class="section-kicker" style="background: rgba(255,255,255,0.12); color: #fff;">Contact</div>
                     <h2 class="section-title text-white">Let’s Connect</h2>
                     <p class="section-subtitle text-white-50">
                         Reach out for opportunities, collaboration, or anything interesting you think I’d want to build.
@@ -985,9 +1218,10 @@
         <div class="container section-space">
             <div class="section-panel resume-card">
                 <div class="section-header">
-                    <h2 class="section-title">Resume</h2>
+                    <div class="section-kicker">Resume</div>
+                    <h2 class="section-title">Download My Resume</h2>
                     <p class="section-subtitle">
-                        Download the latest version of my resume here.
+                        Grab the latest version here.
                     </p>
                 </div>
 
@@ -1005,6 +1239,4 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/boo
