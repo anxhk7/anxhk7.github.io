@@ -4,23 +4,677 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angelo Kodra | Portfolio</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --aero-blue: #4fc3f7;
+            --aero-blue-rgb: 79, 195, 247;
+            --aero-dark: #1565c0;
+            --aero-glass: rgba(20, 40, 80, 0.55);
+            --aero-glass-border: rgba(120, 200, 255, 0.35);
+            --aero-highlight: rgba(255,255,255,0.12);
+            --bg: #0b0e1a;
+            --bg-gradient: linear-gradient(180deg, #0a1628 0%, #0b0e1a 40%, #100a1e 100%);
+            --text: #d8e8f8;
+            --text-dim: #7ea8cc;
+            --accent-green: #76ff03;
+            --accent-orange: #ff9100;
+            --accent-pink: #ff4081;
+            --win-title: linear-gradient(180deg, #3a7bd5 0%, #1e4f91 50%, #2a6bc4 100%);
+            --win-border: #1a3a6a;
+            --pixel-font: 'Press Start 2P', monospace;
+            --ui-font: 'Chakra Petch', sans-serif;
+            --retro-font: 'VT323', monospace;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding-top: 52px;
+            background: var(--bg);
+            background-image: var(--bg-gradient);
+            color: var(--text);
+            font-family: var(--ui-font);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* CRT scanlines overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.08) 2px,
+                rgba(0,0,0,0.08) 4px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Starfield dots */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3) 50%, transparent 100%),
+                radial-gradient(1px 1px at 30% 65%, rgba(255,255,255,0.2) 50%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 55% 15%, rgba(255,255,255,0.35) 50%, transparent 100%),
+                radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.15) 50%, transparent 100%),
+                radial-gradient(1px 1px at 85% 40%, rgba(255,255,255,0.25) 50%, transparent 100%),
+                radial-gradient(1px 1px at 45% 90%, rgba(255,255,255,0.2) 50%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 20% 50%, rgba(255,255,255,0.3) 50%, transparent 100%),
+                radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.2) 50%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1100px; position: relative; z-index: 1; }
+
+        /* ═══════════════ NAVBAR (Win7 taskbar) ═══════════════ */
+        .navbar {
+            background: linear-gradient(180deg, rgba(40,70,120,0.92) 0%, rgba(15,30,60,0.95) 100%);
+            border-bottom: 2px solid rgba(100,180,255,0.3);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 2px 20px rgba(0,100,200,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+            padding: 0;
+            min-height: 52px;
+        }
+
+        .navbar-brand {
+            font-family: var(--pixel-font);
+            font-size: 0.7rem;
+            color: var(--aero-blue) !important;
+            letter-spacing: 1px;
+            padding: 0.5rem 0;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text) !important;
+            font-family: var(--ui-font);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-left: 0.25rem;
+            padding: 0.65rem 1rem !important;
+            border-radius: 4px;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background: rgba(79,195,247,0.15);
+            color: #fff !important;
+            box-shadow: inset 0 0 12px rgba(79,195,247,0.1);
+        }
+
+        .navbar-toggler { border-color: rgba(79,195,247,0.4) !important; }
+        .navbar-toggler-icon { filter: brightness(2); }
+
+        /* ═══════════════ AERO GLASS WINDOW ═══════════════ */
+        .aero-window {
+            background: var(--aero-glass);
+            border: 1.5px solid var(--aero-glass-border);
+            border-radius: 8px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow:
+                0 8px 32px rgba(0,40,100,0.4),
+                inset 0 1px 0 var(--aero-highlight),
+                0 0 0 1px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .aero-titlebar {
+            background: var(--win-title);
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0,0,0,0.3);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+            user-select: none;
+        }
+
+        .titlebar-text {
+            font-family: var(--ui-font);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .titlebar-icon {
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, var(--aero-blue), var(--aero-dark));
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .titlebar-buttons {
+            display: flex;
+            gap: 3px;
+        }
+
+        .tb-btn {
+            width: 26px;
+            height: 20px;
+            border-radius: 3px;
+            border: 1px solid rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            cursor: default;
+        }
+
+        .tb-min { background: linear-gradient(180deg, #4a8fd4 0%, #3570b0 100%); }
+        .tb-max { background: linear-gradient(180deg, #4a8fd4 0%, #3570b0 100%); }
+        .tb-close { background: linear-gradient(180deg, #c75050 0%, #a83030 100%); }
+
+        .aero-body {
+            padding: 2rem;
+        }
+
+        /* ═══════════════ HERO ═══════════════ */
+        .hero {
+            padding: 2.5rem 0 1.5rem;
+        }
+
+        .hero-greeting {
+            font-family: var(--retro-font);
+            font-size: 1.4rem;
+            color: var(--accent-green);
+            margin-bottom: 0.25rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-name {
+            font-family: var(--pixel-font);
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(79,195,247,0.4), 0 2px 0 rgba(0,0,0,0.3);
+            line-height: 1.4;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.75;
+            max-width: 620px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        /* Buttons — chunky early-2000s feel */
+        .btn-retro {
+            font-family: var(--ui-font);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.6rem 1.6rem;
+            border-radius: 4px;
+            border: 2px solid;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        .btn-retro:active { transform: scale(0.97); }
+
+        .btn-primary-retro {
+            background: linear-gradient(180deg, #5cb8ff 0%, #2680c2 50%, #3a9aea 100%);
+            border-color: #1a5a8f;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 8px rgba(38,128,194,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
+        }
+
+        .btn-primary-retro:hover {
+            background: linear-gradient(180deg, #6ec5ff 0%, #3090d5 50%, #4aaaff 100%);
+            box-shadow: 0 4px 16px rgba(38,128,194,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary-retro {
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+            border-color: var(--aero-glass-border);
+            color: var(--aero-blue);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        }
+
+        .btn-secondary-retro:hover {
+            background: rgba(79,195,247,0.1);
+            border-color: var(--aero-blue);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-box {
+            background: rgba(0,20,50,0.5);
+            border: 1px solid rgba(79,195,247,0.2);
+            border-radius: 4px;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--aero-blue), transparent);
+        }
+
+        .stat-label {
+            font-family: var(--retro-font);
+            font-size: 1rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-val {
+            font-family: var(--ui-font);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-sub {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* ═══════════════ SECTIONS ═══════════════ */
+        .content-section { padding: 1.5rem 0; }
+
+        .section-kicker {
+            font-family: var(--pixel-font);
+            font-size: 0.55rem;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--ui-font);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 16px rgba(79,195,247,0.2);
+        }
+
+        .section-sub {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header .section-sub {
+            margin: 0 auto;
+        }
+
+        /* ═══════════════ ABOUT ═══════════════ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .about-photo {
+            width: 100%;
+            border-radius: 6px;
+            border: 2px solid var(--aero-glass-border);
+            box-shadow: 0 4px 20px rgba(0,40,100,0.3);
+        }
+
+        .about-copy {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.75;
+        }
+
+        .about-copy strong {
+            color: var(--text);
+        }
+
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.25rem 0;
+        }
+
+        .chip {
+            font-family: var(--retro-font);
+            font-size: 0.95rem;
+            background: rgba(79,195,247,0.1);
+            color: var(--aero-blue);
+            border: 1px solid rgba(79,195,247,0.25);
+            padding: 0.25rem 0.65rem;
+            border-radius: 3px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1.25rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid rgba(79,195,247,0.3);
+            border-radius: 4px;
+            background: rgba(79,195,247,0.06);
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: rgba(79,195,247,0.15);
+            border-color: var(--aero-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79,195,247,0.2);
+        }
+
+        .social-link img { width: 20px; height: 20px; }
+
+        /* ═══════════════ EXPERIENCE ═══════════════ */
+        .exp-card {
+            background: rgba(0,20,50,0.4);
+            border: 1.5px solid rgba(79,195,247,0.2);
+            border-radius: 6px;
+            padding: 1.25rem;
+            height: 100%;
+            transition: all 0.2s;
+        }
+
+        .exp-card:hover {
+            border-color: rgba(79,195,247,0.5);
+            box-shadow: 0 4px 20px rgba(79,195,247,0.1);
+        }
+
+        .card-header {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .card-icon { width: 44px; height: 44px; flex-shrink: 0; }
+
+        .card-header h4 {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .card-meta {
+            margin: 0.2rem 0 0;
+            color: var(--accent-orange);
+            font-family: var(--retro-font);
+            font-size: 1rem;
+        }
+
+        .card-text {
+            color: var(--text-dim);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            margin-bottom: 0.75rem;
+        }
+
+        .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+
+        .tag {
+            font-family: var(--retro-font);
+            font-size: 0.9rem;
+            background: rgba(118,255,3,0.08);
+            color: var(--accent-green);
+            border: 1px solid rgba(118,255,3,0.2);
+            padding: 0.15rem 0.55rem;
+            border-radius: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ═══════════════ PROJECTS ═══════════════ */
+        .project-card {
+            background: rgba(0,20,50,0.4);
+            border: 1.5px solid rgba(79,195,247,0.2);
+            border-radius: 6px;
+            padding: 1.25rem;
+            transition: all 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: rgba(79,195,247,0.5);
+            box-shadow: 0 4px 20px rgba(79,195,247,0.1);
+        }
+
+        .project-card.featured {
+            border-color: rgba(79,195,247,0.45);
+            background: rgba(10,30,70,0.5);
+            box-shadow: 0 0 24px rgba(79,195,247,0.08);
+        }
+
+        .featured-badge {
+            display: inline-block;
+            font-family: var(--pixel-font);
+            font-size: 0.5rem;
+            background: rgba(255,145,0,0.15);
+            color: var(--accent-orange);
+            border: 1px solid rgba(255,145,0,0.3);
+            padding: 0.35rem 0.7rem;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-header {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+
+        .project-icon { width: 48px; height: 48px; flex-shrink: 0; }
+
+        .project-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--aero-blue);
+        }
+
+        .project-meta {
+            margin: 0.2rem 0 0;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        .project-description {
+            color: var(--text-dim);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .project-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .highlight-box {
+            background: rgba(0,20,50,0.5);
+            border: 1px solid rgba(79,195,247,0.15);
+            border-radius: 4px;
+            padding: 0.75rem;
+        }
+
+        .highlight-label {
+            font-family: var(--retro-font);
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .highlight-value {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .highlight-copy {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            line-height: 1.4;
+        }
+
+        .project-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+        /* ═══════════════ CONTACT / CTA ═══════════════ */
+        .cta-content { text-align: center; }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        /* ═══════════════ FOOTER ═══════════════ */
+        .site-footer {
+            padding: 1.5rem 0;
+            text-align: center;
+            font-family: var(--retro-font);
+            font-size: 1rem;
+            color: var(--text-dim);
+            border-top: 1px solid rgba(79,195,247,0.1);
+            margin-top: 2rem;
+        }
+
+        .footer-ascii {
+            font-family: var(--retro-font);
+            font-size: 0.9rem;
+            color: rgba(79,195,247,0.3);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        /* ═══════════════ BLINKER ═══════════════ */
+        .blink {
+            animation: blink-anim 1s step-end infinite;
+        }
+
+        @keyframes blink-anim {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ═══════════════ GLOW PULSE on featured ═══════════════ */
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(79,195,247,0.08); }
+            50% { box-shadow: 0 0 30px rgba(79,195,247,0.18); }
+        }
+
+        .project-card.featured { animation: glow-pulse 4s ease-in-out infinite; }
+
+        /* ═══════════════ RESPONSIVE ═══════════════ */
+        @media (max-width: 991px) {
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-photo-wrap { margin: 0 auto; max-width: 220px; }
+            .social-icons { justify-content: center; }
+            .stats-bar { grid-template-columns: 1fr; }
+            .project-highlights { grid-template-columns: 1fr; }
+            .skill-chips { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 52px; }
+            .aero-body { padding: 1.25rem; }
+            .hero-name { font-size: 1.3rem; }
+            .hero-buttons, .cta-buttons { flex-direction: column; gap: 0.5rem; }
+            .btn-retro { width: 100%; text-align: center; }
+            .project-header { flex-direction: column; }
+            .project-highlights { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
-    <!-- NAVBAR -->
+
+    <!-- NAVBAR — styled as Win7 taskbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">Angelo Kodra</a>
-
+            <a class="navbar-brand" href="#home">ANGELO.EXE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
@@ -32,42 +686,51 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- ═══════════════ HERO ═══════════════ -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-shell">
-                <div class="window-header">
-                    <span>Angelo Kodra — Portfolio</span>
-                    <span class="header-buttons">_  □  X</span>
+            <div class="aero-window">
+                <div class="aero-titlebar">
+                    <span class="titlebar-text">
+                        <span class="titlebar-icon"></span>
+                        Angelo Kodra — Portfolio
+                    </span>
+                    <div class="titlebar-buttons">
+                        <span class="tb-btn tb-min">─</span>
+                        <span class="tb-btn tb-max">□</span>
+                        <span class="tb-btn tb-close">✕</span>
+                    </div>
                 </div>
-                <div class="window-content">
-                    <h1 class="hero-title">Angelo Kodra</h1>
-                    <p class="hero-lead">
-                        CS student shipping <span class="accent">full-stack applications, graphics projects, and real systems</span>. 
-                        Started by taking apart devices. Now building them from scratch.
-                        <br><br>React Native, FastAPI, C++, Unity.
+                <div class="aero-body">
+                    <div class="hero-greeting">C:\Users\Angelo&gt; whoami<span class="blink">_</span></div>
+                    <h1 class="hero-name">Angelo Kodra</h1>
+                    <p class="hero-desc">
+                        I got into this by taking things apart — phones, PCs, anything I could get a screwdriver into.
+                        That turned into fixing them for other people, and eventually into <strong>building software from scratch</strong>.
+                        Now I write code that ships: mobile apps, backend services, graphics engines, system tools.
+                        I like understanding how the whole stack works, not just my corner of it.
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-hero-primary">View Projects</a>
-                        <a href="AngeloKodra.docx" download class="btn btn-hero-secondary">Download Resume</a>
+                        <a href="#projects" class="btn-retro btn-primary-retro">View Projects</a>
+                        <a href="AngeloKodra.docx" download class="btn-retro btn-secondary-retro">Download Resume</a>
                     </div>
 
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <div class="stat-label">What I Do</div>
-                            <div class="stat-value">Build Systems</div>
-                            <div class="stat-copy">Mobile, backend, graphics, infrastructure. Full-stack.</div>
+                    <div class="stats-bar">
+                        <div class="stat-box">
+                            <div class="stat-label">// What I Build</div>
+                            <div class="stat-val">Full-Stack Systems</div>
+                            <div class="stat-sub">Mobile frontends, APIs, databases, graphics — the whole thing, not just pieces.</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Where I Started</div>
-                            <div class="stat-value">Hands-On</div>
-                            <div class="stat-copy">Diagnosed broken devices. That teaches you how systems work.</div>
+                        <div class="stat-box">
+                            <div class="stat-label">// Where I Started</div>
+                            <div class="stat-val">Hands On Hardware</div>
+                            <div class="stat-sub">Years of diagnosing broken devices. You learn how systems actually fail.</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Right Now</div>
-                            <div class="stat-value">Shipping</div>
-                            <div class="stat-copy">Capstone, interviews, building what's next.</div>
+                        <div class="stat-box">
+                            <div class="stat-label">// Right Now</div>
+                            <div class="stat-val">Senior Year, Shipping</div>
+                            <div class="stat-sub">Finishing capstone, interviewing, and looking for what's next.</div>
                         </div>
                     </div>
                 </div>
@@ -75,34 +738,41 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ═══════════════ ABOUT ═══════════════ -->
     <section id="about" class="content-section">
         <div class="container">
-            <div class="window-panel">
-                <div class="window-header">
-                    <span>About Me</span>
-                    <span class="header-buttons">_  □  X</span>
+            <div class="aero-window">
+                <div class="aero-titlebar">
+                    <span class="titlebar-text"><span class="titlebar-icon"></span>About Me</span>
+                    <div class="titlebar-buttons">
+                        <span class="tb-btn tb-min">─</span>
+                        <span class="tb-btn tb-max">□</span>
+                        <span class="tb-btn tb-close">✕</span>
+                    </div>
                 </div>
-                <div class="window-content">
+                <div class="aero-body">
                     <div class="section-header">
-                        <div class="section-kicker">Profile</div>
+                        <div class="section-kicker">// Profile</div>
                         <h2 class="section-title">About Me</h2>
-                        <p class="section-subtitle">A blend of software developer, builder, and technical problem solver.</p>
                     </div>
 
                     <div class="about-grid">
                         <div class="about-photo-wrap">
                             <img src="ak-face.jpeg" alt="Angelo Kodra" class="about-photo">
                         </div>
-
                         <div class="about-copy">
                             <p>
-                                I'm a senior Computer Science student at Wayne State University and an IT intern supporting
-                                enterprise environments. My background combines software development, technical support,
-                                engineering tools, and hands-on debugging. I've built projects in C#, C++, Python,
-                                React Native, FastAPI, Unity, and OpenGL, while also working with Siemens NX, system imaging,
-                                account administration, documentation, and cross-functional collaboration.
-                                I like building reliable software, solving messy technical problems, and learning fast.
+                                I'm a senior CS student at Wayne State University finishing up my degree while working
+                                as an IT intern in an enterprise environment. My path has been a straight line from
+                                <strong>curiosity to capability</strong> — I started by repairing consumer hardware at Geek Squad,
+                                taught engineering students how to use 3D modeling tools and microcontrollers as a TA,
+                                and now I write production software and manage infrastructure.
+                            </p>
+                            <p>
+                                What I care about is <strong>understanding the full picture</strong>. I've touched every layer
+                                of the stack at this point — device repair, system administration, backend APIs,
+                                mobile frontends, computer graphics, data pipelines. That range isn't accidental.
+                                I learn things by building them, breaking them, and fixing them.
                             </p>
 
                             <div class="skill-chips">
@@ -138,19 +808,23 @@
         </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- ═══════════════ EXPERIENCE ═══════════════ -->
     <section id="experience" class="content-section">
         <div class="container">
-            <div class="window-panel">
-                <div class="window-header">
-                    <span>Experience</span>
-                    <span class="header-buttons">_  □  X</span>
+            <div class="aero-window">
+                <div class="aero-titlebar">
+                    <span class="titlebar-text"><span class="titlebar-icon"></span>Experience</span>
+                    <div class="titlebar-buttons">
+                        <span class="tb-btn tb-min">─</span>
+                        <span class="tb-btn tb-max">□</span>
+                        <span class="tb-btn tb-close">✕</span>
+                    </div>
                 </div>
-                <div class="window-content">
+                <div class="aero-body">
                     <div class="section-header">
-                        <div class="section-kicker">Experience</div>
-                        <h2 class="section-title">What I've Worked On</h2>
-                        <p class="section-subtitle">Technical experience across enterprise support, device repair, engineering education, and software-adjacent problem solving.</p>
+                        <div class="section-kicker">// Work History</div>
+                        <h2 class="section-title">Where I've Worked</h2>
+                        <p class="section-sub">Enterprise IT, consumer hardware repair, and engineering education — every role taught me how real systems break and how to fix them.</p>
                     </div>
 
                     <div class="row g-4">
@@ -160,14 +834,13 @@
                                     <img src="icons/geeksquad.png" alt="Geek Squad" class="card-icon">
                                     <div>
                                         <h4>Advanced Repair Agent</h4>
-                                        <p class="card-meta">Geek Squad • Oct 2022 - Present</p>
+                                        <p class="card-meta">Geek Squad · Oct 2022 – Present</p>
                                     </div>
                                 </div>
                                 <p class="card-text">
-                                    Diagnose, repair, and service Windows/Mac PCs and Android/iOS devices while consulting
-                                    clients on service options and pricing. Work includes hardware and software troubleshooting,
-                                    data backup, system repair, custom PC work, documentation, customer communication, and
-                                    training new agents.
+                                    Diagnose and repair Windows, Mac, Android, and iOS devices end-to-end.
+                                    Hardware swaps, OS-level troubleshooting, data recovery, custom builds.
+                                    I also train new agents and handle client communication on service options and pricing.
                                 </p>
                                 <div class="tag-row">
                                     <span class="tag">Hardware Repair</span>
@@ -183,14 +856,14 @@
                                     <img src="icons/teaching.png" alt="Teaching" class="card-icon">
                                     <div>
                                         <h4>Teaching Assistant</h4>
-                                        <p class="card-meta">Wayne State University • Aug 2023 - Aug 2024</p>
+                                        <p class="card-meta">Wayne State · Aug 2023 – Aug 2024</p>
                                     </div>
                                 </div>
                                 <p class="card-text">
-                                    Supported engineering students in Siemens NX 3D modeling, Arduino circuitry, and
-                                    introductory programming. Assisted with labs, troubleshooting, project coordination,
-                                    3D printing workflows, and technical guidance while helping students refine
-                                    project solutions.
+                                    Ran labs for intro engineering students covering Siemens NX 3D modeling,
+                                    Arduino circuits, and basic programming. Helped debug projects, managed
+                                    3D printing workflows, and guided students through technical problems
+                                    they'd never seen before.
                                 </p>
                                 <div class="tag-row">
                                     <span class="tag">Siemens NX</span>
@@ -205,15 +878,14 @@
                                 <div class="card-header">
                                     <img src="icons/owlservices.png" alt="OWL Services" class="card-icon">
                                     <div>
-                                        <h4>Information Technology Intern</h4>
-                                        <p class="card-meta">OWL Services • Aug 2025 - Present</p>
+                                        <h4>IT Intern</h4>
+                                        <p class="card-meta">OWL Services · Aug 2025 – Present</p>
                                     </div>
                                 </div>
                                 <p class="card-text">
-                                    Provide Tier 1/2 support across desktop, laptop, and mobile endpoints in an enterprise
-                                    environment. Handle hardware and software issues, imaging, Microsoft 365 support,
-                                    Active Directory tasks, remote troubleshooting, documentation, and workflow improvement
-                                    with senior IT staff.
+                                    Tier 1/2 support across hundreds of endpoints in an enterprise environment.
+                                    System imaging, Active Directory administration, Microsoft 365 troubleshooting,
+                                    remote support, documentation, and process improvement alongside senior IT staff.
                                 </p>
                                 <div class="tag-row">
                                     <span class="tag">Microsoft 365</span>
@@ -228,53 +900,57 @@
         </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- ═══════════════ PROJECTS ═══════════════ -->
     <section id="projects" class="content-section">
         <div class="container">
-            <div class="window-panel">
-                <div class="window-header">
-                    <span>Projects</span>
-                    <span class="header-buttons">_  □  X</span>
+            <div class="aero-window">
+                <div class="aero-titlebar">
+                    <span class="titlebar-text"><span class="titlebar-icon"></span>Projects</span>
+                    <div class="titlebar-buttons">
+                        <span class="tb-btn tb-min">─</span>
+                        <span class="tb-btn tb-max">□</span>
+                        <span class="tb-btn tb-close">✕</span>
+                    </div>
                 </div>
-                <div class="window-content">
+                <div class="aero-body">
                     <div class="section-header">
-                        <div class="section-kicker">Projects</div>
-                        <h2 class="section-title">Selected Work</h2>
-                        <p class="section-subtitle">A mix of software engineering, graphics, Unity development, analytics, and personal project work.</p>
+                        <div class="section-kicker">// Selected Work</div>
+                        <h2 class="section-title">Projects</h2>
+                        <p class="section-sub">Software I've actually built, shipped, or presented — not just tutorials.</p>
                     </div>
 
                     <div class="row g-4">
                         <!-- SpeechMatch -->
                         <div class="col-12">
                             <div class="project-card featured">
-                                <div class="featured-badge">Featured • Capstone</div>
+                                <div class="featured-badge">★ Capstone</div>
                                 <div class="project-header">
                                     <img src="icons/speechmatch.png" alt="SpeechMatch" class="project-icon">
                                     <div>
                                         <h3>SpeechMatch</h3>
-                                        <p class="project-meta">Senior Capstone Mobile Application</p>
+                                        <p class="project-meta">Senior Capstone — Speech Pronunciation Assessment App</p>
                                     </div>
                                 </div>
 
                                 <p class="project-description">
-                                    Built the React Native frontend for a speech pronunciation assessment app. Screens, API integration, authentication, and cross-layer debugging. Real-time feedback using Azure's speech APIs and custom phoneme comparison logic I built on top of it.
+                                    A mobile app that listens to you read a passage and tells you exactly where your pronunciation breaks down — wrong sounds, skipped words, timing issues. I own the mispronunciation detection system: a custom phoneme comparison engine built on top of Azure's speech APIs that catches errors Azure alone misses, including cross-dialect and cross-language edge cases. Also built the two-pass rescue system that recovers words the recognizer drops.
                                 </p>
 
                                 <div class="project-highlights">
                                     <div class="highlight-box">
-                                        <div class="highlight-label">Role</div>
-                                        <div class="highlight-value">Frontend Lead</div>
-                                        <div class="highlight-copy">Built UI, APIs, auth, fixed everything.</div>
+                                        <div class="highlight-label">// Role</div>
+                                        <div class="highlight-value">Mispronunciation Lead</div>
+                                        <div class="highlight-copy">Detection engine, phoneme logic, two-pass ASR rescue, frontend screens.</div>
                                     </div>
                                     <div class="highlight-box">
-                                        <div class="highlight-label">Tech</div>
+                                        <div class="highlight-label">// Stack</div>
                                         <div class="highlight-value">React Native + FastAPI</div>
-                                        <div class="highlight-copy">TypeScript frontend, Python backend, speech processing.</div>
+                                        <div class="highlight-copy">TypeScript frontend, Python backend, PostgreSQL, Azure Speech APIs.</div>
                                     </div>
                                     <div class="highlight-box">
-                                        <div class="highlight-label">Status</div>
-                                        <div class="highlight-value">Live & Shipping</div>
-                                        <div class="highlight-copy">Active capstone, still pushing updates.</div>
+                                        <div class="highlight-label">// Status</div>
+                                        <div class="highlight-value">In Active Development</div>
+                                        <div class="highlight-copy">Shipping updates weekly. Capstone presentation ahead.</div>
                                     </div>
                                 </div>
 
@@ -284,7 +960,7 @@
                                     <span class="tag">TypeScript</span>
                                     <span class="tag">FastAPI</span>
                                     <span class="tag">PostgreSQL</span>
-                                    <span class="tag">Azure APIs</span>
+                                    <span class="tag">Azure Speech</span>
                                 </div>
                             </div>
                         </div>
@@ -292,19 +968,19 @@
                         <!-- OpenGL -->
                         <div class="col-lg-6">
                             <div class="project-card">
-                                <div class="featured-badge">Featured • Graphics</div>
+                                <div class="featured-badge">Graphics</div>
                                 <div class="project-header">
                                     <img src="icons/opengl.png" alt="OpenGL" class="project-icon">
                                     <div>
-                                        <h3>Interactive 3D Graphics Environment</h3>
-                                        <p class="project-meta">Computer Graphics Project</p>
+                                        <h3>Interactive 3D Scene</h3>
+                                        <p class="project-meta">Computer Graphics — Real-Time Rendering</p>
                                     </div>
                                 </div>
 
                                 <p class="project-description">
-                                    Built an interactive 3D graphics project in C++ using OpenGL/GLUT that renders imported
-                                    OBJ cow models inside a textured room. Implemented model loading, normal computation,
-                                    texture mapping, lighting/material setup, transformations, and real-time camera/object controls.
+                                    A real-time 3D environment in C++ with OpenGL. Loads OBJ models, computes normals,
+                                    maps textures, and handles lighting and material properties. Full camera and object
+                                    controls — move, rotate, scale, all in real time.
                                 </p>
 
                                 <div class="tag-row">
@@ -316,8 +992,8 @@
                                 </div>
 
                                 <div class="project-actions">
-                                    <a href="Assignment3_AK.exe" download class="btn btn-project-primary">Download Demo</a>
-                                    <a href="Assignment3_AK.cpp" download class="btn btn-project-secondary">View Source</a>
+                                    <a href="Assignment3_AK.exe" download class="btn-retro btn-primary-retro">Download Demo</a>
+                                    <a href="Assignment3_AK.cpp" download class="btn-retro btn-secondary-retro">View Source</a>
                                 </div>
                             </div>
                         </div>
@@ -329,14 +1005,15 @@
                                     <img src="icons/unity.png" alt="Unity" class="project-icon">
                                     <div>
                                         <h3>Amazing Racer</h3>
-                                        <p class="project-meta">Unity Game Programming Project</p>
+                                        <p class="project-meta">Unity — First-Person Racing Prototype</p>
                                     </div>
                                 </div>
 
                                 <p class="project-description">
-                                    A Unity first-person racing prototype built around movement, level design, and environmental tension.
-                                    Created a foggy course with multiple finish zones, checkpoint-based respawn changes, hazard resets,
-                                    and custom C# scripts to manage race flow and player progression.
+                                    A foggy first-person race through handmade terrain. Multiple finish zones,
+                                    checkpoint-based respawns, hazard resets, and custom scripts managing the
+                                    full race loop. Built for a game programming course — focused on feel and tension,
+                                    not just mechanics.
                                 </p>
 
                                 <div class="tag-row">
@@ -346,7 +1023,7 @@
                                     <span class="tag">Terrain Tools</span>
                                 </div>
 
-                                <a href="Assignment 3 CSC 5430 Angelo Kodra.docx" download class="btn btn-project-secondary">Download Report</a>
+                                <a href="Assignment 3 CSC 5430 Angelo Kodra.docx" download class="btn-retro btn-secondary-retro">Download Report</a>
                             </div>
                         </div>
 
@@ -357,14 +1034,15 @@
                                     <img src="icons/windows.png" alt="Digital Windex" class="project-icon">
                                     <div>
                                         <h3>Digital Windex</h3>
-                                        <p class="project-meta">Windows Utility Application</p>
+                                        <p class="project-meta">Windows Maintenance Utility</p>
                                     </div>
                                 </div>
 
                                 <p class="project-description">
-                                    A Windows maintenance application conceptualized, pitched, and selected from a pool of student ideas. 
-                                    Built with C#, .NET, and WPF, designed to simplify system diagnostics, repair, and optimization 
-                                    for non-technical users through a clean, modular interface.
+                                    A desktop tool that helps non-technical users run diagnostics, repairs, and
+                                    optimizations on Windows without needing to know what they're doing. I pitched the
+                                    concept, it was selected from a pool of student proposals, and I helped build it
+                                    with a team using Agile/Scrum.
                                 </p>
 
                                 <div class="tag-row">
@@ -375,7 +1053,7 @@
                                     <span class="tag">Scrum</span>
                                 </div>
 
-                                <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer" class="btn btn-project-primary">View on GitHub</a>
+                                <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer" class="btn-retro btn-primary-retro">View on GitHub</a>
                             </div>
                         </div>
 
@@ -385,15 +1063,15 @@
                                 <div class="project-header">
                                     <img src="icons/data.png" alt="Data Analysis" class="project-icon">
                                     <div>
-                                        <h3>Predictive Analysis on Movie Attendance</h3>
-                                        <p class="project-meta">Data Analysis Project</p>
+                                        <h3>Movie Attendance Prediction</h3>
+                                        <p class="project-meta">Data Science — Predictive Modeling</p>
                                     </div>
                                 </div>
 
                                 <p class="project-description">
-                                    Explored movie-going behavior using survey data and secondary datasets to uncover trends in demographics, 
-                                    genre preferences, and viewing habits. Used descriptive statistics, chi-square tests, correlation analysis, 
-                                    and predictive modeling including decision trees, logistic regression, and neural networks.
+                                    Analyzed movie-going behavior from survey and secondary data to predict attendance patterns.
+                                    Built decision trees, logistic regression models, and a neural network. Found that demographics
+                                    and genre preferences were stronger predictors than I expected — wrote it all up in a full research paper.
                                 </p>
 
                                 <div class="tag-row">
@@ -403,7 +1081,7 @@
                                     <span class="tag">TensorFlow</span>
                                 </div>
 
-                                <a href="BE2100_G08_FinalPaper.pdf" download class="btn btn-project-secondary">Download Report</a>
+                                <a href="BE2100_G08_FinalPaper.pdf" download class="btn-retro btn-secondary-retro">Download Report</a>
                             </div>
                         </div>
                     </div>
@@ -412,24 +1090,29 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- ═══════════════ CONTACT ═══════════════ -->
     <section id="contact" class="content-section">
         <div class="container">
-            <div class="window-panel cta-panel">
-                <div class="window-header">
-                    <span>Contact</span>
-                    <span class="header-buttons">_  □  X</span>
+            <div class="aero-window">
+                <div class="aero-titlebar">
+                    <span class="titlebar-text"><span class="titlebar-icon"></span>Contact</span>
+                    <div class="titlebar-buttons">
+                        <span class="tb-btn tb-min">─</span>
+                        <span class="tb-btn tb-max">□</span>
+                        <span class="tb-btn tb-close">✕</span>
+                    </div>
                 </div>
-                <div class="window-content cta-content">
-                    <div class="section-header text-center">
-                        <h2 class="section-title">Let's Connect</h2>
-                        <p class="section-subtitle">Reach out for opportunities, collaboration, or anything interesting you think I'd want to build.</p>
+                <div class="aero-body cta-content">
+                    <div class="section-header">
+                        <div class="section-kicker">// Get In Touch</div>
+                        <h2 class="section-title">Let's Talk</h2>
+                        <p class="section-sub">I'm looking for entry-level software and technical roles in the Detroit area. If you're hiring, building something interesting, or just want to connect — reach out.</p>
                     </div>
 
                     <div class="cta-buttons">
-                        <a href="mailto:angkodra@gmail.com" class="btn btn-hero-primary">Get in Touch</a>
-                        <a href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary">LinkedIn</a>
-                        <a href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary">GitHub</a>
+                        <a href="mailto:angkodra@gmail.com" class="btn-retro btn-primary-retro">Email Me</a>
+                        <a href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer" class="btn-retro btn-secondary-retro">LinkedIn</a>
+                        <a href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer" class="btn-retro btn-secondary-retro">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -437,8 +1120,9 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="site-footer">
         <div class="container">
+            <div class="footer-ascii">═══════════════════════════════════</div>
             <p>&copy; 2026 Angelo Kodra. All Rights Reserved.</p>
         </div>
     </footer>
@@ -448,7 +1132,6 @@
         document.addEventListener("DOMContentLoaded", function () {
             const navCollapse = document.getElementById("navbarNav");
             const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-    
             navLinks.forEach(link => {
                 link.addEventListener("click", () => {
                     if (navCollapse.classList.contains("show")) {
