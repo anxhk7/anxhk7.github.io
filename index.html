@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Hi Stalker :D -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angelo Kodra | Portfolio</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="new-styles.css" rel="stylesheet">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
@@ -28,7 +27,6 @@
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
                 </ul>
             </div>
         </div>
@@ -37,35 +35,40 @@
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-shell text-center">
-                <div class="eyebrow"><span class="eyebrow-dot"></span> Software • IT • Graphics • Full-Stack</div>
-                <h1>Angelo Kodra</h1>
-                <p class="hero-lead">
-                    Senior Computer Science student at <span class="hero-emphasis">Wayne State University</span> building across
-                    software development, technical support, graphics, and full-stack systems.
-                    I work with <span class="hero-emphasis">C#, C++, Python, Java, TypeScript, React Native, FastAPI, Unity, OpenGL, PostgreSQL, and NX</span>.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn-main">View Projects</a>
-                    <a href="AngeloKodra.docx" download class="btn-outline-glass">Download Resume</a>
+            <div class="hero-shell">
+                <div class="window-header">
+                    <span>Angelo Kodra — Portfolio</span>
+                    <span class="header-buttons">_  □  X</span>
                 </div>
+                <div class="window-content">
+                    <h1 class="hero-title">Angelo Kodra</h1>
+                    <p class="hero-lead">
+                        CS student shipping <span class="accent">full-stack applications, graphics projects, and real systems</span>. 
+                        Started by taking apart devices. Now building them from scratch.
+                        <br><br>React Native, FastAPI, C++, Unity.
+                    </p>
 
-                <div class="hero-stats">
-                    <div class="stat-card">
-                        <div class="stat-label">Focus</div>
-                        <div class="stat-value">Software + Systems</div>
-                        <div class="stat-copy">Building practical applications across mobile, desktop, graphics, and IT environments.</div>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-hero-primary">View Projects</a>
+                        <a href="AngeloKodra.docx" download class="btn btn-hero-secondary">Download Resume</a>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-label">Highlighted Stack</div>
-                        <div class="stat-value">React Native • FastAPI • Unity</div>
-                        <div class="stat-copy">A mix of frontend, backend, graphics, and interactive development experience.</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">My Path</div>
-                        <div class="stat-value">From repair to development</div>
-                        <div class="stat-copy">My interest in tech started with fixing and understanding devices, and grew into building software, graphics projects, and full-stack applications.</div>
+
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-label">What I Do</div>
+                            <div class="stat-value">Build Systems</div>
+                            <div class="stat-copy">Mobile, backend, graphics, infrastructure. Full-stack.</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Where I Started</div>
+                            <div class="stat-value">Hands-On</div>
+                            <div class="stat-copy">Diagnosed broken devices. That teaches you how systems work.</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Right Now</div>
+                            <div class="stat-value">Shipping</div>
+                            <div class="stat-copy">Capstone, interviews, building what's next.</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,58 +76,61 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section-wrap">
-        <div class="container section-space">
-            <div class="section-panel">
-                <div class="section-header">
-                    <div class="section-kicker">Profile</div>
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">
-                        A blend of software developer, builder, and technical problem solver.
-                    </p>
+    <section id="about" class="content-section">
+        <div class="container">
+            <div class="window-panel">
+                <div class="window-header">
+                    <span>About Me</span>
+                    <span class="header-buttons">_  □  X</span>
                 </div>
-
-                <div class="about-grid">
-                    <div class="about-photo-wrap">
-                        <img src="ak-face.jpeg" alt="Angelo Kodra" class="about-photo">
+                <div class="window-content">
+                    <div class="section-header">
+                        <div class="section-kicker">Profile</div>
+                        <h2 class="section-title">About Me</h2>
+                        <p class="section-subtitle">A blend of software developer, builder, and technical problem solver.</p>
                     </div>
 
-                    <div class="about-copy">
-                        <p>
-                            I'm a senior Computer Science student at Wayne State University and an IT intern supporting
-                            enterprise environments. My background combines software development, technical support,
-                            engineering tools, and hands-on debugging. I've built projects in C#, C++, Python,
-                            React Native, FastAPI, Unity, and OpenGL, while also working with Siemens NX, system imaging,
-                            account administration, documentation, and cross-functional collaboration.
-                            I like building reliable software, solving messy technical problems, and learning fast.
-                        </p>
-
-                        <div class="skill-chips">
-                            <span class="chip">C#</span>
-                            <span class="chip">C++</span>
-                            <span class="chip">Java</span>
-                            <span class="chip">Python</span>
-                            <span class="chip">TypeScript</span>
-                            <span class="chip">React Native</span>
-                            <span class="chip">FastAPI</span>
-                            <span class="chip">PostgreSQL</span>
-                            <span class="chip">Unity</span>
-                            <span class="chip">OpenGL</span>
-                            <span class="chip">Siemens NX</span>
-                            <span class="chip">IT Support</span>
-                            <span class="chip">Technical Documentation</span>
+                    <div class="about-grid">
+                        <div class="about-photo-wrap">
+                            <img src="ak-face.jpeg" alt="Angelo Kodra" class="about-photo">
                         </div>
 
-                        <div class="social-icons">
-                            <a class="social-link" href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer">
-                                <img src="icons/github.png" alt="GitHub">
-                            </a>
-                            <a class="social-link" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer">
-                                <img src="icons/linkedin.png" alt="LinkedIn">
-                            </a>
-                            <a class="social-link" href="mailto:angkodra@gmail.com">
-                                <img src="icons/email.png" alt="Email">
-                            </a>
+                        <div class="about-copy">
+                            <p>
+                                I'm a senior Computer Science student at Wayne State University and an IT intern supporting
+                                enterprise environments. My background combines software development, technical support,
+                                engineering tools, and hands-on debugging. I've built projects in C#, C++, Python,
+                                React Native, FastAPI, Unity, and OpenGL, while also working with Siemens NX, system imaging,
+                                account administration, documentation, and cross-functional collaboration.
+                                I like building reliable software, solving messy technical problems, and learning fast.
+                            </p>
+
+                            <div class="skill-chips">
+                                <span class="chip">C#</span>
+                                <span class="chip">C++</span>
+                                <span class="chip">Java</span>
+                                <span class="chip">Python</span>
+                                <span class="chip">TypeScript</span>
+                                <span class="chip">React Native</span>
+                                <span class="chip">FastAPI</span>
+                                <span class="chip">PostgreSQL</span>
+                                <span class="chip">Unity</span>
+                                <span class="chip">OpenGL</span>
+                                <span class="chip">Siemens NX</span>
+                                <span class="chip">IT Support</span>
+                            </div>
+
+                            <div class="social-icons">
+                                <a class="social-link" href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer">
+                                    <img src="icons/github.png" alt="GitHub">
+                                </a>
+                                <a class="social-link" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer">
+                                    <img src="icons/linkedin.png" alt="LinkedIn">
+                                </a>
+                                <a class="social-link" href="mailto:angkodra@gmail.com">
+                                    <img src="icons/email.png" alt="Email">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,95 +139,87 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="section-wrap">
-        <div class="container section-space">
-            <div class="section-panel">
-                <div class="section-header">
-                    <div class="section-kicker">Experience</div>
-                    <h2 class="section-title">What I've Worked On</h2>
-                    <p class="section-subtitle">
-                        Technical experience across enterprise support, device repair, engineering education, and software-adjacent problem solving.
-                    </p>
+    <section id="experience" class="content-section">
+        <div class="container">
+            <div class="window-panel">
+                <div class="window-header">
+                    <span>Experience</span>
+                    <span class="header-buttons">_  □  X</span>
                 </div>
-
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card-clean experience-card">
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/geeksquad.png" alt="Geek Squad Icon">
-                                </div>
-                                <div>
-                                    <h4 class="card-title">Advanced Repair Agent</h4>
-                                    <p class="card-meta">Geek Squad • Oct 2022 - Present</p>
-                                </div>
-                            </div>
-
-                            <p class="card-text">
-                                Diagnose, repair, and service Windows/Mac PCs and Android/iOS devices while consulting
-                                clients on service options and pricing. Work includes hardware and software troubleshooting,
-                                data backup, system repair, custom PC work, documentation, customer communication, and
-                                training new agents.
-                            </p>
-
-                            <div class="tag-row">
-                                <span class="tag">Hardware Repair</span>
-                                <span class="tag">Troubleshooting</span>
-                                <span class="tag">Client Support</span>
-                            </div>
-                        </div>
+                <div class="window-content">
+                    <div class="section-header">
+                        <div class="section-kicker">Experience</div>
+                        <h2 class="section-title">What I've Worked On</h2>
+                        <p class="section-subtitle">Technical experience across enterprise support, device repair, engineering education, and software-adjacent problem solving.</p>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card-clean experience-card">
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/teaching.png" alt="Teaching Icon">
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="exp-card">
+                                <div class="card-header">
+                                    <img src="icons/geeksquad.png" alt="Geek Squad" class="card-icon">
+                                    <div>
+                                        <h4>Advanced Repair Agent</h4>
+                                        <p class="card-meta">Geek Squad • Oct 2022 - Present</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="card-title">Teaching Assistant</h4>
-                                    <p class="card-meta">Wayne State University • Aug 2023 - Aug 2024</p>
+                                <p class="card-text">
+                                    Diagnose, repair, and service Windows/Mac PCs and Android/iOS devices while consulting
+                                    clients on service options and pricing. Work includes hardware and software troubleshooting,
+                                    data backup, system repair, custom PC work, documentation, customer communication, and
+                                    training new agents.
+                                </p>
+                                <div class="tag-row">
+                                    <span class="tag">Hardware Repair</span>
+                                    <span class="tag">Troubleshooting</span>
+                                    <span class="tag">Client Support</span>
                                 </div>
-                            </div>
-
-                            <p class="card-text">
-                                Supported engineering students in Siemens NX 3D modeling, Arduino circuitry, and
-                                introductory programming. Assisted with labs, troubleshooting, project coordination,
-                                3D printing workflows, and technical guidance while helping students refine
-                                project solutions.
-                            </p>
-
-                            <div class="tag-row">
-                                <span class="tag">Siemens NX</span>
-                                <span class="tag">Arduino</span>
-                                <span class="tag">3D Printing</span>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card-clean experience-card">
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/owlservices.png" alt="OWL Services Icon">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="exp-card">
+                                <div class="card-header">
+                                    <img src="icons/teaching.png" alt="Teaching" class="card-icon">
+                                    <div>
+                                        <h4>Teaching Assistant</h4>
+                                        <p class="card-meta">Wayne State University • Aug 2023 - Aug 2024</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="card-title">Information Technology Intern</h4>
-                                    <p class="card-meta">OWL Services • Aug 2025 - Present</p>
+                                <p class="card-text">
+                                    Supported engineering students in Siemens NX 3D modeling, Arduino circuitry, and
+                                    introductory programming. Assisted with labs, troubleshooting, project coordination,
+                                    3D printing workflows, and technical guidance while helping students refine
+                                    project solutions.
+                                </p>
+                                <div class="tag-row">
+                                    <span class="tag">Siemens NX</span>
+                                    <span class="tag">Arduino</span>
+                                    <span class="tag">3D Printing</span>
                                 </div>
                             </div>
+                        </div>
 
-                            <p class="card-text">
-                                Provide Tier 1/2 support across desktop, laptop, and mobile endpoints in an enterprise
-                                environment. Handle hardware and software issues, imaging, Microsoft 365 support,
-                                Active Directory tasks, remote troubleshooting, documentation, and workflow improvement
-                                with senior IT staff.
-                            </p>
-
-                            <div class="tag-row">
-                                <span class="tag">Microsoft 365</span>
-                                <span class="tag">Active Directory</span>
-                                <span class="tag">Endpoint Support</span>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="exp-card">
+                                <div class="card-header">
+                                    <img src="icons/owlservices.png" alt="OWL Services" class="card-icon">
+                                    <div>
+                                        <h4>Information Technology Intern</h4>
+                                        <p class="card-meta">OWL Services • Aug 2025 - Present</p>
+                                    </div>
+                                </div>
+                                <p class="card-text">
+                                    Provide Tier 1/2 support across desktop, laptop, and mobile endpoints in an enterprise
+                                    environment. Handle hardware and software issues, imaging, Microsoft 365 support,
+                                    Active Directory tasks, remote troubleshooting, documentation, and workflow improvement
+                                    with senior IT staff.
+                                </p>
+                                <div class="tag-row">
+                                    <span class="tag">Microsoft 365</span>
+                                    <span class="tag">Active Directory</span>
+                                    <span class="tag">Endpoint Support</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -231,289 +229,181 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section-wrap">
-        <div class="container section-space">
-            <div class="section-panel">
-                <div class="section-header">
-                    <div class="section-kicker">Projects</div>
-                    <h2 class="section-title">Selected Work</h2>
-                    <p class="section-subtitle">
-                        A mix of software engineering, graphics, Unity development, analytics, and personal project work.
-                    </p>
+    <section id="projects" class="content-section">
+        <div class="container">
+            <div class="window-panel">
+                <div class="window-header">
+                    <span>Projects</span>
+                    <span class="header-buttons">_  □  X</span>
                 </div>
+                <div class="window-content">
+                    <div class="section-header">
+                        <div class="section-kicker">Projects</div>
+                        <h2 class="section-title">Selected Work</h2>
+                        <p class="section-subtitle">A mix of software engineering, graphics, Unity development, analytics, and personal project work.</p>
+                    </div>
 
-                <div class="row g-4">
-                    <!-- SpeechMatch -->
-                    <div class="col-12">
-                        <div class="card-clean featured-project featured-wide">
-                            <div class="featured-badge">Featured • Capstone</div>
-                    
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/speechmatch.png" alt="SpeechMatch Icon">
-                                </div>
-                                <div>
-                                    <h4 class="card-title">SpeechMatch</h4>
-                                    <p class="card-meta">Senior Capstone Mobile Application</p>
-                                </div>
-                            </div>
-                    
-                            <p class="card-text">
-                                SpeechMatch is a mobile application focused on pronunciation feedback and language learning.
-                                As Frontend Lead, I worked on React Native screens, UI flow, API integration, debugging,
-                                authentication flows, and collaboration across the frontend, backend, and database layers.
-                                The system combines speech-processing workflows with user accounts, practice sessions,
-                                and feedback-driven interaction.
-                            </p>
-                    
-                            <div class="project-highlights">
-                                <div class="highlight-box">
-                                    <div class="highlight-label">Current Focus</div>
-                                    <div class="highlight-value">Mobile pronunciation app</div>
-                                    <div class="highlight-copy">
-                                        A capstone project centered around language practice, speech workflows, and user feedback.
+                    <div class="row g-4">
+                        <!-- SpeechMatch -->
+                        <div class="col-12">
+                            <div class="project-card featured">
+                                <div class="featured-badge">Featured • Capstone</div>
+                                <div class="project-header">
+                                    <img src="icons/speechmatch.png" alt="SpeechMatch" class="project-icon">
+                                    <div>
+                                        <h3>SpeechMatch</h3>
+                                        <p class="project-meta">Senior Capstone Mobile Application</p>
                                     </div>
                                 </div>
-                    
-                                <div class="highlight-box">
-                                    <div class="highlight-label">My Role</div>
-                                    <div class="highlight-value">Frontend Lead</div>
-                                    <div class="highlight-copy">
-                                        Built screens, handled UI flow, connected frontend logic to APIs, and helped debug cross-layer issues.
+
+                                <p class="project-description">
+                                    Built the React Native frontend for a speech pronunciation assessment app. Screens, API integration, authentication, and cross-layer debugging. Real-time feedback using Azure's speech APIs and custom phoneme comparison logic I built on top of it.
+                                </p>
+
+                                <div class="project-highlights">
+                                    <div class="highlight-box">
+                                        <div class="highlight-label">Role</div>
+                                        <div class="highlight-value">Frontend Lead</div>
+                                        <div class="highlight-copy">Built UI, APIs, auth, fixed everything.</div>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <div class="highlight-label">Tech</div>
+                                        <div class="highlight-value">React Native + FastAPI</div>
+                                        <div class="highlight-copy">TypeScript frontend, Python backend, speech processing.</div>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <div class="highlight-label">Status</div>
+                                        <div class="highlight-value">Live & Shipping</div>
+                                        <div class="highlight-copy">Active capstone, still pushing updates.</div>
                                     </div>
                                 </div>
-                    
-                                <div class="highlight-box">
-                                    <div class="highlight-label">Stack</div>
-                                    <div class="highlight-value">React Native + FastAPI</div>
-                                    <div class="highlight-copy">
-                                        TypeScript frontend with Expo, FastAPI backend services, PostgreSQL, Python, and GitHub-based teamwork.
+
+                                <div class="tag-row">
+                                    <span class="tag">React Native</span>
+                                    <span class="tag">Expo</span>
+                                    <span class="tag">TypeScript</span>
+                                    <span class="tag">FastAPI</span>
+                                    <span class="tag">PostgreSQL</span>
+                                    <span class="tag">Azure APIs</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- OpenGL -->
+                        <div class="col-lg-6">
+                            <div class="project-card">
+                                <div class="featured-badge">Featured • Graphics</div>
+                                <div class="project-header">
+                                    <img src="icons/opengl.png" alt="OpenGL" class="project-icon">
+                                    <div>
+                                        <h3>Interactive 3D Graphics Environment</h3>
+                                        <p class="project-meta">Computer Graphics Project</p>
                                     </div>
                                 </div>
-                            </div>
-                    
-                            <div class="tag-row">
-                                <span class="tag">React Native</span>
-                                <span class="tag">Expo</span>
-                                <span class="tag">TypeScript</span>
-                                <span class="tag">FastAPI</span>
-                                <span class="tag">PostgreSQL</span>
-                                <span class="tag">Python</span>
-                                <span class="tag">GitHub</span>
+
+                                <p class="project-description">
+                                    Built an interactive 3D graphics project in C++ using OpenGL/GLUT that renders imported
+                                    OBJ cow models inside a textured room. Implemented model loading, normal computation,
+                                    texture mapping, lighting/material setup, transformations, and real-time camera/object controls.
+                                </p>
+
+                                <div class="tag-row">
+                                    <span class="tag">C++</span>
+                                    <span class="tag">OpenGL</span>
+                                    <span class="tag">GLUT</span>
+                                    <span class="tag">Texture Mapping</span>
+                                    <span class="tag">Lighting</span>
+                                </div>
+
+                                <div class="project-actions">
+                                    <a href="Assignment3_AK.exe" download class="btn btn-project-primary">Download Demo</a>
+                                    <a href="Assignment3_AK.cpp" download class="btn btn-project-secondary">View Source</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- OpenGL -->
-                    <div class="col-lg-6">
-                        <div class="card-clean featured-project">
-                            <div class="featured-badge">Featured • Graphics</div>
-                    
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/opengl.png" alt="OpenGL project icon">
+                        <!-- Amazing Racer -->
+                        <div class="col-lg-6">
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <img src="icons/unity.png" alt="Unity" class="project-icon">
+                                    <div>
+                                        <h3>Amazing Racer</h3>
+                                        <p class="project-meta">Unity Game Programming Project</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="card-title">Interactive 3D Graphics Environment</h4>
-                                    <p class="card-meta">Computer Graphics Project</p>
+
+                                <p class="project-description">
+                                    A Unity first-person racing prototype built around movement, level design, and environmental tension.
+                                    Created a foggy course with multiple finish zones, checkpoint-based respawn changes, hazard resets,
+                                    and custom C# scripts to manage race flow and player progression.
+                                </p>
+
+                                <div class="tag-row">
+                                    <span class="tag">Unity</span>
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Game Design</span>
+                                    <span class="tag">Terrain Tools</span>
                                 </div>
+
+                                <a href="Assignment 3 CSC 5430 Angelo Kodra.docx" download class="btn btn-project-secondary">Download Report</a>
                             </div>
-                    
-                            <div class="project-media">
-                                <img
-                                    src="icons/opengl-cows.png"
-                                    alt="Screenshot of OpenGL graphics project"
-                                    class="project-shot"
-                                    loading="lazy"
-                                    onerror="this.parentElement.style.display='none';"
-                                >
-                            </div>
-                    
-                            <p class="card-text">
-                                Built an interactive 3D graphics project in C++ using OpenGL/GLUT that renders imported
-                                OBJ cow models inside a textured room. Implemented model loading, normal computation,
-                                texture mapping, lighting/material setup, transformations, and real-time camera/object controls.
-                                Added rendering and debugging options including wireframe mode, shading toggles, lighting controls,
-                                and adjustable camera parameters.
-                            </p>
-                    
-                            <div class="tag-row">
-                                <span class="tag">C++</span>
-                                <span class="tag">OpenGL</span>
-                                <span class="tag">GLUT</span>
-                                <span class="tag">OBJ Loading</span>
-                                <span class="tag">Texture Mapping</span>
-                                <span class="tag">Lighting</span>
-                            </div>
-                    
-                            <div class="project-actions">
-                                <a href="Assignment3_AK.exe" download class="btn-card">
-                                    Download Demo (.exe)
-                                </a>
-                                <a href="Assignment3_AK.cpp" download class="btn-card-secondary">
-                                    Download Source (.cpp)
-                                </a>
-                            </div>
-                    
-                            <details class="project-controls">
-                                <summary>View controls</summary>
-                                <ul>
-                                    <li><strong>W / S</strong> — move camera forward / backward</li>
-                                    <li><strong>A / D</strong> — move camera left / right</li>
-                                    <li><strong>Q / E</strong> — move camera up / down</li>
-                                    <li><strong>I / K</strong> — move model forward / backward</li>
-                                    <li><strong>J / L</strong> — move model left / right</li>
-                                    <li><strong>U / O</strong> — move model up / down</li>
-                                    <li><strong>X / Y / Z</strong> — rotate model axes</li>
-                                    <li><strong>Mouse drag</strong> — rotate model</li>
-                                    <li><strong>F</strong> — wireframe toggle</li>
-                                    <li><strong>G / g</strong> — flat / smooth shading</li>
-                                    <li><strong>T</strong> — texture toggle</li>
-                                    <li><strong>L</strong> — lighting toggle</li>
-                                    <li><strong>0 / 1</strong> — toggle lights</li>
-                                    <li><strong>V / H / N / M</strong> — adjust camera and clipping settings</li>
-                                    <li><strong>Esc</strong> — exit</li>
-                                </ul>
-                            </details>
-                    
-                            <p class="project-note">
-                                Desktop demo for Windows. For web hosting, make sure your filenames and paths match exactly,
-                                including capitalization.
-                            </p>
                         </div>
-                    </div>
 
-                    <!-- Amazing Racer -->
-                    <div class="col-lg-6">
-                        <div class="card-clean">
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/unity.png" alt="Unity Icon">
+                        <!-- Digital Windex -->
+                        <div class="col-lg-6">
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <img src="icons/windows.png" alt="Digital Windex" class="project-icon">
+                                    <div>
+                                        <h3>Digital Windex</h3>
+                                        <p class="project-meta">Windows Utility Application</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="card-title">Amazing Racer</h4>
-                                    <p class="card-meta">Unity Game Programming and Design Project</p>
+
+                                <p class="project-description">
+                                    A Windows maintenance application conceptualized, pitched, and selected from a pool of student ideas. 
+                                    Built with C#, .NET, and WPF, designed to simplify system diagnostics, repair, and optimization 
+                                    for non-technical users through a clean, modular interface.
+                                </p>
+
+                                <div class="tag-row">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">.NET</span>
+                                    <span class="tag">WPF</span>
+                                    <span class="tag">Agile</span>
+                                    <span class="tag">Scrum</span>
                                 </div>
+
+                                <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer" class="btn btn-project-primary">View on GitHub</a>
                             </div>
-
-                            <p class="card-text">
-                                A Unity first-person racing prototype built around movement, level design, and environmental tension.
-                                I created a foggy course with multiple finish zones, checkpoint-based respawn changes, hazard resets,
-                                and custom C# scripts to manage race flow and player progression.
-                                The project focused on designing a more atmospheric and gameplay-driven 3D experience.
-                            </p>
-
-                            <div class="tag-row">
-                                <span class="tag">Unity</span>
-                                <span class="tag">C#</span>
-                                <span class="tag">First Person Controller</span>
-                                <span class="tag">Terrain Tools</span>
-                                <span class="tag">Checkpoint Logic</span>
-                                <span class="tag">Fog / Lighting</span>
-                            </div>
-
-                            <a href="Assignment 3 CSC 5430 Angelo Kodra.docx" download class="btn-card-secondary">
-                                Download Report (DOCX)
-                            </a>
                         </div>
-                    </div>
 
-                    <!-- Digital Windex -->
-                    <div class="col-lg-6">
-                        <div class="card-clean">
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/windows.png" alt="Digital Windex Icon">
+                        <!-- Movie Attendance -->
+                        <div class="col-lg-6">
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <img src="icons/data.png" alt="Data Analysis" class="project-icon">
+                                    <div>
+                                        <h3>Predictive Analysis on Movie Attendance</h3>
+                                        <p class="project-meta">Data Analysis Project</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="card-title">Digital Windex</h4>
-                                    <p class="card-meta">Windows Utility Application</p>
+
+                                <p class="project-description">
+                                    Explored movie-going behavior using survey data and secondary datasets to uncover trends in demographics, 
+                                    genre preferences, and viewing habits. Used descriptive statistics, chi-square tests, correlation analysis, 
+                                    and predictive modeling including decision trees, logistic regression, and neural networks.
+                                </p>
+
+                                <div class="tag-row">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Pandas</span>
+                                    <span class="tag">scikit-learn</span>
+                                    <span class="tag">TensorFlow</span>
                                 </div>
-                            </div>
 
-                            <p class="card-text">
-                                Digital Windex is a Windows maintenance application that I conceptualized and pitched,
-                                and it was selected from a pool of student ideas. Built with C#, .NET, and WPF,
-                                the project is designed to simplify system diagnostics, repair, and optimization for
-                                non-technical users through a clean, modular interface.
-                            </p>
-
-                            <div class="tag-row">
-                                <span class="tag">C#</span>
-                                <span class="tag">.NET</span>
-                                <span class="tag">WPF</span>
-                                <span class="tag">Windows Utilities</span>
-                                <span class="tag">Git</span>
-                                <span class="tag">GitHub</span>
-                                <span class="tag">Agile</span>
-                                <span class="tag">Scrum</span>
-                            </div>
-
-                            <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer" class="btn-card">
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Movie Attendance -->
-                    <div class="col-lg-6">
-                        <div class="card-clean">
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/data.png" alt="Movie Attendance Project Icon">
-                                </div>
-                                <div>
-                                    <h4 class="card-title">Predictive Analysis on Movie Attendance</h4>
-                                    <p class="card-meta">Data Analysis Project</p>
-                                </div>
-                            </div>
-
-                            <p class="card-text">
-                                In a group project, I explored movie-going behavior using survey data and secondary datasets
-                                to uncover trends in demographics, genre preferences, and viewing habits. The project used
-                                descriptive statistics, chi-square tests, correlation analysis, and predictive modeling,
-                                including decision trees, logistic regression, and neural networks.
-                            </p>
-
-                            <div class="tag-row">
-                                <span class="tag">Python</span>
-                                <span class="tag">Pandas</span>
-                                <span class="tag">scikit-learn</span>
-                                <span class="tag">TensorFlow</span>
-                                <span class="tag">Data Analysis</span>
-                            </div>
-
-                            <a href="BE2100_G08_FinalPaper.pdf" download class="btn-card-secondary">
-                                Download Report (PDF)
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Portfolio -->
-                    <div class="col-lg-6">
-                        <div class="card-clean">
-                            <div class="card-top">
-                                <div class="card-icon-wrap">
-                                    <img src="icons/github.png" alt="Portfolio Website Icon">
-                                </div>
-                                <div>
-                                    <h4 class="card-title">Personal Portfolio Website</h4>
-                                    <p class="card-meta">Responsive Web Project</p>
-                                </div>
-                            </div>
-
-                            <p class="card-text">
-                                Designed and built a responsive personal portfolio website to showcase experience,
-                                projects, and contact information. The site uses Bootstrap for layout and responsiveness,
-                                custom CSS for styling, and structured sections for project highlights, resume access,
-                                and professional links.
-                            </p>
-
-                            <div class="tag-row">
-                                <span class="tag">HTML</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">Bootstrap</span>
-                                <span class="tag">JavaScript</span>
+                                <a href="BE2100_G08_FinalPaper.pdf" download class="btn btn-project-secondary">Download Report</a>
                             </div>
                         </div>
                     </div>
@@ -523,45 +413,25 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section-wrap">
-        <div class="container section-space">
-            <div class="cta-panel text-center">
-                <div class="section-header mb-4">
-                    <div class="section-kicker" style="background: rgba(255,255,255,0.12); color: #fff;">Contact</div>
-                    <h2 class="section-title text-white">Let's Connect</h2>
-                    <p class="section-subtitle text-white-50">
-                        Reach out for opportunities, collaboration, or anything interesting you think I'd want to build.
-                    </p>
+    <section id="contact" class="content-section">
+        <div class="container">
+            <div class="window-panel cta-panel">
+                <div class="window-header">
+                    <span>Contact</span>
+                    <span class="header-buttons">_  □  X</span>
                 </div>
+                <div class="window-content cta-content">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">Let's Connect</h2>
+                        <p class="section-subtitle">Reach out for opportunities, collaboration, or anything interesting you think I'd want to build.</p>
+                    </div>
 
-                <div class="cta-row">
-                    <a href="mailto:angkodra@gmail.com" class="btn-main">Get in Touch</a>
-                    <a href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer" class="btn-outline-glass">
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer" class="btn-outline-glass">
-                        GitHub
-                    </a>
+                    <div class="cta-buttons">
+                        <a href="mailto:angkodra@gmail.com" class="btn btn-hero-primary">Get in Touch</a>
+                        <a href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary">LinkedIn</a>
+                        <a href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary">GitHub</a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RESUME -->
-    <section id="resume" class="section-wrap">
-        <div class="container section-space">
-            <div class="section-panel resume-card">
-                <div class="section-header">
-                    <div class="section-kicker">Resume</div>
-                    <h2 class="section-title">Download My Resume</h2>
-                    <p class="section-subtitle">
-                        Grab the latest version here.
-                    </p>
-                </div>
-
-                <a href="AngeloKodra.docx" download class="btn-card">
-                    Download My Resume (DOCX)
-                </a>
             </div>
         </div>
     </section>
