@@ -1,1145 +1,1021 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Angelo Kodra | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --aero-blue: #4fc3f7;
-            --aero-blue-rgb: 79, 195, 247;
-            --aero-dark: #1565c0;
-            --aero-glass: rgba(20, 40, 80, 0.55);
-            --aero-glass-border: rgba(120, 200, 255, 0.35);
-            --aero-highlight: rgba(255,255,255,0.12);
-            --bg: #0b0e1a;
-            --bg-gradient: linear-gradient(180deg, #0a1628 0%, #0b0e1a 40%, #100a1e 100%);
-            --text: #d8e8f8;
-            --text-dim: #7ea8cc;
-            --accent-green: #76ff03;
-            --accent-orange: #ff9100;
-            --accent-pink: #ff4081;
-            --win-title: linear-gradient(180deg, #3a7bd5 0%, #1e4f91 50%, #2a6bc4 100%);
-            --win-border: #1a3a6a;
-            --pixel-font: 'Press Start 2P', monospace;
-            --ui-font: 'Chakra Petch', sans-serif;
-            --retro-font: 'VT323', monospace;
-        }
-
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            margin: 0;
-            padding-top: 52px;
-            background: var(--bg);
-            background-image: var(--bg-gradient);
-            color: var(--text);
-            font-family: var(--ui-font);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* CRT scanlines overlay */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0,0,0,0.08) 2px,
-                rgba(0,0,0,0.08) 4px
-            );
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        /* Starfield dots */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image:
-                radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3) 50%, transparent 100%),
-                radial-gradient(1px 1px at 30% 65%, rgba(255,255,255,0.2) 50%, transparent 100%),
-                radial-gradient(1.5px 1.5px at 55% 15%, rgba(255,255,255,0.35) 50%, transparent 100%),
-                radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.15) 50%, transparent 100%),
-                radial-gradient(1px 1px at 85% 40%, rgba(255,255,255,0.25) 50%, transparent 100%),
-                radial-gradient(1px 1px at 45% 90%, rgba(255,255,255,0.2) 50%, transparent 100%),
-                radial-gradient(1.5px 1.5px at 20% 50%, rgba(255,255,255,0.3) 50%, transparent 100%),
-                radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.2) 50%, transparent 100%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        a { text-decoration: none; color: inherit; }
-        .container { max-width: 1100px; position: relative; z-index: 1; }
-
-        /* ═══════════════ NAVBAR (Win7 taskbar) ═══════════════ */
-        .navbar {
-            background: linear-gradient(180deg, rgba(40,70,120,0.92) 0%, rgba(15,30,60,0.95) 100%);
-            border-bottom: 2px solid rgba(100,180,255,0.3);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 2px 20px rgba(0,100,200,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
-            padding: 0;
-            min-height: 52px;
-        }
-
-        .navbar-brand {
-            font-family: var(--pixel-font);
-            font-size: 0.7rem;
-            color: var(--aero-blue) !important;
-            letter-spacing: 1px;
-            padding: 0.5rem 0;
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--text) !important;
-            font-family: var(--ui-font);
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-left: 0.25rem;
-            padding: 0.65rem 1rem !important;
-            border-radius: 4px;
-            transition: all 0.2s;
-            position: relative;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            background: rgba(79,195,247,0.15);
-            color: #fff !important;
-            box-shadow: inset 0 0 12px rgba(79,195,247,0.1);
-        }
-
-        .navbar-toggler { border-color: rgba(79,195,247,0.4) !important; }
-        .navbar-toggler-icon { filter: brightness(2); }
-
-        /* ═══════════════ AERO GLASS WINDOW ═══════════════ */
-        .aero-window {
-            background: var(--aero-glass);
-            border: 1.5px solid var(--aero-glass-border);
-            border-radius: 8px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow:
-                0 8px 32px rgba(0,40,100,0.4),
-                inset 0 1px 0 var(--aero-highlight),
-                0 0 0 1px rgba(0,0,0,0.3);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .aero-titlebar {
-            background: var(--win-title);
-            padding: 6px 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(0,0,0,0.3);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-            user-select: none;
-        }
-
-        .titlebar-text {
-            font-family: var(--ui-font);
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: #fff;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .titlebar-icon {
-            width: 16px;
-            height: 16px;
-            background: linear-gradient(135deg, var(--aero-blue), var(--aero-dark));
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
-
-        .titlebar-buttons {
-            display: flex;
-            gap: 3px;
-        }
-
-        .tb-btn {
-            width: 26px;
-            height: 20px;
-            border-radius: 3px;
-            border: 1px solid rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            color: #fff;
-            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
-            cursor: default;
-        }
-
-        .tb-min { background: linear-gradient(180deg, #4a8fd4 0%, #3570b0 100%); }
-        .tb-max { background: linear-gradient(180deg, #4a8fd4 0%, #3570b0 100%); }
-        .tb-close { background: linear-gradient(180deg, #c75050 0%, #a83030 100%); }
-
-        .aero-body {
-            padding: 2rem;
-        }
-
-        /* ═══════════════ HERO ═══════════════ */
-        .hero {
-            padding: 2.5rem 0 1.5rem;
-        }
-
-        .hero-greeting {
-            font-family: var(--retro-font);
-            font-size: 1.4rem;
-            color: var(--accent-green);
-            margin-bottom: 0.25rem;
-            letter-spacing: 1px;
-        }
-
-        .hero-name {
-            font-family: var(--pixel-font);
-            font-size: clamp(1.4rem, 4vw, 2.2rem);
-            color: #fff;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 30px rgba(79,195,247,0.4), 0 2px 0 rgba(0,0,0,0.3);
-            line-height: 1.4;
-        }
-
-        .hero-desc {
-            font-size: 1rem;
-            color: var(--text-dim);
-            line-height: 1.75;
-            max-width: 620px;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-desc strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        /* Buttons — chunky early-2000s feel */
-        .btn-retro {
-            font-family: var(--ui-font);
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 0.6rem 1.6rem;
-            border-radius: 4px;
-            border: 2px solid;
-            cursor: pointer;
-            transition: all 0.15s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-        }
-
-        .btn-retro:active { transform: scale(0.97); }
-
-        .btn-primary-retro {
-            background: linear-gradient(180deg, #5cb8ff 0%, #2680c2 50%, #3a9aea 100%);
-            border-color: #1a5a8f;
-            color: #fff;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-            box-shadow: 0 2px 8px rgba(38,128,194,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
-        }
-
-        .btn-primary-retro:hover {
-            background: linear-gradient(180deg, #6ec5ff 0%, #3090d5 50%, #4aaaff 100%);
-            box-shadow: 0 4px 16px rgba(38,128,194,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
-            color: #fff;
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary-retro {
-            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
-            border-color: var(--aero-glass-border);
-            color: var(--aero-blue);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-        }
-
-        .btn-secondary-retro:hover {
-            background: rgba(79,195,247,0.1);
-            border-color: var(--aero-blue);
-            color: #fff;
-            transform: translateY(-1px);
-        }
-
-        /* Stats bar */
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .stat-box {
-            background: rgba(0,20,50,0.5);
-            border: 1px solid rgba(79,195,247,0.2);
-            border-radius: 4px;
-            padding: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--aero-blue), transparent);
-        }
-
-        .stat-label {
-            font-family: var(--retro-font);
-            font-size: 1rem;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.4rem;
-        }
-
-        .stat-val {
-            font-family: var(--ui-font);
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-sub {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            line-height: 1.5;
-        }
-
-        /* ═══════════════ SECTIONS ═══════════════ */
-        .content-section { padding: 1.5rem 0; }
-
-        .section-kicker {
-            font-family: var(--pixel-font);
-            font-size: 0.55rem;
-            color: var(--accent-orange);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-title {
-            font-family: var(--ui-font);
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 16px rgba(79,195,247,0.2);
-        }
-
-        .section-sub {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            max-width: 600px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .section-header .section-sub {
-            margin: 0 auto;
-        }
-
-        /* ═══════════════ ABOUT ═══════════════ */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .about-photo {
-            width: 100%;
-            border-radius: 6px;
-            border: 2px solid var(--aero-glass-border);
-            box-shadow: 0 4px 20px rgba(0,40,100,0.3);
-        }
-
-        .about-copy {
-            font-size: 0.95rem;
-            color: var(--text-dim);
-            line-height: 1.75;
-        }
-
-        .about-copy strong {
-            color: var(--text);
-        }
-
-        .skill-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1.25rem 0;
-        }
-
-        .chip {
-            font-family: var(--retro-font);
-            font-size: 0.95rem;
-            background: rgba(79,195,247,0.1);
-            color: var(--aero-blue);
-            border: 1px solid rgba(79,195,247,0.25);
-            padding: 0.25rem 0.65rem;
-            border-radius: 3px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 0.6rem;
-            margin-top: 1.25rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1.5px solid rgba(79,195,247,0.3);
-            border-radius: 4px;
-            background: rgba(79,195,247,0.06);
-            transition: all 0.2s;
-        }
-
-        .social-link:hover {
-            background: rgba(79,195,247,0.15);
-            border-color: var(--aero-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(79,195,247,0.2);
-        }
-
-        .social-link img { width: 20px; height: 20px; }
-
-        /* ═══════════════ EXPERIENCE ═══════════════ */
-        .exp-card {
-            background: rgba(0,20,50,0.4);
-            border: 1.5px solid rgba(79,195,247,0.2);
-            border-radius: 6px;
-            padding: 1.25rem;
-            height: 100%;
-            transition: all 0.2s;
-        }
-
-        .exp-card:hover {
-            border-color: rgba(79,195,247,0.5);
-            box-shadow: 0 4px 20px rgba(79,195,247,0.1);
-        }
-
-        .card-header {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            align-items: flex-start;
-        }
-
-        .card-icon { width: 44px; height: 44px; flex-shrink: 0; }
-
-        .card-header h4 {
-            margin: 0;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .card-meta {
-            margin: 0.2rem 0 0;
-            color: var(--accent-orange);
-            font-family: var(--retro-font);
-            font-size: 1rem;
-        }
-
-        .card-text {
-            color: var(--text-dim);
-            font-size: 0.88rem;
-            line-height: 1.65;
-            margin-bottom: 0.75rem;
-        }
-
-        .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-
-        .tag {
-            font-family: var(--retro-font);
-            font-size: 0.9rem;
-            background: rgba(118,255,3,0.08);
-            color: var(--accent-green);
-            border: 1px solid rgba(118,255,3,0.2);
-            padding: 0.15rem 0.55rem;
-            border-radius: 2px;
-            letter-spacing: 0.5px;
-        }
-
-        /* ═══════════════ PROJECTS ═══════════════ */
-        .project-card {
-            background: rgba(0,20,50,0.4);
-            border: 1.5px solid rgba(79,195,247,0.2);
-            border-radius: 6px;
-            padding: 1.25rem;
-            transition: all 0.2s;
-        }
-
-        .project-card:hover {
-            border-color: rgba(79,195,247,0.5);
-            box-shadow: 0 4px 20px rgba(79,195,247,0.1);
-        }
-
-        .project-card.featured {
-            border-color: rgba(79,195,247,0.45);
-            background: rgba(10,30,70,0.5);
-            box-shadow: 0 0 24px rgba(79,195,247,0.08);
-        }
-
-        .featured-badge {
-            display: inline-block;
-            font-family: var(--pixel-font);
-            font-size: 0.5rem;
-            background: rgba(255,145,0,0.15);
-            color: var(--accent-orange);
-            border: 1px solid rgba(255,145,0,0.3);
-            padding: 0.35rem 0.7rem;
-            border-radius: 3px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-
-        .project-header {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            align-items: flex-start;
-        }
-
-        .project-icon { width: 48px; height: 48px; flex-shrink: 0; }
-
-        .project-header h3 {
-            margin: 0;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--aero-blue);
-        }
-
-        .project-meta {
-            margin: 0.2rem 0 0;
-            color: var(--text-dim);
-            font-size: 0.8rem;
-        }
-
-        .project-description {
-            color: var(--text-dim);
-            font-size: 0.88rem;
-            line-height: 1.65;
-            margin-bottom: 1rem;
-        }
-
-        .project-highlights {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
-            margin: 1rem 0;
-        }
-
-        .highlight-box {
-            background: rgba(0,20,50,0.5);
-            border: 1px solid rgba(79,195,247,0.15);
-            border-radius: 4px;
-            padding: 0.75rem;
-        }
-
-        .highlight-label {
-            font-family: var(--retro-font);
-            font-size: 0.85rem;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
-        }
-
-        .highlight-value {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.2rem;
-        }
-
-        .highlight-copy {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            line-height: 1.4;
-        }
-
-        .project-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-
-        /* ═══════════════ CONTACT / CTA ═══════════════ */
-        .cta-content { text-align: center; }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        /* ═══════════════ FOOTER ═══════════════ */
-        .site-footer {
-            padding: 1.5rem 0;
-            text-align: center;
-            font-family: var(--retro-font);
-            font-size: 1rem;
-            color: var(--text-dim);
-            border-top: 1px solid rgba(79,195,247,0.1);
-            margin-top: 2rem;
-        }
-
-        .footer-ascii {
-            font-family: var(--retro-font);
-            font-size: 0.9rem;
-            color: rgba(79,195,247,0.3);
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
-        }
-
-        /* ═══════════════ BLINKER ═══════════════ */
-        .blink {
-            animation: blink-anim 1s step-end infinite;
-        }
-
-        @keyframes blink-anim {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* ═══════════════ GLOW PULSE on featured ═══════════════ */
-        @keyframes glow-pulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(79,195,247,0.08); }
-            50% { box-shadow: 0 0 30px rgba(79,195,247,0.18); }
-        }
-
-        .project-card.featured { animation: glow-pulse 4s ease-in-out infinite; }
-
-        /* ═══════════════ RESPONSIVE ═══════════════ */
-        @media (max-width: 991px) {
-            .about-grid { grid-template-columns: 1fr; text-align: center; }
-            .about-photo-wrap { margin: 0 auto; max-width: 220px; }
-            .social-icons { justify-content: center; }
-            .stats-bar { grid-template-columns: 1fr; }
-            .project-highlights { grid-template-columns: 1fr; }
-            .skill-chips { justify-content: center; }
-        }
-
-        @media (max-width: 768px) {
-            body { padding-top: 52px; }
-            .aero-body { padding: 1.25rem; }
-            .hero-name { font-size: 1.3rem; }
-            .hero-buttons, .cta-buttons { flex-direction: column; gap: 0.5rem; }
-            .btn-retro { width: 100%; text-align: center; }
-            .project-header { flex-direction: column; }
-            .project-highlights { grid-template-columns: 1fr; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angelo Kodra | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070a12;
+      --bg-2: #0b1328;
+      --panel: rgba(14, 28, 58, 0.78);
+      --panel-strong: rgba(17, 35, 72, 0.92);
+      --line: rgba(112, 177, 255, 0.32);
+      --line-hot: rgba(129, 195, 255, 0.62);
+      --text: #edf5ff;
+      --muted: #99afd0;
+      --dim: #7186a8;
+      --blue: #83c7ff;
+      --blue-2: #3d8fe8;
+      --green: #9cff42;
+      --orange: #ffb23f;
+      --red: #d64c3c;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      --pixel: 'Press Start 2P', system-ui, sans-serif;
+      --ui: 'Chakra Petch', 'Segoe UI', sans-serif;
+      --mono: 'VT323', monospace;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(60, 143, 232, 0.22), transparent 28rem),
+        radial-gradient(circle at 82% 5%, rgba(156, 255, 66, 0.08), transparent 21rem),
+        radial-gradient(circle at 50% 90%, rgba(255, 178, 63, 0.08), transparent 24rem),
+        linear-gradient(180deg, #071023 0%, #080b15 46%, #0b0712 100%);
+      color: var(--text);
+      font-family: var(--ui);
+      padding-top: 68px;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.85), transparent 88%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 4px);
+      pointer-events: none;
+      opacity: 0.42;
+      z-index: 100;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      background: var(--text);
+      color: #071023;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      z-index: 999;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus { top: 1rem; }
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto;
+      height: 68px;
+      z-index: 50;
+      background: rgba(8, 16, 34, 0.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 0 26px rgba(131,199,255,0.28);
+      display: grid;
+      place-items: center;
+      color: #061022;
+      font-weight: 800;
+    }
+
+    .brand-text {
+      font-family: var(--pixel);
+      color: var(--blue);
+      font-size: 0.64rem;
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+      background: rgba(131,199,255,0.08);
+      border-color: rgba(131,199,255,0.22);
+      outline: none;
+    }
+
+    .section { padding: 2.2rem 0; scroll-margin-top: 90px; }
+
+    .window {
+      background: linear-gradient(180deg, rgba(21, 39, 78, 0.86), rgba(10, 20, 43, 0.86));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .window-bar {
+      min-height: 34px;
+      padding: 0.45rem 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background:
+        linear-gradient(180deg, rgba(109,161,255,0.72), rgba(39,83,159,0.82) 45%, rgba(27,55,105,0.9));
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .window-title {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.84rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+    }
+
+    .window-icon {
+      width: 15px;
+      height: 15px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #b9e6ff, #4d9cff);
+      box-shadow: inset 0 1px rgba(255,255,255,0.5);
+    }
+
+    .window-buttons { display: flex; gap: 0.32rem; }
+
+    .dot {
+      width: 25px;
+      height: 18px;
+      border: 1px solid rgba(0,0,0,0.26);
+      border-radius: 5px;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.72rem;
+      line-height: 1;
+      background: rgba(255,255,255,0.17);
+      box-shadow: inset 0 1px rgba(255,255,255,0.18);
+    }
+
+    .dot.close { background: linear-gradient(180deg, #d96a58, #a8392f); }
+
+    .window-body { padding: clamp(1.25rem, 3vw, 2rem); }
+
+    .hero .window-body { padding: clamp(1.7rem, 4vw, 3rem); }
+
+    .terminal-line {
+      font-family: var(--mono);
+      color: var(--green);
+      font-size: clamp(1.28rem, 2vw, 1.62rem);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.8rem;
+    }
+
+    .cursor {
+      display: inline-block;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-title {
+      font-family: var(--pixel);
+      font-size: clamp(2rem, 6vw, 4.55rem);
+      line-height: 1.18;
+      margin: 0 0 1.3rem;
+      letter-spacing: -0.05em;
+      color: #fff;
+      text-shadow: 0 0 34px rgba(131,199,255,0.26), 0 4px 0 rgba(0,0,0,0.22);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+      gap: clamp(1.4rem, 4vw, 3rem);
+      align-items: center;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+      line-height: 1.78;
+      max-width: 680px;
+      margin: 0 0 1.55rem;
+    }
+
+    strong { color: var(--text); font-weight: 800; }
+
+    .hero-card {
+      background: rgba(5, 14, 31, 0.68);
+      border: 1px solid rgba(131,199,255,0.22);
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .portrait-frame {
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(131,199,255,0.32);
+      background: #0c1630;
+      aspect-ratio: 4 / 5;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      filter: saturate(0.96) contrast(1.03);
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .fact {
+      background: rgba(131,199,255,0.06);
+      border: 1px solid rgba(131,199,255,0.16);
+      border-radius: 12px;
+      padding: 0.75rem;
+    }
+
+    .fact span {
+      display: block;
+      color: var(--orange);
+      font-family: var(--mono);
+      font-size: 1.02rem;
+      letter-spacing: 0.05em;
+    }
+
+    .fact b {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-top: 0.15rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.72rem 1.1rem;
+      border-radius: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      transition: transform 0.17s ease, box-shadow 0.17s ease, border-color 0.17s ease, background 0.17s ease;
+      border: 1px solid rgba(131,199,255,0.32);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .btn.primary {
+      color: #071023;
+      background: linear-gradient(180deg, #b8e3ff, #62b6ff 52%, #348ee8);
+      box-shadow: 0 12px 30px rgba(64, 155, 255, 0.24), inset 0 1px rgba(255,255,255,0.5);
+      border-color: rgba(214,240,255,0.55);
+    }
+
+    .btn.secondary {
+      color: var(--blue);
+      background: rgba(131,199,255,0.065);
+      border-color: rgba(131,199,255,0.35);
+    }
+
+    .btn.secondary:hover,
+    .btn.secondary:focus-visible {
+      color: var(--text);
+      border-color: var(--line-hot);
+      box-shadow: 0 12px 28px rgba(131,199,255,0.12);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    .stat {
+      border: 1px solid rgba(131,199,255,0.2);
+      border-radius: 14px;
+      padding: 1rem;
+      background: rgba(5, 14, 31, 0.54);
+    }
+
+    .eyebrow,
+    .stat-label,
+    .mini-label {
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 1.02rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .stat h3 {
+      margin: 0.35rem 0 0.25rem;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .stat p {
+      margin: 0;
+      color: var(--dim);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-head h2 {
+      margin: 0.42rem 0 0.45rem;
+      color: #fff;
+      font-size: clamp(1.9rem, 3vw, 2.55rem);
+      line-height: 1.1;
+    }
+
+    .section-head p {
+      margin: 0 auto;
+      max-width: 720px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .about-card {
+      background: rgba(5,14,31,0.5);
+      border: 1px solid rgba(131,199,255,0.18);
+      border-radius: 16px;
+      padding: 1.15rem;
+    }
+
+    .about-card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .about-card p:last-child { margin-bottom: 0; }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.52rem;
+      margin-top: 1.05rem;
+    }
+
+    .chip,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(156,255,66,0.08);
+      border: 1px solid rgba(156,255,66,0.24);
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 1rem;
+      line-height: 1;
+      padding: 0.42rem 0.66rem;
+      white-space: nowrap;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .experience-card,
+    .project-card {
+      height: 100%;
+      border: 1px solid rgba(131,199,255,0.2);
+      border-radius: 17px;
+      background: rgba(5,14,31,0.52);
+      padding: 1.12rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .experience-card:hover,
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(131,199,255,0.48);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.24), 0 0 32px rgba(131,199,255,0.06);
+    }
+
+    .card-top {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      margin-bottom: 0.85rem;
+    }
+
+    .logo-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      border: 1px solid rgba(131,199,255,0.24);
+      background:
+        linear-gradient(135deg, rgba(131,199,255,0.14), rgba(156,255,66,0.06));
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      flex: 0 0 auto;
+      overflow: hidden;
+    }
+
+    .logo-badge img {
+      width: 72%;
+      height: 72%;
+      object-fit: contain;
+    }
+
+    .card-top h3,
+    .project-card h3 {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.08rem;
+      line-height: 1.25;
+    }
+
+    .meta {
+      color: var(--orange);
+      font-family: var(--mono);
+      font-size: 1.02rem;
+      letter-spacing: 0.04em;
+      margin-top: 0.16rem;
+    }
+
+    .card-copy,
+    .project-copy {
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0.8rem 0 1rem;
+      font-size: 0.97rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card.featured {
+      grid-column: 1 / -1;
+      border-color: rgba(131,199,255,0.48);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(131,199,255,0.16), transparent 26rem),
+        rgba(5,14,31,0.58);
+    }
+
+    .project-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .project-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--orange);
+      background: rgba(255,178,63,0.11);
+      border: 1px solid rgba(255,178,63,0.28);
+      border-radius: 999px;
+      padding: 0.38rem 0.65rem;
+      font-family: var(--mono);
+      font-size: 1rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .project-meta { color: var(--dim); margin-top: 0.18rem; font-size: 0.94rem; }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    .highlight {
+      border: 1px solid rgba(131,199,255,0.16);
+      background: rgba(131,199,255,0.045);
+      border-radius: 13px;
+      padding: 0.85rem;
+    }
+
+    .highlight h4 {
+      margin: 0.28rem 0 0.22rem;
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+
+    .highlight p {
+      margin: 0;
+      color: var(--dim);
+      line-height: 1.42;
+      font-size: 0.86rem;
+    }
+
+    .contact-card {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0.6rem auto 1.4rem;
+      max-width: 650px;
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: 1.1rem;
+    }
+
+    .footer {
+      color: var(--dim);
+      text-align: center;
+      padding: 1.2rem 0 2.4rem;
+      font-family: var(--mono);
+      font-size: 1.05rem;
+    }
+
+    .mobile-menu {
+      display: none;
+      border: 1px solid rgba(131,199,255,0.3);
+      background: rgba(131,199,255,0.06);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.55rem 0.7rem;
+      font-weight: 800;
+      font-family: var(--ui);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .timeline,
+      .project-grid,
+      .stats { grid-template-columns: 1fr; }
+      .hero-card { max-width: 420px; }
+      .project-card.featured { grid-column: auto; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(8, 16, 34, 0.96);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 0.7rem;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { border-radius: 10px; }
+      .mobile-menu { display: inline-flex; }
+    }
+
+    @media (max-width: 560px) {
+      body { padding-top: 62px; }
+      .topbar, .nav { height: 62px; }
+      .container { width: min(100% - 28px, 1120px); }
+      .window-body { padding: 1rem; }
+      .hero .window-body { padding: 1.25rem; }
+      .quick-facts { grid-template-columns: 1fr; }
+      .project-head { flex-direction: column; }
+      .actions .btn, .social-row .btn { width: 100%; }
+      .section { padding: 1.25rem 0; }
+      .brand-text { font-size: 0.56rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
-
-    <!-- NAVBAR — styled as Win7 taskbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">ANGELO.EXE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+  <header class="topbar">
+    <nav class="container nav" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Angelo Kodra home">
+        <span class="brand-mark">AK</span>
+        <span class="brand-text">ANGELO.EXE</span>
+      </a>
+      <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
+  </header>
 
-    <!-- ═══════════════ HERO ═══════════════ -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="aero-window">
-                <div class="aero-titlebar">
-                    <span class="titlebar-text">
-                        <span class="titlebar-icon"></span>
-                        Angelo Kodra — Portfolio
-                    </span>
-                    <div class="titlebar-buttons">
-                        <span class="tb-btn tb-min">─</span>
-                        <span class="tb-btn tb-max">□</span>
-                        <span class="tb-btn tb-close">✕</span>
-                    </div>
-                </div>
-                <div class="aero-body">
-                    <div class="hero-greeting">C:\Users\Angelo&gt; whoami<span class="blink">_</span></div>
-                    <h1 class="hero-name">Angelo Kodra</h1>
-                    <p class="hero-desc">
-                        I got into this by taking things apart — phones, PCs, anything I could get a screwdriver into.
-                        That turned into fixing them for other people, and eventually into <strong>building software from scratch</strong>.
-                        Now I write code that ships: mobile apps, backend services, graphics engines, system tools.
-                        I like understanding how the whole stack works, not just my corner of it.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn-retro btn-primary-retro">View Projects</a>
-                        <a href="AngeloKodra.docx" download class="btn-retro btn-secondary-retro">Download Resume</a>
-                    </div>
-
-                    <div class="stats-bar">
-                        <div class="stat-box">
-                            <div class="stat-label">// What I Build</div>
-                            <div class="stat-val">Full-Stack Systems</div>
-                            <div class="stat-sub">Mobile frontends, APIs, databases, graphics — the whole thing, not just pieces.</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-label">// Where I Started</div>
-                            <div class="stat-val">Hands On Hardware</div>
-                            <div class="stat-sub">Years of diagnosing broken devices. You learn how systems actually fail.</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-label">// Right Now</div>
-                            <div class="stat-val">Senior Year, Shipping</div>
-                            <div class="stat-sub">Finishing capstone, interviewing, and looking for what's next.</div>
-                        </div>
-                    </div>
-                </div>
+  <main id="main">
+    <section class="section hero" id="home">
+      <div class="container">
+        <article class="window">
+          <div class="window-bar">
+            <div class="window-title"><span class="window-icon"></span>Angelo Kodra — Portfolio</div>
+            <div class="window-buttons" aria-hidden="true">
+              <span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span>
             </div>
-        </div>
+          </div>
+          <div class="window-body">
+            <div class="hero-grid">
+              <div>
+                <div class="terminal-line">C:\Users\Angelo&gt; whoami<span class="cursor">_</span></div>
+                <h1 class="hero-title">Angelo Kodra</h1>
+                <p class="hero-copy">
+                  I started by taking things apart — phones, PCs, anything I could get a screwdriver into. That turned into repairing devices for other people, teaching engineering labs, and now building full-stack software. I like work where <strong>hardware, systems, and code all touch</strong>.
+                </p>
+                <div class="actions">
+                  <a class="btn primary" href="#projects">View projects</a>
+                  <a class="btn secondary" href="AngeloKodra.docx" download>Download resume</a>
+                  <a class="btn secondary" href="mailto:angkodra@gmail.com">Contact me</a>
+                </div>
+                <div class="stats" aria-label="Quick summary">
+                  <div class="stat">
+                    <div class="stat-label">// Build</div>
+                    <h3>Full-stack systems</h3>
+                    <p>React Native, FastAPI, PostgreSQL, C#, C++, Python.</p>
+                  </div>
+                  <div class="stat">
+                    <div class="stat-label">// Fix</div>
+                    <h3>Real troubleshooting</h3>
+                    <p>Years of hardware repair, endpoint support, and user-facing problem solving.</p>
+                  </div>
+                  <div class="stat">
+                    <div class="stat-label">// Focus</div>
+                    <h3>Entry-level SWE / IT</h3>
+                    <p>Detroit area, remote, or hybrid roles where I can contribute fast.</p>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="hero-card" aria-label="Profile card">
+                <div class="portrait-frame">
+                  <img src="ak-face.jpeg" alt="Angelo Kodra" />
+                </div>
+                <div class="quick-facts">
+                  <div class="fact"><span>School</span><b>Wayne State CS</b></div>
+                  <div class="fact"><span>GPA</span><b>3.81 / 4.0</b></div>
+                  <div class="fact"><span>Now</span><b>Senior year</b></div>
+                  <div class="fact"><span>Home base</span><b>Metro Detroit</b></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- ═══════════════ ABOUT ═══════════════ -->
-    <section id="about" class="content-section">
-        <div class="container">
-            <div class="aero-window">
-                <div class="aero-titlebar">
-                    <span class="titlebar-text"><span class="titlebar-icon"></span>About Me</span>
-                    <div class="titlebar-buttons">
-                        <span class="tb-btn tb-min">─</span>
-                        <span class="tb-btn tb-max">□</span>
-                        <span class="tb-btn tb-close">✕</span>
-                    </div>
+    <section class="section" id="about">
+      <div class="container">
+        <article class="window">
+          <div class="window-bar">
+            <div class="window-title"><span class="window-icon"></span>About</div>
+            <div class="window-buttons" aria-hidden="true"><span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span></div>
+          </div>
+          <div class="window-body">
+            <header class="section-head">
+              <div class="eyebrow">// Profile</div>
+              <h2>Curiosity → capability.</h2>
+              <p>My experience sits in the overlap between software engineering, IT support, hardware repair, and technical teaching.</p>
+            </header>
+
+            <div class="about-grid">
+              <div class="about-card">
+                <p>
+                  I'm a Computer Science student at Wayne State University finishing senior year while working in enterprise IT. Before that, I repaired consumer hardware at Geek Squad and taught engineering students Siemens NX, Arduino, 3D printing, and basic programming.
+                </p>
+                <p>
+                  That mix is the point: I do not just want to write code in a vacuum. I like understanding how software behaves once real users, broken devices, networks, databases, and deadlines get involved.
+                </p>
+              </div>
+              <div class="about-card">
+                <p>
+                  The through-line in my work is practical problem solving: debug the issue, explain it clearly, document the fix, and keep moving. That shows up in my capstone, my repair work, my IT support, and my class projects.
+                </p>
+                <div class="chip-row" aria-label="Skills">
+                  <span class="chip">C#</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">Java</span><span class="chip">TypeScript</span><span class="chip">React Native</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Unity</span><span class="chip">OpenGL</span><span class="chip">Active Directory</span><span class="chip">Microsoft 365</span>
                 </div>
-                <div class="aero-body">
-                    <div class="section-header">
-                        <div class="section-kicker">// Profile</div>
-                        <h2 class="section-title">About Me</h2>
-                    </div>
-
-                    <div class="about-grid">
-                        <div class="about-photo-wrap">
-                            <img src="ak-face.jpeg" alt="Angelo Kodra" class="about-photo">
-                        </div>
-                        <div class="about-copy">
-                            <p>
-                                I'm a senior CS student at Wayne State University finishing up my degree while working
-                                as an IT intern in an enterprise environment. My path has been a straight line from
-                                <strong>curiosity to capability</strong> — I started by repairing consumer hardware at Geek Squad,
-                                taught engineering students how to use 3D modeling tools and microcontrollers as a TA,
-                                and now I write production software and manage infrastructure.
-                            </p>
-                            <p>
-                                What I care about is <strong>understanding the full picture</strong>. I've touched every layer
-                                of the stack at this point — device repair, system administration, backend APIs,
-                                mobile frontends, computer graphics, data pipelines. That range isn't accidental.
-                                I learn things by building them, breaking them, and fixing them.
-                            </p>
-
-                            <div class="skill-chips">
-                                <span class="chip">C#</span>
-                                <span class="chip">C++</span>
-                                <span class="chip">Java</span>
-                                <span class="chip">Python</span>
-                                <span class="chip">TypeScript</span>
-                                <span class="chip">React Native</span>
-                                <span class="chip">FastAPI</span>
-                                <span class="chip">PostgreSQL</span>
-                                <span class="chip">Unity</span>
-                                <span class="chip">OpenGL</span>
-                                <span class="chip">Siemens NX</span>
-                                <span class="chip">IT Support</span>
-                            </div>
-
-                            <div class="social-icons">
-                                <a class="social-link" href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer">
-                                    <img src="icons/github.png" alt="GitHub">
-                                </a>
-                                <a class="social-link" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer">
-                                    <img src="icons/linkedin.png" alt="LinkedIn">
-                                </a>
-                                <a class="social-link" href="mailto:angkodra@gmail.com">
-                                    <img src="icons/email.png" alt="Email">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-        </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- ═══════════════ EXPERIENCE ═══════════════ -->
-    <section id="experience" class="content-section">
-        <div class="container">
-            <div class="aero-window">
-                <div class="aero-titlebar">
-                    <span class="titlebar-text"><span class="titlebar-icon"></span>Experience</span>
-                    <div class="titlebar-buttons">
-                        <span class="tb-btn tb-min">─</span>
-                        <span class="tb-btn tb-max">□</span>
-                        <span class="tb-btn tb-close">✕</span>
-                    </div>
+    <section class="section" id="experience">
+      <div class="container">
+        <article class="window">
+          <div class="window-bar">
+            <div class="window-title"><span class="window-icon"></span>Experience</div>
+            <div class="window-buttons" aria-hidden="true"><span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span></div>
+          </div>
+          <div class="window-body">
+            <header class="section-head">
+              <div class="eyebrow">// Work history</div>
+              <h2>Where I learned how systems break.</h2>
+              <p>Enterprise IT, consumer repair, and engineering labs gave me a grounded view of software from the user side and the builder side.</p>
+            </header>
+
+            <div class="timeline">
+              <article class="experience-card">
+                <div class="card-top">
+                  <div class="logo-badge"><img src="icons/geeksquad.png" alt="" /></div>
+                  <div>
+                    <h3>Advanced Repair Agent</h3>
+                    <div class="meta">Geek Squad · Oct 2022 – Present</div>
+                  </div>
                 </div>
-                <div class="aero-body">
-                    <div class="section-header">
-                        <div class="section-kicker">// Work History</div>
-                        <h2 class="section-title">Where I've Worked</h2>
-                        <p class="section-sub">Enterprise IT, consumer hardware repair, and engineering education — every role taught me how real systems break and how to fix them.</p>
-                    </div>
+                <p class="card-copy">Diagnose and repair Windows, Mac, Android, and iOS devices end-to-end: hardware swaps, OS troubleshooting, data recovery, custom builds, and client communication.</p>
+                <div class="chip-row"><span class="tag">Hardware repair</span><span class="tag">Troubleshooting</span><span class="tag">Client support</span></div>
+              </article>
 
-                    <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="exp-card">
-                                <div class="card-header">
-                                    <img src="icons/geeksquad.png" alt="Geek Squad" class="card-icon">
-                                    <div>
-                                        <h4>Advanced Repair Agent</h4>
-                                        <p class="card-meta">Geek Squad · Oct 2022 – Present</p>
-                                    </div>
-                                </div>
-                                <p class="card-text">
-                                    Diagnose and repair Windows, Mac, Android, and iOS devices end-to-end.
-                                    Hardware swaps, OS-level troubleshooting, data recovery, custom builds.
-                                    I also train new agents and handle client communication on service options and pricing.
-                                </p>
-                                <div class="tag-row">
-                                    <span class="tag">Hardware Repair</span>
-                                    <span class="tag">Troubleshooting</span>
-                                    <span class="tag">Client Support</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="exp-card">
-                                <div class="card-header">
-                                    <img src="icons/teaching.png" alt="Teaching" class="card-icon">
-                                    <div>
-                                        <h4>Teaching Assistant</h4>
-                                        <p class="card-meta">Wayne State · Aug 2023 – Aug 2024</p>
-                                    </div>
-                                </div>
-                                <p class="card-text">
-                                    Ran labs for intro engineering students covering Siemens NX 3D modeling,
-                                    Arduino circuits, and basic programming. Helped debug projects, managed
-                                    3D printing workflows, and guided students through technical problems
-                                    they'd never seen before.
-                                </p>
-                                <div class="tag-row">
-                                    <span class="tag">Siemens NX</span>
-                                    <span class="tag">Arduino</span>
-                                    <span class="tag">3D Printing</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="exp-card">
-                                <div class="card-header">
-                                    <img src="icons/owlservices.png" alt="OWL Services" class="card-icon">
-                                    <div>
-                                        <h4>IT Intern</h4>
-                                        <p class="card-meta">OWL Services · Aug 2025 – Present</p>
-                                    </div>
-                                </div>
-                                <p class="card-text">
-                                    Tier 1/2 support across hundreds of endpoints in an enterprise environment.
-                                    System imaging, Active Directory administration, Microsoft 365 troubleshooting,
-                                    remote support, documentation, and process improvement alongside senior IT staff.
-                                </p>
-                                <div class="tag-row">
-                                    <span class="tag">Microsoft 365</span>
-                                    <span class="tag">Active Directory</span>
-                                    <span class="tag">Endpoint Support</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <article class="experience-card">
+                <div class="card-top">
+                  <div class="logo-badge"><img src="icons/teaching.png" alt="" /></div>
+                  <div>
+                    <h3>Teaching Assistant</h3>
+                    <div class="meta">Wayne State · Aug 2023 – Aug 2024</div>
+                  </div>
                 </div>
+                <p class="card-copy">Ran engineering labs covering Siemens NX 3D modeling, Arduino circuits, basic programming, 3D printing workflows, and hands-on debugging help.</p>
+                <div class="chip-row"><span class="tag">Siemens NX</span><span class="tag">Arduino</span><span class="tag">3D printing</span></div>
+              </article>
+
+              <article class="experience-card">
+                <div class="card-top">
+                  <div class="logo-badge"><img src="icons/owlservices.png" alt="" /></div>
+                  <div>
+                    <h3>IT Intern</h3>
+                    <div class="meta">OWL Services · Aug 2025 – Present</div>
+                  </div>
+                </div>
+                <p class="card-copy">Provide Tier 1/2 support across enterprise endpoints, including imaging, Active Directory, Microsoft 365, remote support, documentation, and process improvement.</p>
+                <div class="chip-row"><span class="tag">Microsoft 365</span><span class="tag">Active Directory</span><span class="tag">Endpoint support</span></div>
+              </article>
             </div>
-        </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- ═══════════════ PROJECTS ═══════════════ -->
-    <section id="projects" class="content-section">
-        <div class="container">
-            <div class="aero-window">
-                <div class="aero-titlebar">
-                    <span class="titlebar-text"><span class="titlebar-icon"></span>Projects</span>
-                    <div class="titlebar-buttons">
-                        <span class="tb-btn tb-min">─</span>
-                        <span class="tb-btn tb-max">□</span>
-                        <span class="tb-btn tb-close">✕</span>
+    <section class="section" id="projects">
+      <div class="container">
+        <article class="window">
+          <div class="window-bar">
+            <div class="window-title"><span class="window-icon"></span>Projects</div>
+            <div class="window-buttons" aria-hidden="true"><span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span></div>
+          </div>
+          <div class="window-body">
+            <header class="section-head">
+              <div class="eyebrow">// Selected work</div>
+              <h2>Built, shipped, presented.</h2>
+              <p>Projects that show how I think: practical software, real debugging, and enough technical depth to talk through the tradeoffs.</p>
+            </header>
+
+            <div class="project-grid">
+              <article class="project-card featured">
+                <div class="project-head">
+                  <div class="project-title-row">
+                    <div class="logo-badge"><img src="icons/speechmatch.png" alt="" /></div>
+                    <div>
+                      <h3>SpeechMatch</h3>
+                      <div class="project-meta">Senior Capstone · Pronunciation assessment mobile app</div>
                     </div>
+                  </div>
+                  <span class="badge">★ Capstone</span>
                 </div>
-                <div class="aero-body">
-                    <div class="section-header">
-                        <div class="section-kicker">// Selected Work</div>
-                        <h2 class="section-title">Projects</h2>
-                        <p class="section-sub">Software I've actually built, shipped, or presented — not just tutorials.</p>
-                    </div>
-
-                    <div class="row g-4">
-                        <!-- SpeechMatch -->
-                        <div class="col-12">
-                            <div class="project-card featured">
-                                <div class="featured-badge">★ Capstone</div>
-                                <div class="project-header">
-                                    <img src="icons/speechmatch.png" alt="SpeechMatch" class="project-icon">
-                                    <div>
-                                        <h3>SpeechMatch</h3>
-                                        <p class="project-meta">Senior Capstone — Speech Pronunciation Assessment App</p>
-                                    </div>
-                                </div>
-
-                                <p class="project-description">
-                                    A mobile app that listens to you read a passage and tells you exactly where your pronunciation breaks down — wrong sounds, skipped words, timing issues. I own the mispronunciation detection system: a custom phoneme comparison engine built on top of Azure's speech APIs that catches errors Azure alone misses, including cross-dialect and cross-language edge cases. Also built the two-pass rescue system that recovers words the recognizer drops.
-                                </p>
-
-                                <div class="project-highlights">
-                                    <div class="highlight-box">
-                                        <div class="highlight-label">// Role</div>
-                                        <div class="highlight-value">Mispronunciation Lead</div>
-                                        <div class="highlight-copy">Detection engine, phoneme logic, two-pass ASR rescue, frontend screens.</div>
-                                    </div>
-                                    <div class="highlight-box">
-                                        <div class="highlight-label">// Stack</div>
-                                        <div class="highlight-value">React Native + FastAPI</div>
-                                        <div class="highlight-copy">TypeScript frontend, Python backend, PostgreSQL, Azure Speech APIs.</div>
-                                    </div>
-                                    <div class="highlight-box">
-                                        <div class="highlight-label">// Status</div>
-                                        <div class="highlight-value">In Active Development</div>
-                                        <div class="highlight-copy">Shipping updates weekly. Capstone presentation ahead.</div>
-                                    </div>
-                                </div>
-
-                                <div class="tag-row">
-                                    <span class="tag">React Native</span>
-                                    <span class="tag">Expo</span>
-                                    <span class="tag">TypeScript</span>
-                                    <span class="tag">FastAPI</span>
-                                    <span class="tag">PostgreSQL</span>
-                                    <span class="tag">Azure Speech</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- OpenGL -->
-                        <div class="col-lg-6">
-                            <div class="project-card">
-                                <div class="featured-badge">Graphics</div>
-                                <div class="project-header">
-                                    <img src="icons/opengl.png" alt="OpenGL" class="project-icon">
-                                    <div>
-                                        <h3>Interactive 3D Scene</h3>
-                                        <p class="project-meta">Computer Graphics — Real-Time Rendering</p>
-                                    </div>
-                                </div>
-
-                                <p class="project-description">
-                                    A real-time 3D environment in C++ with OpenGL. Loads OBJ models, computes normals,
-                                    maps textures, and handles lighting and material properties. Full camera and object
-                                    controls — move, rotate, scale, all in real time.
-                                </p>
-
-                                <div class="tag-row">
-                                    <span class="tag">C++</span>
-                                    <span class="tag">OpenGL</span>
-                                    <span class="tag">GLUT</span>
-                                    <span class="tag">Texture Mapping</span>
-                                    <span class="tag">Lighting</span>
-                                </div>
-
-                                <div class="project-actions">
-                                    <a href="Assignment3_AK.exe" download class="btn-retro btn-primary-retro">Download Demo</a>
-                                    <a href="Assignment3_AK.cpp" download class="btn-retro btn-secondary-retro">View Source</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Amazing Racer -->
-                        <div class="col-lg-6">
-                            <div class="project-card">
-                                <div class="project-header">
-                                    <img src="icons/unity.png" alt="Unity" class="project-icon">
-                                    <div>
-                                        <h3>Amazing Racer</h3>
-                                        <p class="project-meta">Unity — First-Person Racing Prototype</p>
-                                    </div>
-                                </div>
-
-                                <p class="project-description">
-                                    A foggy first-person race through handmade terrain. Multiple finish zones,
-                                    checkpoint-based respawns, hazard resets, and custom scripts managing the
-                                    full race loop. Built for a game programming course — focused on feel and tension,
-                                    not just mechanics.
-                                </p>
-
-                                <div class="tag-row">
-                                    <span class="tag">Unity</span>
-                                    <span class="tag">C#</span>
-                                    <span class="tag">Game Design</span>
-                                    <span class="tag">Terrain Tools</span>
-                                </div>
-
-                                <a href="Assignment 3 CSC 5430 Angelo Kodra.docx" download class="btn-retro btn-secondary-retro">Download Report</a>
-                            </div>
-                        </div>
-
-                        <!-- Digital Windex -->
-                        <div class="col-lg-6">
-                            <div class="project-card">
-                                <div class="project-header">
-                                    <img src="icons/windows.png" alt="Digital Windex" class="project-icon">
-                                    <div>
-                                        <h3>Digital Windex</h3>
-                                        <p class="project-meta">Windows Maintenance Utility</p>
-                                    </div>
-                                </div>
-
-                                <p class="project-description">
-                                    A desktop tool that helps non-technical users run diagnostics, repairs, and
-                                    optimizations on Windows without needing to know what they're doing. I pitched the
-                                    concept, it was selected from a pool of student proposals, and I helped build it
-                                    with a team using Agile/Scrum.
-                                </p>
-
-                                <div class="tag-row">
-                                    <span class="tag">C#</span>
-                                    <span class="tag">.NET</span>
-                                    <span class="tag">WPF</span>
-                                    <span class="tag">Agile</span>
-                                    <span class="tag">Scrum</span>
-                                </div>
-
-                                <a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer" class="btn-retro btn-primary-retro">View on GitHub</a>
-                            </div>
-                        </div>
-
-                        <!-- Movie Attendance -->
-                        <div class="col-lg-6">
-                            <div class="project-card">
-                                <div class="project-header">
-                                    <img src="icons/data.png" alt="Data Analysis" class="project-icon">
-                                    <div>
-                                        <h3>Movie Attendance Prediction</h3>
-                                        <p class="project-meta">Data Science — Predictive Modeling</p>
-                                    </div>
-                                </div>
-
-                                <p class="project-description">
-                                    Analyzed movie-going behavior from survey and secondary data to predict attendance patterns.
-                                    Built decision trees, logistic regression models, and a neural network. Found that demographics
-                                    and genre preferences were stronger predictors than I expected — wrote it all up in a full research paper.
-                                </p>
-
-                                <div class="tag-row">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">Pandas</span>
-                                    <span class="tag">scikit-learn</span>
-                                    <span class="tag">TensorFlow</span>
-                                </div>
-
-                                <a href="BE2100_G08_FinalPaper.pdf" download class="btn-retro btn-secondary-retro">Download Report</a>
-                            </div>
-                        </div>
-                    </div>
+                <p class="project-copy">A React Native app that lets users read a passage, record themselves, and get word-level feedback on pronunciation, skipped words, extra words, and timing. I led major frontend work and built custom mispronunciation logic on top of Azure Speech, including phoneme comparison and rescue handling for recognizer misses.</p>
+                <div class="highlight-grid">
+                  <div class="highlight"><div class="mini-label">// Role</div><h4>Frontend + detection logic</h4><p>Recording flow, results UI, phoneme rules, and rescue logic.</p></div>
+                  <div class="highlight"><div class="mini-label">// Stack</div><h4>React Native + FastAPI</h4><p>Expo, TypeScript, Python, PostgreSQL, Azure Speech.</p></div>
+                  <div class="highlight"><div class="mini-label">// Value</div><h4>Better feedback</h4><p>Goes beyond a single score by showing where the reading broke down.</p></div>
                 </div>
+                <div class="chip-row"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Azure Speech</span></div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-head">
+                  <div class="project-title-row">
+                    <div class="logo-badge"><img src="icons/opengl.png" alt="" /></div>
+                    <div><h3>Interactive 3D Scene</h3><div class="project-meta">Computer Graphics · Real-time rendering</div></div>
+                  </div>
+                  <span class="badge">Graphics</span>
+                </div>
+                <p class="project-copy">A C++/OpenGL scene that loads OBJ models, computes normals, maps textures, handles lighting/materials, and supports real-time camera and object controls.</p>
+                <div class="chip-row"><span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">Textures</span><span class="tag">Lighting</span></div>
+                <div class="actions"><a class="btn secondary" href="Assignment3_AK.exe" download>Download demo</a><a class="btn secondary" href="Assignment3_AK.cpp" download>View source</a></div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-head">
+                  <div class="project-title-row">
+                    <div class="logo-badge"><img src="icons/unity.png" alt="" /></div>
+                    <div><h3>Amazing Racer</h3><div class="project-meta">Unity · First-person racing prototype</div></div>
+                  </div>
+                  <span class="badge">Game</span>
+                </div>
+                <p class="project-copy">A foggy first-person race built in Unity with handmade terrain, checkpoints, respawns, hazard resets, finish zones, and custom C# scripts driving the race loop.</p>
+                <div class="chip-row"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Game design</span><span class="tag">Terrain</span></div>
+                <div class="actions"><a class="btn secondary" href="Assignment 3 CSC 5430 Angelo Kodra.docx" download>Download report</a></div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-head">
+                  <div class="project-title-row">
+                    <div class="logo-badge"><img src="icons/windows.png" alt="" /></div>
+                    <div><h3>Digital Windex</h3><div class="project-meta">Windows maintenance utility</div></div>
+                  </div>
+                  <span class="badge">Desktop</span>
+                </div>
+                <p class="project-copy">A WPF desktop tool for non-technical users to run diagnostics, repairs, and optimizations on Windows. I pitched the concept, it was selected from student proposals, and we built it as a team.</p>
+                <div class="chip-row"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">WPF</span><span class="tag">Agile</span></div>
+                <div class="actions"><a class="btn secondary" href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer">View GitHub</a></div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-head">
+                  <div class="project-title-row">
+                    <div class="logo-badge"><img src="icons/data.png" alt="" /></div>
+                    <div><h3>Movie Attendance Prediction</h3><div class="project-meta">Data science · Predictive modeling</div></div>
+                  </div>
+                  <span class="badge">Data</span>
+                </div>
+                <p class="project-copy">Analyzed survey and secondary data to predict movie attendance patterns using decision trees, logistic regression, and a neural network, then wrote the findings in a research paper.</p>
+                <div class="chip-row"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">TensorFlow</span></div>
+                <div class="actions"><a class="btn secondary" href="BE2100_G08_FinalPaper.pdf" download>Download report</a></div>
+              </article>
             </div>
-        </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- ═══════════════ CONTACT ═══════════════ -->
-    <section id="contact" class="content-section">
-        <div class="container">
-            <div class="aero-window">
-                <div class="aero-titlebar">
-                    <span class="titlebar-text"><span class="titlebar-icon"></span>Contact</span>
-                    <div class="titlebar-buttons">
-                        <span class="tb-btn tb-min">─</span>
-                        <span class="tb-btn tb-max">□</span>
-                        <span class="tb-btn tb-close">✕</span>
-                    </div>
-                </div>
-                <div class="aero-body cta-content">
-                    <div class="section-header">
-                        <div class="section-kicker">// Get In Touch</div>
-                        <h2 class="section-title">Let's Talk</h2>
-                        <p class="section-sub">I'm looking for entry-level software and technical roles in the Detroit area. If you're hiring, building something interesting, or just want to connect — reach out.</p>
-                    </div>
-
-                    <div class="cta-buttons">
-                        <a href="mailto:angkodra@gmail.com" class="btn-retro btn-primary-retro">Email Me</a>
-                        <a href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer" class="btn-retro btn-secondary-retro">LinkedIn</a>
-                        <a href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer" class="btn-retro btn-secondary-retro">GitHub</a>
-                    </div>
-                </div>
+    <section class="section" id="contact">
+      <div class="container">
+        <article class="window">
+          <div class="window-bar">
+            <div class="window-title"><span class="window-icon"></span>Contact</div>
+            <div class="window-buttons" aria-hidden="true"><span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span></div>
+          </div>
+          <div class="window-body">
+            <div class="contact-card">
+              <div class="eyebrow">// Get in touch</div>
+              <h2>Let's build something useful.</h2>
+              <p>I'm looking for entry-level software engineering, IT, and technical support roles around Metro Detroit, remote, or hybrid. Reach out if my mix of software, hardware, and support experience fits what you're building.</p>
+              <div class="social-row">
+                <a class="btn primary" href="mailto:angkodra@gmail.com">Email me</a>
+                <a class="btn secondary" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="btn secondary" href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
             </div>
-        </div>
+          </div>
+        </article>
+      </div>
     </section>
+  </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-ascii">═══════════════════════════════════</div>
-            <p>&copy; 2026 Angelo Kodra. All Rights Reserved.</p>
-        </div>
-    </footer>
+  <footer class="footer">
+    <div class="container">© 2026 Angelo Kodra · built from scratch, not generated into oblivion.</div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const navCollapse = document.getElementById("navbarNav");
-            const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-            navLinks.forEach(link => {
-                link.addEventListener("click", () => {
-                    if (navCollapse.classList.contains("show")) {
-                        new bootstrap.Collapse(navCollapse).hide();
-                    }
-                });
-            });
-        });
-    </script>
+  <script>
+    const menuButton = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('#nav-links');
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>
