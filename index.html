@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Angelo Kodra | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <meta name="description" content="Angelo Kodra portfolio: software engineering, IT support, full-stack projects, endpoint troubleshooting, and Windows/.NET tools." />
+  <title>Angelo Kodra | Software Engineering & IT Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #070a12;
@@ -16,8 +17,8 @@
       --line: rgba(112, 177, 255, 0.32);
       --line-hot: rgba(129, 195, 255, 0.62);
       --text: #edf5ff;
-      --muted: #99afd0;
-      --dim: #7186a8;
+      --muted: #a9b8d4;
+      --dim: #7e8eaa;
       --blue: #83c7ff;
       --blue-2: #3d8fe8;
       --green: #9cff42;
@@ -38,10 +39,9 @@
       margin: 0;
       min-height: 100vh;
       background:
-        radial-gradient(circle at 15% 10%, rgba(60, 143, 232, 0.22), transparent 28rem),
-        radial-gradient(circle at 82% 5%, rgba(156, 255, 66, 0.08), transparent 21rem),
-        radial-gradient(circle at 50% 90%, rgba(255, 178, 63, 0.08), transparent 24rem),
-        linear-gradient(180deg, #071023 0%, #080b15 46%, #0b0712 100%);
+        radial-gradient(circle at 15% 10%, rgba(60, 143, 232, 0.20), transparent 28rem),
+        radial-gradient(circle at 82% 5%, rgba(156, 255, 66, 0.06), transparent 21rem),
+        linear-gradient(180deg, #071023 0%, #080b15 46%, #090712 100%);
       color: var(--text);
       font-family: var(--ui);
       padding-top: 68px;
@@ -53,10 +53,10 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.016) 1px, transparent 1px);
       background-size: 32px 32px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.85), transparent 88%);
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.88), transparent 88%);
       pointer-events: none;
       z-index: 0;
     }
@@ -65,9 +65,9 @@
       content: '';
       position: fixed;
       inset: 0;
-      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 4px);
+      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 4px);
       pointer-events: none;
-      opacity: 0.42;
+      opacity: 0.32;
       z-index: 100;
     }
 
@@ -100,7 +100,7 @@
       inset: 0 0 auto;
       height: 68px;
       z-index: 50;
-      background: rgba(8, 16, 34, 0.78);
+      background: rgba(8, 16, 34, 0.82);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
@@ -169,7 +169,7 @@
     .section { padding: 2.2rem 0; scroll-margin-top: 90px; }
 
     .window {
-      background: linear-gradient(180deg, rgba(21, 39, 78, 0.86), rgba(10, 20, 43, 0.86));
+      background: linear-gradient(180deg, rgba(21, 39, 78, 0.88), rgba(10, 20, 43, 0.88));
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
@@ -225,15 +225,14 @@
     .dot.close { background: linear-gradient(180deg, #d96a58, #a8392f); }
 
     .window-body { padding: clamp(1.25rem, 3vw, 2rem); }
-
     .hero .window-body { padding: clamp(1.7rem, 4vw, 3rem); }
 
     .terminal-line {
       font-family: var(--mono);
       color: var(--green);
-      font-size: clamp(1.28rem, 2vw, 1.62rem);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
       letter-spacing: 0.04em;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.9rem;
     }
 
     .cursor {
@@ -244,13 +243,13 @@
     @keyframes blink { 50% { opacity: 0; } }
 
     .hero-title {
-      font-family: var(--pixel);
-      font-size: clamp(2rem, 6vw, 4.55rem);
-      line-height: 1.18;
-      margin: 0 0 1.3rem;
-      letter-spacing: -0.05em;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1.02;
+      margin: 0 0 1.1rem;
+      letter-spacing: -0.055em;
       color: #fff;
-      text-shadow: 0 0 34px rgba(131,199,255,0.26), 0 4px 0 rgba(0,0,0,0.22);
+      text-shadow: 0 0 34px rgba(131,199,255,0.24), 0 4px 0 rgba(0,0,0,0.18);
+      font-weight: 800;
     }
 
     .hero-grid {
@@ -263,12 +262,19 @@
     .hero-copy {
       color: var(--muted);
       font-size: clamp(1rem, 1.8vw, 1.12rem);
-      line-height: 1.78;
-      max-width: 680px;
-      margin: 0 0 1.55rem;
+      line-height: 1.72;
+      max-width: 700px;
+      margin: 0 0 1.4rem;
     }
 
     strong { color: var(--text); font-weight: 800; }
+
+    .role-line {
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 1.08rem;
+      margin: 0 0 0.7rem;
+    }
 
     .hero-card {
       background: rgba(5, 14, 31, 0.68);
@@ -352,7 +358,7 @@
     .btn.primary {
       color: #071023;
       background: linear-gradient(180deg, #b8e3ff, #62b6ff 52%, #348ee8);
-      box-shadow: 0 12px 30px rgba(64, 155, 255, 0.24), inset 0 1px rgba(255,255,255,0.5);
+      box-shadow: 0 12px 30px rgba(64, 155, 255, 0.22), inset 0 1px rgba(255,255,255,0.5);
       border-color: rgba(214,240,255,0.55);
     }
 
@@ -373,7 +379,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.85rem;
-      margin-top: 2rem;
+      margin-top: 1.9rem;
     }
 
     .stat {
@@ -420,7 +426,7 @@
 
     .section-head p {
       margin: 0 auto;
-      max-width: 720px;
+      max-width: 760px;
       color: var(--muted);
       line-height: 1.65;
       font-size: 1rem;
@@ -506,8 +512,7 @@
       height: 46px;
       border-radius: 13px;
       border: 1px solid rgba(131,199,255,0.24);
-      background:
-        linear-gradient(135deg, rgba(131,199,255,0.14), rgba(156,255,66,0.06));
+      background: linear-gradient(135deg, rgba(131,199,255,0.14), rgba(156,255,66,0.06));
       display: grid;
       place-items: center;
       color: var(--blue);
@@ -644,8 +649,8 @@
       color: var(--dim);
       text-align: center;
       padding: 1.2rem 0 2.4rem;
-      font-family: var(--mono);
-      font-size: 1.05rem;
+      font-family: var(--ui);
+      font-size: 0.95rem;
     }
 
     .mobile-menu {
@@ -744,8 +749,9 @@
               <div>
                 <div class="terminal-line">C:\Users\Angelo&gt; whoami<span class="cursor">_</span></div>
                 <h1 class="hero-title">Angelo Kodra</h1>
+                <p class="role-line">Computer Science graduate focused on software engineering, IT support, and practical systems troubleshooting.</p>
                 <p class="hero-copy">
-                  I started by taking things apart — phones, PCs, anything I could get a screwdriver into. That turned into repairing devices for other people, teaching engineering labs, and now building full-stack software. I like work where <strong>hardware, systems, and code all touch</strong>.
+                  I build and support software from both sides: writing full-stack applications, troubleshooting endpoints, repairing devices, and explaining technical issues clearly to real users. I am looking for entry-level software engineering, IT, or technical support roles where I can contribute quickly and keep growing.
                 </p>
                 <div class="actions">
                   <a class="btn primary" href="#projects">View projects</a>
@@ -754,19 +760,19 @@
                 </div>
                 <div class="stats" aria-label="Quick summary">
                   <div class="stat">
-                    <div class="stat-label">// Build</div>
-                    <h3>Full-stack systems</h3>
-                    <p>React Native, FastAPI, PostgreSQL, C#, C++, Python.</p>
+                    <div class="stat-label">// Software</div>
+                    <h3>Full-stack development</h3>
+                    <p>React Native, FastAPI, PostgreSQL, C#, .NET, C++, Python.</p>
                   </div>
                   <div class="stat">
-                    <div class="stat-label">// Fix</div>
-                    <h3>Real troubleshooting</h3>
-                    <p>Years of hardware repair, endpoint support, and user-facing problem solving.</p>
+                    <div class="stat-label">// Support</div>
+                    <h3>Enterprise + repair</h3>
+                    <p>Endpoint support, Microsoft 365, Active Directory, diagnostics, hardware repair.</p>
                   </div>
                   <div class="stat">
-                    <div class="stat-label">// Focus</div>
-                    <h3>Entry-level SWE / IT</h3>
-                    <p>Detroit area, remote, or hybrid roles where I can contribute fast.</p>
+                    <div class="stat-label">// Strength</div>
+                    <h3>Debugging mindset</h3>
+                    <p>Trace the issue, communicate clearly, document the fix, and move the work forward.</p>
                   </div>
                 </div>
               </div>
@@ -776,9 +782,9 @@
                   <img src="ak-face.jpeg" alt="Angelo Kodra" />
                 </div>
                 <div class="quick-facts">
-                  <div class="fact"><span>School</span><b>Wayne State CS</b></div>
-                  <div class="fact"><span>GPA</span><b>3.81 / 4.0</b></div>
-                  <div class="fact"><span>Now</span><b>Senior year</b></div>
+                  <div class="fact"><span>Degree</span><b>B.S. Computer Science</b></div>
+                  <div class="fact"><span>GPA</span><b>3.82 / 4.0</b></div>
+                  <div class="fact"><span>School</span><b>Wayne State University</b></div>
                   <div class="fact"><span>Home base</span><b>Metro Detroit</b></div>
                 </div>
               </aside>
@@ -798,25 +804,25 @@
           <div class="window-body">
             <header class="section-head">
               <div class="eyebrow">// Profile</div>
-              <h2>Curiosity → capability.</h2>
-              <p>My experience sits in the overlap between software engineering, IT support, hardware repair, and technical teaching.</p>
+              <h2>Software builder with hands-on support experience.</h2>
+              <p>My background combines full-stack development, enterprise IT, hardware repair, and technical teaching.</p>
             </header>
 
             <div class="about-grid">
               <div class="about-card">
                 <p>
-                  I'm a Computer Science student at Wayne State University finishing senior year while working in enterprise IT. Before that, I repaired consumer hardware at Geek Squad and taught engineering students Siemens NX, Arduino, 3D printing, and basic programming.
+                  I earned my B.S. in Computer Science from Wayne State University and have built projects across mobile, web, desktop, data, and graphics. My strongest work comes from connecting implementation details with the user experience: recording flows, API contracts, database behavior, endpoint issues, and clear documentation.
                 </p>
                 <p>
-                  That mix is the point: I do not just want to write code in a vacuum. I like understanding how software behaves once real users, broken devices, networks, databases, and deadlines get involved.
+                  I have also spent years in technical support environments where problems are messy, time-sensitive, and user-facing. That experience made me comfortable asking the right questions, isolating root causes, and explaining fixes without overcomplicating them.
                 </p>
               </div>
               <div class="about-card">
                 <p>
-                  The through-line in my work is practical problem solving: debug the issue, explain it clearly, document the fix, and keep moving. That shows up in my capstone, my repair work, my IT support, and my class projects.
+                  I am especially interested in roles where software engineering and IT operations overlap: internal tools, application support, frontend/backend development, systems integration, endpoint support, and automation. I care about reliability, clean communication, and shipping work that people can actually use.
                 </p>
                 <div class="chip-row" aria-label="Skills">
-                  <span class="chip">C#</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">Java</span><span class="chip">TypeScript</span><span class="chip">React Native</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Unity</span><span class="chip">OpenGL</span><span class="chip">Active Directory</span><span class="chip">Microsoft 365</span>
+                  <span class="chip">C#</span><span class="chip">.NET/WPF</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">TypeScript</span><span class="chip">React Native</span><span class="chip">PostgreSQL</span><span class="chip">SQL</span><span class="chip">C++</span><span class="chip">Unity</span><span class="chip">Git/GitHub</span><span class="chip">Azure</span><span class="chip">Microsoft 365</span><span class="chip">Active Directory</span>
                 </div>
               </div>
             </div>
@@ -835,11 +841,23 @@
           <div class="window-body">
             <header class="section-head">
               <div class="eyebrow">// Work history</div>
-              <h2>Where I learned how systems break.</h2>
-              <p>Enterprise IT, consumer repair, and engineering labs gave me a grounded view of software from the user side and the builder side.</p>
+              <h2>Support, repair, teaching, and software delivery.</h2>
+              <p>These roles gave me a practical view of how systems fail, how users describe problems, and how technical teams move fixes forward.</p>
             </header>
 
             <div class="timeline">
+              <article class="experience-card">
+                <div class="card-top">
+                  <div class="logo-badge"><img src="icons/owlservices.png" alt="" /></div>
+                  <div>
+                    <h3>Information Technology Intern</h3>
+                    <div class="meta">OWL Services · Aug 2025 – Present</div>
+                  </div>
+                </div>
+                <p class="card-copy">Support enterprise users and endpoints across a Windows, Microsoft 365, and Active Directory environment. Troubleshoot access, device, application, and integration issues while documenting patterns and escalating with clear technical context.</p>
+                <div class="chip-row"><span class="tag">Microsoft 365</span><span class="tag">Active Directory</span><span class="tag">Endpoint support</span><span class="tag">Documentation</span></div>
+              </article>
+
               <article class="experience-card">
                 <div class="card-top">
                   <div class="logo-badge"><img src="icons/geeksquad.png" alt="" /></div>
@@ -848,8 +866,8 @@
                     <div class="meta">Geek Squad · Oct 2022 – Present</div>
                   </div>
                 </div>
-                <p class="card-copy">Diagnose and repair Windows, Mac, Android, and iOS devices end-to-end: hardware swaps, OS troubleshooting, data recovery, custom builds, and client communication.</p>
-                <div class="chip-row"><span class="tag">Hardware repair</span><span class="tag">Troubleshooting</span><span class="tag">Client support</span></div>
+                <p class="card-copy">Diagnose and resolve hardware, operating system, software, and data issues across Windows, macOS, Android, and iOS devices in a high-volume repair environment, with a focus on accurate notes and clear customer communication.</p>
+                <div class="chip-row"><span class="tag">Hardware repair</span><span class="tag">OS troubleshooting</span><span class="tag">Client support</span></div>
               </article>
 
               <article class="experience-card">
@@ -860,20 +878,8 @@
                     <div class="meta">Wayne State · Aug 2023 – Aug 2024</div>
                   </div>
                 </div>
-                <p class="card-copy">Ran engineering labs covering Siemens NX 3D modeling, Arduino circuits, basic programming, 3D printing workflows, and hands-on debugging help.</p>
-                <div class="chip-row"><span class="tag">Siemens NX</span><span class="tag">Arduino</span><span class="tag">3D printing</span></div>
-              </article>
-
-              <article class="experience-card">
-                <div class="card-top">
-                  <div class="logo-badge"><img src="icons/owlservices.png" alt="" /></div>
-                  <div>
-                    <h3>IT Intern</h3>
-                    <div class="meta">OWL Services · Aug 2025 – Present</div>
-                  </div>
-                </div>
-                <p class="card-copy">Provide Tier 1/2 support across enterprise endpoints, including imaging, Active Directory, Microsoft 365, remote support, documentation, and process improvement.</p>
-                <div class="chip-row"><span class="tag">Microsoft 365</span><span class="tag">Active Directory</span><span class="tag">Endpoint support</span></div>
+                <p class="card-copy">Supported engineering labs covering Siemens NX, Arduino/C++, circuit behavior, 3D printing workflows, and design fundamentals. Helped students debug code, wiring, and project deliverables.</p>
+                <div class="chip-row"><span class="tag">Siemens NX</span><span class="tag">Arduino</span><span class="tag">C++</span><span class="tag">3D printing</span></div>
               </article>
             </div>
           </div>
@@ -891,8 +897,8 @@
           <div class="window-body">
             <header class="section-head">
               <div class="eyebrow">// Selected work</div>
-              <h2>Built, shipped, presented.</h2>
-              <p>Projects that show how I think: practical software, real debugging, and enough technical depth to talk through the tradeoffs.</p>
+              <h2>Projects with implementation depth.</h2>
+              <p>Selected work that reflects full-stack development, debugging, design decisions, and clear ownership.</p>
             </header>
 
             <div class="project-grid">
@@ -905,15 +911,41 @@
                       <div class="project-meta">Senior Capstone · Pronunciation assessment mobile app</div>
                     </div>
                   </div>
-                  <span class="badge">★ Capstone</span>
+                  <span class="badge">Capstone</span>
                 </div>
-                <p class="project-copy">A React Native app that lets users read a passage, record themselves, and get word-level feedback on pronunciation, skipped words, extra words, and timing. I led major frontend work and built custom mispronunciation logic on top of Azure Speech, including phoneme comparison and rescue handling for recognizer misses.</p>
+                <p class="project-copy">React Native mobile app for reading and pronunciation practice. Users select or upload a passage, record themselves, and receive word-level feedback on pronunciation, skipped words, extra words, and timing. I led frontend development and worked across the recording flow, API integration, scoring output, and custom mispronunciation logic built on top of Azure Speech Services.</p>
                 <div class="highlight-grid">
-                  <div class="highlight"><div class="mini-label">// Role</div><h4>Frontend + detection logic</h4><p>Recording flow, results UI, phoneme rules, and rescue logic.</p></div>
-                  <div class="highlight"><div class="mini-label">// Stack</div><h4>React Native + FastAPI</h4><p>Expo, TypeScript, Python, PostgreSQL, Azure Speech.</p></div>
-                  <div class="highlight"><div class="mini-label">// Value</div><h4>Better feedback</h4><p>Goes beyond a single score by showing where the reading broke down.</p></div>
+                  <div class="highlight"><div class="mini-label">// Role</div><h4>Frontend Lead</h4><p>Built mobile screens, recording UX, results views, and session feedback flows.</p></div>
+                  <div class="highlight"><div class="mini-label">// Stack</div><h4>React Native + FastAPI</h4><p>Expo, TypeScript, Python/FastAPI, PostgreSQL, and Azure Speech.</p></div>
+                  <div class="highlight"><div class="mini-label">// Depth</div><h4>Scoring logic</h4><p>Handled word-level feedback, phoneme comparison, and recognition edge cases.</p></div>
                 </div>
-                <div class="chip-row"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Azure Speech</span></div>
+                <div class="chip-row"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Azure Speech</span><span class="tag">TypeScript</span></div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-head">
+                  <div class="project-title-row">
+                    <div class="logo-badge"><img src="icons/soltether.png" alt="" /></div>
+                    <div><h3>SOLTETHER</h3><div class="project-meta">Solo game project · Web property</div></div>
+                  </div>
+                  <span class="badge">Web + Unity</span>
+                </div>
+                <p class="project-copy">Solo 2D RPG project with a deployed companion website at soltether.com. I designed and shipped the site end-to-end, including layout, visual direction, custom CSS animation, hosted deployment, DNS setup, and audio/interaction details. The game itself is being built in Unity with C# systems, tile-based room design, and original creative direction.</p>
+                <div class="chip-row"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">GitHub Pages</span><span class="tag">DNS</span><span class="tag">Unity</span><span class="tag">C#</span></div>
+                <div class="actions"><a class="btn secondary" href="https://soltether.com" target="_blank" rel="noopener noreferrer">Visit site</a></div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-head">
+                  <div class="project-title-row">
+                    <div class="logo-badge"><img src="icons/windows.png" alt="" /></div>
+                    <div><h3>Digital Windex</h3><div class="project-meta">Windows productivity utility</div></div>
+                  </div>
+                  <span class="badge">Desktop</span>
+                </div>
+                <p class="project-copy">C#/.NET WPF application that helps non-technical users run Windows diagnostics, maintenance, and repair tasks from a simpler interface. I proposed the original concept, helped define the product scope, and contributed to implementation and documentation as part of a student team.</p>
+                <div class="chip-row"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">WPF</span><span class="tag">Windows</span><span class="tag">UX</span></div>
+                <div class="actions"><a class="btn secondary" href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer">View GitHub</a></div>
               </article>
 
               <article class="project-card">
@@ -924,35 +956,9 @@
                   </div>
                   <span class="badge">Graphics</span>
                 </div>
-                <p class="project-copy">A C++/OpenGL scene that loads OBJ models, computes normals, maps textures, handles lighting/materials, and supports real-time camera and object controls.</p>
+                <p class="project-copy">C++/OpenGL graphics project that loads OBJ models, computes normals, maps textures, applies lighting and material controls, and supports interactive camera/object movement in real time.</p>
                 <div class="chip-row"><span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">Textures</span><span class="tag">Lighting</span></div>
                 <div class="actions"><a class="btn secondary" href="Assignment3_AK.exe" download>Download demo</a><a class="btn secondary" href="Assignment3_AK.cpp" download>View source</a></div>
-              </article>
-
-              <article class="project-card">
-                <div class="project-head">
-                  <div class="project-title-row">
-                    <div class="logo-badge"><img src="icons/unity.png" alt="" /></div>
-                    <div><h3>Amazing Racer</h3><div class="project-meta">Unity · First-person racing prototype</div></div>
-                  </div>
-                  <span class="badge">Game</span>
-                </div>
-                <p class="project-copy">A foggy first-person race built in Unity with handmade terrain, checkpoints, respawns, hazard resets, finish zones, and custom C# scripts driving the race loop.</p>
-                <div class="chip-row"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Game design</span><span class="tag">Terrain</span></div>
-                <div class="actions"><a class="btn secondary" href="Assignment 3 CSC 5430 Angelo Kodra.docx" download>Download report</a></div>
-              </article>
-
-              <article class="project-card">
-                <div class="project-head">
-                  <div class="project-title-row">
-                    <div class="logo-badge"><img src="icons/windows.png" alt="" /></div>
-                    <div><h3>Digital Windex</h3><div class="project-meta">Windows maintenance utility</div></div>
-                  </div>
-                  <span class="badge">Desktop</span>
-                </div>
-                <p class="project-copy">A WPF desktop tool for non-technical users to run diagnostics, repairs, and optimizations on Windows. I pitched the concept, it was selected from student proposals, and we built it as a team.</p>
-                <div class="chip-row"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">WPF</span><span class="tag">Agile</span></div>
-                <div class="actions"><a class="btn secondary" href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer">View GitHub</a></div>
               </article>
 
               <article class="project-card">
@@ -963,7 +969,7 @@
                   </div>
                   <span class="badge">Data</span>
                 </div>
-                <p class="project-copy">Analyzed survey and secondary data to predict movie attendance patterns using decision trees, logistic regression, and a neural network, then wrote the findings in a research paper.</p>
+                <p class="project-copy">Predictive modeling project using survey and secondary data to analyze movie attendance patterns. Compared decision trees, logistic regression, and a neural network, then documented methodology and findings in a final research paper.</p>
                 <div class="chip-row"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">TensorFlow</span></div>
                 <div class="actions"><a class="btn secondary" href="BE2100_G08_FinalPaper.pdf" download>Download report</a></div>
               </article>
@@ -982,9 +988,9 @@
           </div>
           <div class="window-body">
             <div class="contact-card">
-              <div class="eyebrow">// Get in touch</div>
-              <h2>Let's build something useful.</h2>
-              <p>I'm looking for entry-level software engineering, IT, and technical support roles around Metro Detroit, remote, or hybrid. Reach out if my mix of software, hardware, and support experience fits what you're building.</p>
+              <div class="eyebrow">// Contact</div>
+              <h2>Open to software engineering and IT roles.</h2>
+              <p>I am seeking entry-level software engineering, IT support, application support, and technical support roles in Metro Detroit, hybrid, or remote environments. Reach out if my mix of development, troubleshooting, and user-facing support fits your team.</p>
               <div class="social-row">
                 <a class="btn primary" href="mailto:angkodra@gmail.com">Email me</a>
                 <a class="btn secondary" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -998,7 +1004,7 @@
   </main>
 
   <footer class="footer">
-    <div class="container">© 2026 Angelo Kodra · built from scratch, not generated into oblivion.</div>
+    <div class="container">© 2026 Angelo Kodra · Software Engineering & IT Portfolio</div>
   </footer>
 
   <script>
