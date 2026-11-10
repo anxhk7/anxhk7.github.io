@@ -4,203 +4,141 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Angelo Kodra, Associate Software Engineer at Teladoc Health. Backend engineering with Ruby on Rails, MySQL, Kafka, Docker, and Jenkins." />
-  <title>Angelo Kodra | Software Engineer</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Angelo Kodra | AngelOS</title>
+  <noscript><meta http-equiv="refresh" content="0; url=classic.html" /></noscript>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='28' r='16' fill='%232f8fe6' stroke='%230a3a8c' stroke-width='2'/%3E%3Cellipse cx='24' cy='21' rx='10' ry='6' fill='%23fff' opacity='.55'/%3E%3Cellipse cx='24' cy='8' rx='13' ry='4' fill='none' stroke='%23f2c230' stroke-width='4'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="os/os.css" />
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-stage="boot">
+  <h1 class="sr-only">Angelo Kodra, Software Engineer</h1>
+  <noscript><p class="nojs"><a href="classic.html">Open the classic version of this site.</a></p></noscript>
 
-  <header class="site-header">
-    <nav class="container nav" aria-label="Primary">
-      <a class="brand" href="#home">Angelo Kodra</a>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-fold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset="1" stop-color="#f2b632"/></linearGradient>
+      <linearGradient id="g-foldb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9b033"/><stop offset="1" stop-color="#c88a12"/></linearGradient>
+      <linearGradient id="g-page" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dbe5f1"/></linearGradient>
+      <linearGradient id="g-blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86ccff"/><stop offset="1" stop-color="#1560bd"/></linearGradient>
+      <linearGradient id="g-dark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#454e5e"/><stop offset="1" stop-color="#0d1117"/></linearGradient>
+      <linearGradient id="g-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f8fa"/><stop offset="1" stop-color="#97a5b4"/></linearGradient>
+      <linearGradient id="g-green" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9f08c"/><stop offset="1" stop-color="#3a9a1e"/></linearGradient>
+      <linearGradient id="g-gloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <radialGradient id="g-orb" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#c9ecff"/><stop offset=".5" stop-color="#2f8fe6"/><stop offset="1" stop-color="#0a3a8c"/></radialGradient>
+    </defs>
+    <symbol id="i-folder" viewBox="0 0 48 48">
+      <path d="M4 12a3 3 0 0 1 3-3h11l4 5h19a3 3 0 0 1 3 3v21a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="url(#g-foldb)" stroke="#a36f08"/>
+      <path d="M4 20a3 3 0 0 1 3-3h34a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="url(#g-fold)" stroke="#b8830d"/>
+      <path d="M6 20a1.5 1.5 0 0 1 1.5-1.500h33A1.5 1.5 0 0 1 42 20v6c-12 3-24 3-36 0z" fill="#fff" opacity=".4"/>
+    </symbol>
+    <symbol id="i-txt" viewBox="0 0 48 48">
+      <path d="M10 4h20l8 8v30a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="url(#g-page)" stroke="#7d8ea3"/>
+      <path d="M30 4v8h8z" fill="#c5d2e0" stroke="#7d8ea3" stroke-linejoin="round"/>
+      <path d="M14 20h20M14 26h20M14 32h13" stroke="#6f86a3" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-img" viewBox="0 0 48 48">
+      <path d="M10 4h20l8 8v30a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="url(#g-page)" stroke="#7d8ea3"/>
+      <path d="M30 4v8h8z" fill="#c5d2e0" stroke="#7d8ea3" stroke-linejoin="round"/>
+      <rect x="13" y="19" width="22" height="18" fill="url(#g-blue)" stroke="#1560bd"/>
+      <circle cx="29" cy="24" r="2.5" fill="#ffe066"/>
+      <path d="M13 37l8-9 6 6 3-3 5 6z" fill="url(#g-green)"/>
+    </symbol>
+    <symbol id="i-url" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="19" fill="url(#g-orb)" stroke="#0a3a8c"/>
+      <g fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="1.5"><ellipse cx="24" cy="24" rx="8" ry="19"/><path d="M5 24h38M8 14h32M8 34h32"/></g>
+      <ellipse cx="24" cy="14" rx="13" ry="8" fill="url(#g-gloss)" opacity=".7"/>
+    </symbol>
+    <symbol id="i-term" viewBox="0 0 48 48">
+      <rect x="4" y="8" width="40" height="32" rx="4" fill="url(#g-dark)" stroke="#000"/>
+      <path d="M5 12a3 3 0 0 1 3-3h32a3 3 0 0 1 3 3v8c-13 3-25 3-38 0z" fill="#fff" opacity=".12"/>
+      <path d="M11 19l7 5-7 5M22 31h10" fill="none" stroke="#7dff9a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-code" viewBox="0 0 48 48">
+      <rect x="4" y="4" width="40" height="40" rx="9" fill="url(#g-blue)" stroke="#0a3a8c"/>
+      <path d="M19 16l-8 8 8 8M29 16l8 8-8 8" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5 13a8 8 0 0 1 8-8h22a8 8 0 0 1 8 8v8c-13 4-25 4-38 0z" fill="url(#g-gloss)" opacity=".55"/>
+    </symbol>
+    <symbol id="i-pc" viewBox="0 0 48 48">
+      <path d="M19 33h10l2 6H17z" fill="url(#g-steel)" stroke="#5d6b7a"/>
+      <rect x="12" y="39" width="24" height="4" rx="2" fill="url(#g-steel)" stroke="#5d6b7a"/>
+      <rect x="4" y="6" width="40" height="28" rx="3" fill="url(#g-steel)" stroke="#5d6b7a"/>
+      <rect x="7.500" y="9.500" width="33" height="21" fill="url(#g-orb)" stroke="#0a3a8c"/>
+      <path d="M8 10h32v8c-11 4-21 4-32 0z" fill="#fff" opacity=".28"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 48 48">
+      <rect x="4" y="10" width="40" height="28" rx="3" fill="url(#g-page)" stroke="#7d8ea3"/>
+      <path d="M5 12l19 15 19-15" fill="none" stroke="#4f7ab3" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M5 36l13-12M43 36L30 24" fill="none" stroke="#a9b9cc" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="i-gear" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="16" fill="none" stroke="#7b8998" stroke-width="8" stroke-dasharray="6.4 6.166"/>
+      <circle cx="24" cy="24" r="14" fill="url(#g-steel)" stroke="#5d6b7a"/>
+      <circle cx="24" cy="24" r="5.500" fill="#e9eef3" stroke="#5d6b7a" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-bin" viewBox="0 0 48 48">
+      <path d="M12 14h24l-2.500 27a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2z" fill="url(#g-steel)" fill-opacity=".85" stroke="#5d6b7a"/>
+      <path d="M19 20l1 17M24 20v17M29 20l-1 17" stroke="#6b7a8a" stroke-width="1.6" stroke-linecap="round"/>
+      <rect x="9" y="9" width="30" height="5" rx="2" fill="url(#g-steel)" stroke="#5d6b7a"/>
+      <rect x="20" y="5" width="8" height="4" rx="1.5" fill="url(#g-steel)" stroke="#5d6b7a"/>
+    </symbol>
+    <symbol id="i-web" viewBox="0 0 48 48">
+      <rect x="4" y="7" width="40" height="34" rx="3" fill="url(#g-page)" stroke="#7d8ea3"/>
+      <path d="M4 10a3 3 0 0 1 3-3h34a3 3 0 0 1 3 3v6H4z" fill="url(#g-blue)" stroke="#1560bd"/>
+      <circle cx="9.500" cy="11.500" r="1.500" fill="#fff"/>
+      <path d="M10 23h16M10 29h28M10 35h22" stroke="#6f86a3" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-logo" viewBox="0 0 48 48">
+      <circle cx="24" cy="28" r="16" fill="url(#g-orb)" stroke="#0a3a8c"/>
+      <ellipse cx="24" cy="21" rx="11" ry="7" fill="url(#g-gloss)"/>
+      <ellipse cx="24" cy="8" rx="13" ry="4" fill="none" stroke="#b98a12" stroke-width="4.200"/>
+      <ellipse cx="24" cy="8" rx="13" ry="4" fill="none" stroke="#ffe27a" stroke-width="2.600"/>
+    </symbol>
+  </svg>
+
+  <div id="boot" class="screen">
+    <div class="boot-box">
+      <svg class="boot-logo" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-logo"/></svg>
+      <p class="boot-name">AngelOS <span>7</span></p>
+      <div class="boot-bar" role="progressbar" aria-label="Starting AngelOS"><i></i></div>
+      <button id="boot-skip" class="ghost">Skip</button>
+    </div>
+    <p class="boot-foot">Angelo Kodra · anxhk7.github.io</p>
+  </div>
+
+  <div id="login" class="screen" hidden>
+    <div class="login-box">
+      <img class="login-face" src="ak-face.jpeg" alt="" width="128" height="128" />
+      <p class="login-name">Angelo Kodra</p>
+      <p class="login-sub">Guest session. No password needed.</p>
+      <button id="login-btn" class="login-go">Log In <span aria-hidden="true">➜</span></button>
+    </div>
+    <nav class="login-links" aria-label="Quick links">
+      <a href="classic.html">Classic site</a>
+      <a href="https://github.com/anxhk7" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:angkodra@gmail.com">Email</a>
     </nav>
-  </header>
+    <p class="login-brand"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#i-logo"/></svg>AngelOS 7</p>
+  </div>
 
-  <main id="main">
-    <section class="section hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <h1>Angelo Kodra</h1>
-          <p class="role">Associate Software Engineer at Teladoc Health</p>
-          <p class="hero-copy">
-            I build and maintain backend services that support member identity, healthcare benefits, and eligibility. I work with Ruby on Rails, MySQL, Docker, Jenkins, and Kafka, with a focus on reliable APIs, testing, integrations, and developer tooling.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="#projects">View projects</a>
-            <a class="btn" href="#contact">Contact me</a>
-          </div>
-        </div>
+  <div id="welcome" class="screen" hidden><p><span class="spin" aria-hidden="true"></span>Welcome</p></div>
 
-        <aside aria-label="Profile">
-          <img class="portrait" src="ak-face.jpeg" alt="Angelo Kodra" width="260" height="325" />
-          <dl class="facts">
-            <div><dt>Focus</dt><dd>Backend, APIs, CI/CD</dd></div>
-            <div><dt>Education</dt><dd>B.S. CS, Wayne State</dd></div>
-            <div><dt>Based in</dt><dd>Metro Detroit</dd></div>
-          </dl>
-        </aside>
-      </div>
-    </section>
+  <div id="desktop" hidden>
+    <div id="wall"></div>
+    <div id="icons" aria-label="Desktop"></div>
+    <div id="windows"></div>
+    <div id="startmenu" hidden></div>
+    <footer id="taskbar">
+      <button id="start" aria-label="Start" aria-expanded="false" aria-controls="startmenu"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#i-logo"/></svg></button>
+      <div id="tasks" role="toolbar" aria-label="Open windows"></div>
+      <div id="tray"><div id="clock"></div><button id="peek" aria-label="Show desktop" title="Show desktop"></button></div>
+    </footer>
+  </div>
 
-    <section class="section" id="about">
-      <div class="container">
-        <h2>About</h2>
-        <p class="lead">Backend engineer with a background in IT support.</p>
+  <div id="ctx" class="menu" role="menu" hidden></div>
 
-        <div class="prose">
-          <p>I am a software engineer at Teladoc Health and a Computer Science graduate of Wayne State University. My work is in places where data correctness matters: APIs that answer questions about members and their coverage, the tests that keep those answers right, and the build and CI tooling that lets a team ship changes with confidence.</p>
-          <p>Before moving into software engineering, I spent years in IT support and device repair, from a high-volume repair bench to enterprise endpoint support. That work taught me to ask the right questions, isolate root causes, and explain fixes clearly. I still rely on those habits when I trace an issue across services.</p>
-          <p>Outside of work I keep building, including SOLTETHER, a 2D RPG in Unity, and its companion website.</p>
-        </div>
-
-        <h3 class="subhead">Skills</h3>
-        <dl class="skills">
-          <div><dt>Languages &amp; frameworks</dt><dd><ul class="tags"><li>Ruby</li><li>Ruby on Rails</li><li>Scala</li><li>SQL</li><li>Python</li><li>FastAPI</li><li>C#/.NET</li><li>TypeScript</li><li>React Native</li><li>C++</li><li>Unity</li></ul></dd></div>
-          <div><dt>Data &amp; messaging</dt><dd><ul class="tags"><li>MySQL</li><li>PostgreSQL</li><li>Elasticsearch</li><li>Redis</li><li>Kafka</li><li>Karafka</li></ul></dd></div>
-          <div><dt>APIs</dt><dd><ul class="tags"><li>REST/JSON</li><li>GraphQL</li><li>Swagger/OpenAPI</li><li>Postman</li></ul></dd></div>
-          <div><dt>Testing, CI &amp; tooling</dt><dd><ul class="tags"><li>RSpec</li><li>RuboCop</li><li>Docker</li><li>Jenkins</li><li>Git/GitHub</li><li>Jira</li><li>Confluence</li></ul></dd></div>
-          <div><dt>IT &amp; systems</dt><dd><ul class="tags"><li>Microsoft 365</li><li>Active Directory</li><li>Azure</li><li>Windows</li><li>macOS</li></ul></dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="section" id="experience">
-      <div class="container">
-        <h2>Experience</h2>
-        <p class="lead">Backend engineering today, built on IT support, repair, and teaching.</p>
-
-        <div class="cards">
-          <article class="card featured">
-            <div class="card-head">
-              <img class="wordmark" src="icons/teladoc.png" alt="" width="176" height="64" />
-              <div>
-                <h3>Associate Software Engineer</h3>
-                <p class="meta">Teladoc Health · Jul 2026 – Present · Remote</p>
-              </div>
-            </div>
-            <p>I work on backend services that determine which healthcare programs and benefits members can access based on their eligibility and coverage. These systems help power registration and enrollment experiences across Teladoc Health.</p>
-            <p>I was selected for the inaugural cohort of Teladoc Health's Early Career Engineering Program, where I contribute to the development of the program for future engineers.</p>
-            <ul class="bullets">
-              <li>Develop and maintain Ruby on Rails APIs for member search, identity matching, and benefit and coverage data.</li>
-              <li>Add RSpec coverage, refine API behavior, and resolve linting issues to keep services reliable and maintainable.</li>
-              <li>Work on Ruby runtime and container upgrades, Docker-based development environments, and Jenkins pipelines.</li>
-              <li>Built the initial version of a configurable Jenkins pipeline that automates test data generation and environment setup for QA and integration testing.</li>
-              <li>Debug Kafka event processing and data integration issues with engineers, QA, and product partners in an Agile team.</li>
-            </ul>
-            <ul class="tags"><li>Ruby on Rails</li><li>MySQL</li><li>Kafka</li><li>Docker</li><li>Jenkins</li><li>RSpec</li></ul>
-          </article>
-
-          <article class="card">
-            <div class="card-head">
-              <img src="icons/owlservices.png" alt="" />
-              <div>
-                <h3>Information Technology Intern</h3>
-                <p class="meta">OWL Services · Aug 2025 – May 2026</p>
-              </div>
-            </div>
-            <p>Supported enterprise users and endpoints in a Windows, Microsoft 365, and Active Directory environment. Troubleshot access, device, application, and integration issues, documented recurring patterns, and escalated with clear technical context.</p>
-            <ul class="tags"><li>Microsoft 365</li><li>Active Directory</li><li>Endpoint support</li></ul>
-          </article>
-
-          <article class="card">
-            <div class="card-head">
-              <img src="icons/geeksquad.png" alt="" />
-              <div>
-                <h3>Advanced Repair Agent</h3>
-                <p class="meta">Geek Squad · Oct 2022 – Sep 2026</p>
-              </div>
-            </div>
-            <p>Diagnosed and resolved hardware, operating system, software, and data issues across Windows, macOS, Android, and iOS devices in a high-volume repair environment, with accurate notes and clear customer communication.</p>
-            <ul class="tags"><li>Hardware repair</li><li>OS troubleshooting</li><li>Client support</li></ul>
-          </article>
-
-          <article class="card">
-            <div class="card-head">
-              <img src="icons/teaching.png" alt="" />
-              <div>
-                <h3>Teaching Assistant</h3>
-                <p class="meta">Wayne State · Aug 2023 – Aug 2024</p>
-              </div>
-            </div>
-            <p>Supported engineering labs covering Siemens NX, Arduino/C++, circuit behavior, 3D printing workflows, and design fundamentals. Helped students debug code, wiring, and project deliverables.</p>
-            <ul class="tags"><li>Arduino</li><li>C++</li><li>Siemens NX</li></ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <p class="lead">Things I have built in school and on my own.</p>
-
-        <div class="cards wide">
-          <article class="card featured">
-            <div class="card-head">
-              <img src="icons/speechmatch.png" alt="" />
-              <div>
-                <h3>SpeechMatch</h3>
-                <p class="meta">Senior capstone · Pronunciation assessment mobile app</p>
-              </div>
-            </div>
-            <p>React Native mobile app for reading and pronunciation practice. Users select or upload a passage, record themselves, and receive word-level feedback on pronunciation, skipped words, extra words, and timing. I led frontend development and worked across the recording flow, API integration, scoring output, and custom mispronunciation logic built on top of Azure Speech Services.</p>
-            <dl class="highlights">
-              <div><dt>Role</dt><dd><strong>Frontend lead</strong>Built mobile screens, recording UX, results views, and session feedback flows.</dd></div>
-              <div><dt>Stack</dt><dd><strong>React Native + FastAPI</strong>Expo, TypeScript, Python/FastAPI, PostgreSQL, and Azure Speech.</dd></div>
-              <div><dt>Focus</dt><dd><strong>Scoring logic</strong>Word-level feedback, phoneme comparison, and recognition edge cases.</dd></div>
-            </dl>
-          </article>
-
-          <article class="card">
-            <div class="card-head">
-              <img src="icons/unity.png" alt="" />
-              <div>
-                <h3>SOLTETHER</h3>
-                <p class="meta">Solo game project · Web + Unity</p>
-              </div>
-            </div>
-            <p>Solo 2D RPG project with a deployed companion website at soltether.com. I designed and shipped the site end-to-end, including layout, visual direction, custom CSS animation, hosted deployment, DNS setup, and audio/interaction details. The game itself is being built in Unity with C# systems, tile-based room design, and original creative direction.</p>
-            <ul class="tags"><li>HTML/CSS</li><li>JavaScript</li><li>GitHub Pages</li><li>DNS</li><li>Unity</li><li>C#</li></ul>
-            <p class="links"><a href="https://soltether.com" target="_blank" rel="noopener">Visit site</a></p>
-          </article>
-
-          <article class="card">
-            <div class="card-head">
-              <img src="icons/windows.png" alt="" />
-              <div>
-                <h3>Digital Windex</h3>
-                <p class="meta">Windows productivity utility · Team project</p>
-              </div>
-            </div>
-            <p>C#/.NET WPF application that helps non-technical users run Windows diagnostics, maintenance, and repair tasks from a simpler interface. I proposed the original concept, helped define the product scope, and contributed to implementation and documentation as part of a student team.</p>
-            <ul class="tags"><li>C#</li><li>.NET</li><li>WPF</li><li>Windows</li><li>UX</li></ul>
-            <p class="links"><a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener">View on GitHub</a></p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <p class="lead">Email is the best way to reach me. I am always happy to talk about backend engineering, developer tooling, or anything on this page.</p>
-        <div class="actions">
-          <a class="btn primary" href="mailto:angkodra@gmail.com">angkodra@gmail.com</a>
-          <a class="btn" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://github.com/anxhk7" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">© 2026 Angelo Kodra</div>
-  </footer>
+  <script src="os/data.js"></script>
+  <script src="os/wm.js"></script>
+  <script src="os/apps.js"></script>
+  <script src="os/shell.js"></script>
 </body>
 </html>
