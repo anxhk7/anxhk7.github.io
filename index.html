@@ -5,1023 +5,206 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Angelo Kodra portfolio: software engineering, IT support, full-stack projects, endpoint troubleshooting, and Windows/.NET tools." />
   <title>Angelo Kodra | Software Engineering & IT Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #070a12;
-      --bg-2: #0b1328;
-      --panel: rgba(14, 28, 58, 0.78);
-      --panel-strong: rgba(17, 35, 72, 0.92);
-      --line: rgba(112, 177, 255, 0.32);
-      --line-hot: rgba(129, 195, 255, 0.62);
-      --text: #edf5ff;
-      --muted: #a9b8d4;
-      --dim: #7e8eaa;
-      --blue: #83c7ff;
-      --blue-2: #3d8fe8;
-      --green: #9cff42;
-      --orange: #ffb23f;
-      --red: #d64c3c;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
-      --pixel: 'Press Start 2P', system-ui, sans-serif;
-      --ui: 'Chakra Petch', 'Segoe UI', sans-serif;
-      --mono: 'VT323', monospace;
-      --radius: 14px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(60, 143, 232, 0.20), transparent 28rem),
-        radial-gradient(circle at 82% 5%, rgba(156, 255, 66, 0.06), transparent 21rem),
-        linear-gradient(180deg, #071023 0%, #080b15 46%, #090712 100%);
-      color: var(--text);
-      font-family: var(--ui);
-      padding-top: 68px;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.016) 1px, transparent 1px);
-      background-size: 32px 32px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.88), transparent 88%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 4px);
-      pointer-events: none;
-      opacity: 0.32;
-      z-index: 100;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: 1rem;
-      top: -4rem;
-      background: var(--text);
-      color: #071023;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      z-index: 999;
-      transition: top 0.2s;
-    }
-
-    .skip-link:focus { top: 1rem; }
-
-    .topbar {
-      position: fixed;
-      inset: 0 0 auto;
-      height: 68px;
-      z-index: 50;
-      background: rgba(8, 16, 34, 0.82);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-    }
-
-    .nav {
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      min-width: max-content;
-    }
-
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      background: linear-gradient(135deg, var(--blue), var(--blue-2));
-      border: 1px solid rgba(255,255,255,0.35);
-      box-shadow: 0 0 26px rgba(131,199,255,0.28);
-      display: grid;
-      place-items: center;
-      color: #061022;
-      font-weight: 800;
-    }
-
-    .brand-text {
-      font-family: var(--pixel);
-      color: var(--blue);
-      font-size: 0.64rem;
-      letter-spacing: 0.08em;
-      line-height: 1.4;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.55rem 0.8rem;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      transition: 0.18s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--text);
-      background: rgba(131,199,255,0.08);
-      border-color: rgba(131,199,255,0.22);
-      outline: none;
-    }
-
-    .section { padding: 2.2rem 0; scroll-margin-top: 90px; }
-
-    .window {
-      background: linear-gradient(180deg, rgba(21, 39, 78, 0.88), rgba(10, 20, 43, 0.88));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-
-    .window-bar {
-      min-height: 34px;
-      padding: 0.45rem 0.7rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      background:
-        linear-gradient(180deg, rgba(109,161,255,0.72), rgba(39,83,159,0.82) 45%, rgba(27,55,105,0.9));
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .window-title {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.84rem;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.45);
-    }
-
-    .window-icon {
-      width: 15px;
-      height: 15px;
-      border-radius: 4px;
-      background: linear-gradient(135deg, #b9e6ff, #4d9cff);
-      box-shadow: inset 0 1px rgba(255,255,255,0.5);
-    }
-
-    .window-buttons { display: flex; gap: 0.32rem; }
-
-    .dot {
-      width: 25px;
-      height: 18px;
-      border: 1px solid rgba(0,0,0,0.26);
-      border-radius: 5px;
-      display: grid;
-      place-items: center;
-      color: rgba(255,255,255,0.9);
-      font-size: 0.72rem;
-      line-height: 1;
-      background: rgba(255,255,255,0.17);
-      box-shadow: inset 0 1px rgba(255,255,255,0.18);
-    }
-
-    .dot.close { background: linear-gradient(180deg, #d96a58, #a8392f); }
-
-    .window-body { padding: clamp(1.25rem, 3vw, 2rem); }
-    .hero .window-body { padding: clamp(1.7rem, 4vw, 3rem); }
-
-    .terminal-line {
-      font-family: var(--mono);
-      color: var(--green);
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.9rem;
-    }
-
-    .cursor {
-      display: inline-block;
-      animation: blink 1s step-end infinite;
-    }
-
-    @keyframes blink { 50% { opacity: 0; } }
-
-    .hero-title {
-      font-size: clamp(2.4rem, 6vw, 4.6rem);
-      line-height: 1.02;
-      margin: 0 0 1.1rem;
-      letter-spacing: -0.055em;
-      color: #fff;
-      text-shadow: 0 0 34px rgba(131,199,255,0.24), 0 4px 0 rgba(0,0,0,0.18);
-      font-weight: 800;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
-      gap: clamp(1.4rem, 4vw, 3rem);
-      align-items: center;
-    }
-
-    .hero-copy {
-      color: var(--muted);
-      font-size: clamp(1rem, 1.8vw, 1.12rem);
-      line-height: 1.72;
-      max-width: 700px;
-      margin: 0 0 1.4rem;
-    }
-
-    strong { color: var(--text); font-weight: 800; }
-
-    .role-line {
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 1.08rem;
-      margin: 0 0 0.7rem;
-    }
-
-    .hero-card {
-      background: rgba(5, 14, 31, 0.68);
-      border: 1px solid rgba(131,199,255,0.22);
-      border-radius: 18px;
-      padding: 1rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-    }
-
-    .portrait-frame {
-      border-radius: 15px;
-      overflow: hidden;
-      border: 1px solid rgba(131,199,255,0.32);
-      background: #0c1630;
-      aspect-ratio: 4 / 5;
-    }
-
-    .portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 28%;
-      filter: saturate(0.96) contrast(1.03);
-    }
-
-    .quick-facts {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.65rem;
-      margin-top: 0.85rem;
-    }
-
-    .fact {
-      background: rgba(131,199,255,0.06);
-      border: 1px solid rgba(131,199,255,0.16);
-      border-radius: 12px;
-      padding: 0.75rem;
-    }
-
-    .fact span {
-      display: block;
-      color: var(--orange);
-      font-family: var(--mono);
-      font-size: 1.02rem;
-      letter-spacing: 0.05em;
-    }
-
-    .fact b {
-      display: block;
-      font-size: 0.9rem;
-      color: var(--text);
-      margin-top: 0.15rem;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.2rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0.72rem 1.1rem;
-      border-radius: 12px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      transition: transform 0.17s ease, box-shadow 0.17s ease, border-color 0.17s ease, background 0.17s ease;
-      border: 1px solid rgba(131,199,255,0.32);
-    }
-
-    .btn:hover,
-    .btn:focus-visible {
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    .btn.primary {
-      color: #071023;
-      background: linear-gradient(180deg, #b8e3ff, #62b6ff 52%, #348ee8);
-      box-shadow: 0 12px 30px rgba(64, 155, 255, 0.22), inset 0 1px rgba(255,255,255,0.5);
-      border-color: rgba(214,240,255,0.55);
-    }
-
-    .btn.secondary {
-      color: var(--blue);
-      background: rgba(131,199,255,0.065);
-      border-color: rgba(131,199,255,0.35);
-    }
-
-    .btn.secondary:hover,
-    .btn.secondary:focus-visible {
-      color: var(--text);
-      border-color: var(--line-hot);
-      box-shadow: 0 12px 28px rgba(131,199,255,0.12);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.85rem;
-      margin-top: 1.9rem;
-    }
-
-    .stat {
-      border: 1px solid rgba(131,199,255,0.2);
-      border-radius: 14px;
-      padding: 1rem;
-      background: rgba(5, 14, 31, 0.54);
-    }
-
-    .eyebrow,
-    .stat-label,
-    .mini-label {
-      color: var(--green);
-      font-family: var(--mono);
-      font-size: 1.02rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .stat h3 {
-      margin: 0.35rem 0 0.25rem;
-      font-size: 1rem;
-      color: var(--text);
-    }
-
-    .stat p {
-      margin: 0;
-      color: var(--dim);
-      font-size: 0.92rem;
-      line-height: 1.5;
-    }
-
-    .section-head {
-      text-align: center;
-      margin-bottom: 1.6rem;
-    }
-
-    .section-head h2 {
-      margin: 0.42rem 0 0.45rem;
-      color: #fff;
-      font-size: clamp(1.9rem, 3vw, 2.55rem);
-      line-height: 1.1;
-    }
-
-    .section-head p {
-      margin: 0 auto;
-      max-width: 760px;
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 1rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      align-items: stretch;
-    }
-
-    .about-card {
-      background: rgba(5,14,31,0.5);
-      border: 1px solid rgba(131,199,255,0.18);
-      border-radius: 16px;
-      padding: 1.15rem;
-    }
-
-    .about-card p {
-      margin: 0 0 1rem;
-      color: var(--muted);
-      line-height: 1.72;
-    }
-
-    .about-card p:last-child { margin-bottom: 0; }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.52rem;
-      margin-top: 1.05rem;
-    }
-
-    .chip,
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      background: rgba(156,255,66,0.08);
-      border: 1px solid rgba(156,255,66,0.24);
-      color: var(--green);
-      font-family: var(--mono);
-      font-size: 1rem;
-      line-height: 1;
-      padding: 0.42rem 0.66rem;
-      white-space: nowrap;
-    }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .experience-card,
-    .project-card {
-      height: 100%;
-      border: 1px solid rgba(131,199,255,0.2);
-      border-radius: 17px;
-      background: rgba(5,14,31,0.52);
-      padding: 1.12rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .experience-card:hover,
-    .project-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(131,199,255,0.48);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.24), 0 0 32px rgba(131,199,255,0.06);
-    }
-
-    .card-top {
-      display: flex;
-      gap: 0.85rem;
-      align-items: flex-start;
-      margin-bottom: 0.85rem;
-    }
-
-    .logo-badge {
-      width: 46px;
-      height: 46px;
-      border-radius: 13px;
-      border: 1px solid rgba(131,199,255,0.24);
-      background: linear-gradient(135deg, rgba(131,199,255,0.14), rgba(156,255,66,0.06));
-      display: grid;
-      place-items: center;
-      color: var(--blue);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      flex: 0 0 auto;
-      overflow: hidden;
-    }
-
-    .logo-badge img {
-      width: 72%;
-      height: 72%;
-      object-fit: contain;
-    }
-
-    .card-top h3,
-    .project-card h3 {
-      margin: 0;
-      color: var(--text);
-      font-size: 1.08rem;
-      line-height: 1.25;
-    }
-
-    .meta {
-      color: var(--orange);
-      font-family: var(--mono);
-      font-size: 1.02rem;
-      letter-spacing: 0.04em;
-      margin-top: 0.16rem;
-    }
-
-    .card-copy,
-    .project-copy {
-      color: var(--muted);
-      line-height: 1.65;
-      margin: 0.8rem 0 1rem;
-      font-size: 0.97rem;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .project-card.featured {
-      grid-column: 1 / -1;
-      border-color: rgba(131,199,255,0.48);
-      background:
-        radial-gradient(circle at 12% 0%, rgba(131,199,255,0.16), transparent 26rem),
-        rgba(5,14,31,0.58);
-    }
-
-    .project-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .project-title-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      color: var(--orange);
-      background: rgba(255,178,63,0.11);
-      border: 1px solid rgba(255,178,63,0.28);
-      border-radius: 999px;
-      padding: 0.38rem 0.65rem;
-      font-family: var(--mono);
-      font-size: 1rem;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .project-meta { color: var(--dim); margin-top: 0.18rem; font-size: 0.94rem; }
-
-    .highlight-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin: 1rem 0;
-    }
-
-    .highlight {
-      border: 1px solid rgba(131,199,255,0.16);
-      background: rgba(131,199,255,0.045);
-      border-radius: 13px;
-      padding: 0.85rem;
-    }
-
-    .highlight h4 {
-      margin: 0.28rem 0 0.22rem;
-      font-size: 0.96rem;
-      color: var(--text);
-    }
-
-    .highlight p {
-      margin: 0;
-      color: var(--dim);
-      line-height: 1.42;
-      font-size: 0.86rem;
-    }
-
-    .contact-card {
-      max-width: 780px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      line-height: 1.65;
-      margin: 0.6rem auto 1.4rem;
-      max-width: 650px;
-    }
-
-    .social-row {
-      display: flex;
-      justify-content: center;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-      margin-top: 1.1rem;
-    }
-
-    .footer {
-      color: var(--dim);
-      text-align: center;
-      padding: 1.2rem 0 2.4rem;
-      font-family: var(--ui);
-      font-size: 0.95rem;
-    }
-
-    .mobile-menu {
-      display: none;
-      border: 1px solid rgba(131,199,255,0.3);
-      background: rgba(131,199,255,0.06);
-      color: var(--text);
-      border-radius: 10px;
-      padding: 0.55rem 0.7rem;
-      font-weight: 800;
-      font-family: var(--ui);
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .about-grid,
-      .timeline,
-      .project-grid,
-      .stats { grid-template-columns: 1fr; }
-      .hero-card { max-width: 420px; }
-      .project-card.featured { grid-column: auto; }
-      .highlight-grid { grid-template-columns: 1fr; }
-      .nav-links {
-        position: absolute;
-        top: 68px;
-        left: 20px;
-        right: 20px;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        background: rgba(8, 16, 34, 0.96);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 0.7rem;
-        box-shadow: var(--shadow);
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a { border-radius: 10px; }
-      .mobile-menu { display: inline-flex; }
-    }
-
-    @media (max-width: 560px) {
-      body { padding-top: 62px; }
-      .topbar, .nav { height: 62px; }
-      .container { width: min(100% - 28px, 1120px); }
-      .window-body { padding: 1rem; }
-      .hero .window-body { padding: 1.25rem; }
-      .quick-facts { grid-template-columns: 1fr; }
-      .project-head { flex-direction: column; }
-      .actions .btn, .social-row .btn { width: 100%; }
-      .section { padding: 1.25rem 0; }
-      .brand-text { font-size: 0.56rem; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="topbar">
-    <nav class="container nav" aria-label="Primary navigation">
-      <a class="brand" href="#home" aria-label="Angelo Kodra home">
-        <span class="brand-mark">AK</span>
-        <span class="brand-text">ANGELO.EXE</span>
-      </a>
-      <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
-      <div class="nav-links" id="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a class="brand" href="#home">Angelo Kodra</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
   <main id="main">
     <section class="section hero" id="home">
-      <div class="container">
-        <article class="window">
-          <div class="window-bar">
-            <div class="window-title"><span class="window-icon"></span>Angelo Kodra — Portfolio</div>
-            <div class="window-buttons" aria-hidden="true">
-              <span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span>
-            </div>
+      <div class="container hero-grid">
+        <div>
+          <h1>Angelo Kodra</h1>
+          <p class="role">Computer Science graduate focused on software engineering, IT support, and practical systems troubleshooting.</p>
+          <p class="hero-copy">
+            I build and support software from both sides: writing full-stack applications, troubleshooting endpoints, repairing devices, and explaining technical issues clearly to real users. I am looking for entry-level software engineering, IT, or technical support roles where I can contribute quickly and keep growing.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">View projects</a>
+            <a class="btn" href="AngeloKodra.docx" download>Download resume</a>
+            <a class="btn" href="mailto:angkodra@gmail.com">Contact me</a>
           </div>
-          <div class="window-body">
-            <div class="hero-grid">
-              <div>
-                <div class="terminal-line">C:\Users\Angelo&gt; whoami<span class="cursor">_</span></div>
-                <h1 class="hero-title">Angelo Kodra</h1>
-                <p class="role-line">Computer Science graduate focused on software engineering, IT support, and practical systems troubleshooting.</p>
-                <p class="hero-copy">
-                  I build and support software from both sides: writing full-stack applications, troubleshooting endpoints, repairing devices, and explaining technical issues clearly to real users. I am looking for entry-level software engineering, IT, or technical support roles where I can contribute quickly and keep growing.
-                </p>
-                <div class="actions">
-                  <a class="btn primary" href="#projects">View projects</a>
-                  <a class="btn secondary" href="AngeloKodra.docx" download>Download resume</a>
-                  <a class="btn secondary" href="mailto:angkodra@gmail.com">Contact me</a>
-                </div>
-                <div class="stats" aria-label="Quick summary">
-                  <div class="stat">
-                    <div class="stat-label">// Software</div>
-                    <h3>Full-stack development</h3>
-                    <p>React Native, FastAPI, PostgreSQL, C#, .NET, C++, Python.</p>
-                  </div>
-                  <div class="stat">
-                    <div class="stat-label">// Support</div>
-                    <h3>Enterprise + repair</h3>
-                    <p>Endpoint support, Microsoft 365, Active Directory, diagnostics, hardware repair.</p>
-                  </div>
-                  <div class="stat">
-                    <div class="stat-label">// Strength</div>
-                    <h3>Debugging mindset</h3>
-                    <p>Trace the issue, communicate clearly, document the fix, and move the work forward.</p>
-                  </div>
-                </div>
-              </div>
+        </div>
 
-              <aside class="hero-card" aria-label="Profile card">
-                <div class="portrait-frame">
-                  <img src="ak-face.jpeg" alt="Angelo Kodra" />
-                </div>
-                <div class="quick-facts">
-                  <div class="fact"><span>Degree</span><b>B.S. Computer Science</b></div>
-                  <div class="fact"><span>GPA</span><b>3.82 / 4.0</b></div>
-                  <div class="fact"><span>School</span><b>Wayne State University</b></div>
-                  <div class="fact"><span>Home base</span><b>Metro Detroit</b></div>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </article>
+        <aside aria-label="Profile">
+          <img class="portrait" src="ak-face.jpeg" alt="Angelo Kodra" width="260" height="325" />
+          <dl class="facts">
+            <div><dt>Degree</dt><dd>B.S. Computer Science</dd></div>
+            <div><dt>GPA</dt><dd>3.82 / 4.0</dd></div>
+            <div><dt>School</dt><dd>Wayne State University</dd></div>
+            <div><dt>Based in</dt><dd>Metro Detroit</dd></div>
+          </dl>
+        </aside>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="container">
-        <article class="window">
-          <div class="window-bar">
-            <div class="window-title"><span class="window-icon"></span>About</div>
-            <div class="window-buttons" aria-hidden="true"><span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span></div>
-          </div>
-          <div class="window-body">
-            <header class="section-head">
-              <div class="eyebrow">// Profile</div>
-              <h2>Software builder with hands-on support experience.</h2>
-              <p>My background combines full-stack development, enterprise IT, hardware repair, and technical teaching.</p>
-            </header>
+        <h2>About</h2>
+        <p class="lead">My background combines full-stack development, enterprise IT, hardware repair, and technical teaching.</p>
 
-            <div class="about-grid">
-              <div class="about-card">
-                <p>
-                  I earned my B.S. in Computer Science from Wayne State University and have built projects across mobile, web, desktop, data, and graphics. My strongest work comes from connecting implementation details with the user experience: recording flows, API contracts, database behavior, endpoint issues, and clear documentation.
-                </p>
-                <p>
-                  I have also spent years in technical support environments where problems are messy, time-sensitive, and user-facing. That experience made me comfortable asking the right questions, isolating root causes, and explaining fixes without overcomplicating them.
-                </p>
-              </div>
-              <div class="about-card">
-                <p>
-                  I am especially interested in roles where software engineering and IT operations overlap: internal tools, application support, frontend/backend development, systems integration, endpoint support, and automation. I care about reliability, clean communication, and shipping work that people can actually use.
-                </p>
-                <div class="chip-row" aria-label="Skills">
-                  <span class="chip">C#</span><span class="chip">.NET/WPF</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">TypeScript</span><span class="chip">React Native</span><span class="chip">PostgreSQL</span><span class="chip">SQL</span><span class="chip">C++</span><span class="chip">Unity</span><span class="chip">Git/GitHub</span><span class="chip">Azure</span><span class="chip">Microsoft 365</span><span class="chip">Active Directory</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
+        <div class="prose">
+          <p>I earned my B.S. in Computer Science from Wayne State University and have built projects across mobile, web, desktop, data, and graphics. My strongest work comes from connecting implementation details with the user experience: recording flows, API contracts, database behavior, endpoint issues, and clear documentation.</p>
+          <p>I have also spent years in technical support environments where problems are messy, time-sensitive, and user-facing. That experience made me comfortable asking the right questions, isolating root causes, and explaining fixes without overcomplicating them.</p>
+          <p>I am especially interested in roles where software engineering and IT operations overlap: internal tools, application support, frontend/backend development, systems integration, endpoint support, and automation.</p>
+        </div>
+
+        <h3 class="subhead">Skills</h3>
+        <ul class="tags">
+          <li>C#</li><li>.NET/WPF</li><li>Python</li><li>FastAPI</li><li>TypeScript</li><li>React Native</li><li>PostgreSQL</li><li>SQL</li><li>C++</li><li>Unity</li><li>Git/GitHub</li><li>Azure</li><li>Microsoft 365</li><li>Active Directory</li>
+        </ul>
       </div>
     </section>
 
     <section class="section" id="experience">
       <div class="container">
-        <article class="window">
-          <div class="window-bar">
-            <div class="window-title"><span class="window-icon"></span>Experience</div>
-            <div class="window-buttons" aria-hidden="true"><span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span></div>
-          </div>
-          <div class="window-body">
-            <header class="section-head">
-              <div class="eyebrow">// Work history</div>
-              <h2>Support, repair, teaching, and software delivery.</h2>
-              <p>These roles gave me a practical view of how systems fail, how users describe problems, and how technical teams move fixes forward.</p>
-            </header>
+        <h2>Experience</h2>
+        <p class="lead">Support, repair, teaching, and software delivery.</p>
 
-            <div class="timeline">
-              <article class="experience-card">
-                <div class="card-top">
-                  <div class="logo-badge"><img src="icons/owlservices.png" alt="" /></div>
-                  <div>
-                    <h3>Information Technology Intern</h3>
-                    <div class="meta">OWL Services · Aug 2025 – Present</div>
-                  </div>
-                </div>
-                <p class="card-copy">Support enterprise users and endpoints across a Windows, Microsoft 365, and Active Directory environment. Troubleshoot access, device, application, and integration issues while documenting patterns and escalating with clear technical context.</p>
-                <div class="chip-row"><span class="tag">Microsoft 365</span><span class="tag">Active Directory</span><span class="tag">Endpoint support</span><span class="tag">Documentation</span></div>
-              </article>
-
-              <article class="experience-card">
-                <div class="card-top">
-                  <div class="logo-badge"><img src="icons/geeksquad.png" alt="" /></div>
-                  <div>
-                    <h3>Advanced Repair Agent</h3>
-                    <div class="meta">Geek Squad · Oct 2022 – Present</div>
-                  </div>
-                </div>
-                <p class="card-copy">Diagnose and resolve hardware, operating system, software, and data issues across Windows, macOS, Android, and iOS devices in a high-volume repair environment, with a focus on accurate notes and clear customer communication.</p>
-                <div class="chip-row"><span class="tag">Hardware repair</span><span class="tag">OS troubleshooting</span><span class="tag">Client support</span></div>
-              </article>
-
-              <article class="experience-card">
-                <div class="card-top">
-                  <div class="logo-badge"><img src="icons/teaching.png" alt="" /></div>
-                  <div>
-                    <h3>Teaching Assistant</h3>
-                    <div class="meta">Wayne State · Aug 2023 – Aug 2024</div>
-                  </div>
-                </div>
-                <p class="card-copy">Supported engineering labs covering Siemens NX, Arduino/C++, circuit behavior, 3D printing workflows, and design fundamentals. Helped students debug code, wiring, and project deliverables.</p>
-                <div class="chip-row"><span class="tag">Siemens NX</span><span class="tag">Arduino</span><span class="tag">C++</span><span class="tag">3D printing</span></div>
-              </article>
+        <div class="cards">
+          <article class="card">
+            <div class="card-head">
+              <img src="icons/owlservices.png" alt="" />
+              <div>
+                <h3>Information Technology Intern</h3>
+                <p class="meta">OWL Services · Aug 2025 – Present</p>
+              </div>
             </div>
-          </div>
-        </article>
+            <p>Support enterprise users and endpoints across a Windows, Microsoft 365, and Active Directory environment. Troubleshoot access, device, application, and integration issues while documenting patterns and escalating with clear technical context.</p>
+            <ul class="tags"><li>Microsoft 365</li><li>Active Directory</li><li>Endpoint support</li><li>Documentation</li></ul>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <img src="icons/geeksquad.png" alt="" />
+              <div>
+                <h3>Advanced Repair Agent</h3>
+                <p class="meta">Geek Squad · Oct 2022 – Present</p>
+              </div>
+            </div>
+            <p>Diagnose and resolve hardware, operating system, software, and data issues across Windows, macOS, Android, and iOS devices in a high-volume repair environment, with a focus on accurate notes and clear customer communication.</p>
+            <ul class="tags"><li>Hardware repair</li><li>OS troubleshooting</li><li>Client support</li></ul>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <img src="icons/teaching.png" alt="" />
+              <div>
+                <h3>Teaching Assistant</h3>
+                <p class="meta">Wayne State · Aug 2023 – Aug 2024</p>
+              </div>
+            </div>
+            <p>Supported engineering labs covering Siemens NX, Arduino/C++, circuit behavior, 3D printing workflows, and design fundamentals. Helped students debug code, wiring, and project deliverables.</p>
+            <ul class="tags"><li>Siemens NX</li><li>Arduino</li><li>C++</li><li>3D printing</li></ul>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section" id="projects">
       <div class="container">
-        <article class="window">
-          <div class="window-bar">
-            <div class="window-title"><span class="window-icon"></span>Projects</div>
-            <div class="window-buttons" aria-hidden="true"><span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span></div>
-          </div>
-          <div class="window-body">
-            <header class="section-head">
-              <div class="eyebrow">// Selected work</div>
-              <h2>Projects with implementation depth.</h2>
-              <p>Selected work that reflects full-stack development, debugging, design decisions, and clear ownership.</p>
-            </header>
+        <h2>Projects</h2>
+        <p class="lead">Full-stack, desktop, graphics, and data work.</p>
 
-            <div class="project-grid">
-              <article class="project-card featured">
-                <div class="project-head">
-                  <div class="project-title-row">
-                    <div class="logo-badge"><img src="icons/speechmatch.png" alt="" /></div>
-                    <div>
-                      <h3>SpeechMatch</h3>
-                      <div class="project-meta">Senior Capstone · Pronunciation assessment mobile app</div>
-                    </div>
-                  </div>
-                  <span class="badge">Capstone</span>
-                </div>
-                <p class="project-copy">React Native mobile app for reading and pronunciation practice. Users select or upload a passage, record themselves, and receive word-level feedback on pronunciation, skipped words, extra words, and timing. I led frontend development and worked across the recording flow, API integration, scoring output, and custom mispronunciation logic built on top of Azure Speech Services.</p>
-                <div class="highlight-grid">
-                  <div class="highlight"><div class="mini-label">// Role</div><h4>Frontend Lead</h4><p>Built mobile screens, recording UX, results views, and session feedback flows.</p></div>
-                  <div class="highlight"><div class="mini-label">// Stack</div><h4>React Native + FastAPI</h4><p>Expo, TypeScript, Python/FastAPI, PostgreSQL, and Azure Speech.</p></div>
-                  <div class="highlight"><div class="mini-label">// Depth</div><h4>Scoring logic</h4><p>Handled word-level feedback, phoneme comparison, and recognition edge cases.</p></div>
-                </div>
-                <div class="chip-row"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Azure Speech</span><span class="tag">TypeScript</span></div>
-              </article>
-
-              <article class="project-card">
-                <div class="project-head">
-                  <div class="project-title-row">
-                    <div class="logo-badge"><img src="icons/soltether.png" alt="" /></div>
-                    <div><h3>SOLTETHER</h3><div class="project-meta">Solo game project · Web property</div></div>
-                  </div>
-                  <span class="badge">Web + Unity</span>
-                </div>
-                <p class="project-copy">Solo 2D RPG project with a deployed companion website at soltether.com. I designed and shipped the site end-to-end, including layout, visual direction, custom CSS animation, hosted deployment, DNS setup, and audio/interaction details. The game itself is being built in Unity with C# systems, tile-based room design, and original creative direction.</p>
-                <div class="chip-row"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">GitHub Pages</span><span class="tag">DNS</span><span class="tag">Unity</span><span class="tag">C#</span></div>
-                <div class="actions"><a class="btn secondary" href="https://soltether.com" target="_blank" rel="noopener noreferrer">Visit site</a></div>
-              </article>
-
-              <article class="project-card">
-                <div class="project-head">
-                  <div class="project-title-row">
-                    <div class="logo-badge"><img src="icons/windows.png" alt="" /></div>
-                    <div><h3>Digital Windex</h3><div class="project-meta">Windows productivity utility</div></div>
-                  </div>
-                  <span class="badge">Desktop</span>
-                </div>
-                <p class="project-copy">C#/.NET WPF application that helps non-technical users run Windows diagnostics, maintenance, and repair tasks from a simpler interface. I proposed the original concept, helped define the product scope, and contributed to implementation and documentation as part of a student team.</p>
-                <div class="chip-row"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">WPF</span><span class="tag">Windows</span><span class="tag">UX</span></div>
-                <div class="actions"><a class="btn secondary" href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener noreferrer">View GitHub</a></div>
-              </article>
-
-              <article class="project-card">
-                <div class="project-head">
-                  <div class="project-title-row">
-                    <div class="logo-badge"><img src="icons/opengl.png" alt="" /></div>
-                    <div><h3>Interactive 3D Scene</h3><div class="project-meta">Computer Graphics · Real-time rendering</div></div>
-                  </div>
-                  <span class="badge">Graphics</span>
-                </div>
-                <p class="project-copy">C++/OpenGL graphics project that loads OBJ models, computes normals, maps textures, applies lighting and material controls, and supports interactive camera/object movement in real time.</p>
-                <div class="chip-row"><span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">Textures</span><span class="tag">Lighting</span></div>
-                <div class="actions"><a class="btn secondary" href="Assignment3_AK.exe" download>Download demo</a><a class="btn secondary" href="Assignment3_AK.cpp" download>View source</a></div>
-              </article>
-
-              <article class="project-card">
-                <div class="project-head">
-                  <div class="project-title-row">
-                    <div class="logo-badge"><img src="icons/data.png" alt="" /></div>
-                    <div><h3>Movie Attendance Prediction</h3><div class="project-meta">Data science · Predictive modeling</div></div>
-                  </div>
-                  <span class="badge">Data</span>
-                </div>
-                <p class="project-copy">Predictive modeling project using survey and secondary data to analyze movie attendance patterns. Compared decision trees, logistic regression, and a neural network, then documented methodology and findings in a final research paper.</p>
-                <div class="chip-row"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">TensorFlow</span></div>
-                <div class="actions"><a class="btn secondary" href="BE2100_G08_FinalPaper.pdf" download>Download report</a></div>
-              </article>
+        <div class="cards wide">
+          <article class="card featured">
+            <div class="card-head">
+              <img src="icons/speechmatch.png" alt="" />
+              <div>
+                <h3>SpeechMatch</h3>
+                <p class="meta">Senior capstone · Pronunciation assessment mobile app</p>
+              </div>
             </div>
-          </div>
-        </article>
+            <p>React Native mobile app for reading and pronunciation practice. Users select or upload a passage, record themselves, and receive word-level feedback on pronunciation, skipped words, extra words, and timing. I led frontend development and worked across the recording flow, API integration, scoring output, and custom mispronunciation logic built on top of Azure Speech Services.</p>
+            <dl class="highlights">
+              <div><dt>Role</dt><dd><strong>Frontend lead</strong>Built mobile screens, recording UX, results views, and session feedback flows.</dd></div>
+              <div><dt>Stack</dt><dd><strong>React Native + FastAPI</strong>Expo, TypeScript, Python/FastAPI, PostgreSQL, and Azure Speech.</dd></div>
+              <div><dt>Focus</dt><dd><strong>Scoring logic</strong>Word-level feedback, phoneme comparison, and recognition edge cases.</dd></div>
+            </dl>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <img src="icons/unity.png" alt="" />
+              <div>
+                <h3>SOLTETHER</h3>
+                <p class="meta">Solo game project · Web + Unity</p>
+              </div>
+            </div>
+            <p>Solo 2D RPG project with a deployed companion website at soltether.com. I designed and shipped the site end-to-end, including layout, visual direction, custom CSS animation, hosted deployment, DNS setup, and audio/interaction details. The game itself is being built in Unity with C# systems, tile-based room design, and original creative direction.</p>
+            <ul class="tags"><li>HTML/CSS</li><li>JavaScript</li><li>GitHub Pages</li><li>DNS</li><li>Unity</li><li>C#</li></ul>
+            <p class="links"><a href="https://soltether.com" target="_blank" rel="noopener">Visit site</a></p>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <img src="icons/windows.png" alt="" />
+              <div>
+                <h3>Digital Windex</h3>
+                <p class="meta">Windows productivity utility · Team project</p>
+              </div>
+            </div>
+            <p>C#/.NET WPF application that helps non-technical users run Windows diagnostics, maintenance, and repair tasks from a simpler interface. I proposed the original concept, helped define the product scope, and contributed to implementation and documentation as part of a student team.</p>
+            <ul class="tags"><li>C#</li><li>.NET</li><li>WPF</li><li>Windows</li><li>UX</li></ul>
+            <p class="links"><a href="https://github.com/WSU-4110/Digital-Windex" target="_blank" rel="noopener">View on GitHub</a></p>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <img src="icons/opengl.png" alt="" />
+              <div>
+                <h3>Interactive 3D Scene</h3>
+                <p class="meta">Computer graphics · Real-time rendering</p>
+              </div>
+            </div>
+            <p>C++/OpenGL graphics project that loads OBJ models, computes normals, maps textures, applies lighting and material controls, and supports interactive camera/object movement in real time.</p>
+            <ul class="tags"><li>C++</li><li>OpenGL</li><li>Textures</li><li>Lighting</li></ul>
+            <p class="links"><a href="Assignment3_AK.cpp" download>View source</a><a href="Assignment3_AK.exe" download>Download demo (Windows)</a></p>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <img src="icons/data.png" alt="" />
+              <div>
+                <h3>Movie Attendance Prediction</h3>
+                <p class="meta">Data science · Predictive modeling</p>
+              </div>
+            </div>
+            <p>Predictive modeling project using survey and secondary data to analyze movie attendance patterns. Compared decision trees, logistic regression, and a neural network, then documented methodology and findings in a final research paper.</p>
+            <ul class="tags"><li>Python</li><li>Pandas</li><li>scikit-learn</li><li>TensorFlow</li></ul>
+            <p class="links"><a href="BE2100_G08_FinalPaper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a></p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section" id="contact">
       <div class="container">
-        <article class="window">
-          <div class="window-bar">
-            <div class="window-title"><span class="window-icon"></span>Contact</div>
-            <div class="window-buttons" aria-hidden="true"><span class="dot">—</span><span class="dot">□</span><span class="dot close">×</span></div>
-          </div>
-          <div class="window-body">
-            <div class="contact-card">
-              <div class="eyebrow">// Contact</div>
-              <h2>Open to software engineering and IT roles.</h2>
-              <p>I am seeking entry-level software engineering, IT support, application support, and technical support roles in Metro Detroit, hybrid, or remote environments. Reach out if my mix of development, troubleshooting, and user-facing support fits your team.</p>
-              <div class="social-row">
-                <a class="btn primary" href="mailto:angkodra@gmail.com">Email me</a>
-                <a class="btn secondary" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a class="btn secondary" href="https://github.com/anxhk7" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </div>
-        </article>
+        <h2>Contact</h2>
+        <p class="lead">I am seeking entry-level software engineering, IT support, application support, and technical support roles in Metro Detroit, hybrid, or remote. Reach out if my mix of development, troubleshooting, and user-facing support fits your team.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:angkodra@gmail.com">angkodra@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/angelo-kodra-aa08a821b" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/anxhk7" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">© 2026 Angelo Kodra · Software Engineering & IT Portfolio</div>
+  <footer class="site-footer">
+    <div class="container">© 2026 Angelo Kodra</div>
   </footer>
-
-  <script>
-    const menuButton = document.querySelector('.mobile-menu');
-    const navLinks = document.querySelector('#nav-links');
-
-    menuButton.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-      });
-    });
-  </script>
 </body>
 </html>
