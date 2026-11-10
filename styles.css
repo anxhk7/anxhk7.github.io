@@ -172,6 +172,7 @@ a { color: var(--accent); }
   background: #1f252e;
   border-radius: 6px;
 }
+.card-head img.wordmark { width: auto; padding: 4px 8px; background: #fff; }
 
 .meta { color: var(--muted); font-size: 0.875rem; }
 
@@ -190,6 +191,12 @@ a { color: var(--accent); }
   color: var(--muted);
   font-size: 0.8rem;
 }
+
+.bullets { display: grid; gap: 0.4rem; margin: 0; padding-left: 1.1rem; color: var(--muted); }
+
+.skills { display: grid; gap: 1rem; margin: 0; }
+.skills dt { margin-bottom: 0.4rem; color: var(--muted); font-size: 0.875rem; }
+.skills dd { margin: 0; }
 
 .highlights {
   display: grid;
