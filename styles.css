@@ -115,8 +115,10 @@ a { color: var(--accent); }
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
 }
-.facts dt { color: var(--muted); }
-.facts dd { margin: 0; text-align: right; }
+/* Shared label/value lists */
+:is(.facts, .skills, .highlights) dt { color: var(--muted); }
+:is(.facts, .skills, .highlights) dd { margin: 0; }
+.facts dd { text-align: right; }
 
 /* Buttons and links */
 .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
@@ -172,6 +174,7 @@ a { color: var(--accent); }
   background: #1f252e;
   border-radius: 6px;
 }
+/* Dark wordmark needs a light tile to stay readable */
 .card-head img.wordmark { width: auto; padding: 4px 8px; background: #fff; }
 
 .meta { color: var(--muted); font-size: 0.875rem; }
@@ -195,8 +198,7 @@ a { color: var(--accent); }
 .bullets { display: grid; gap: 0.4rem; margin: 0; padding-left: 1.1rem; color: var(--muted); }
 
 .skills { display: grid; gap: 1rem; margin: 0; }
-.skills dt { margin-bottom: 0.4rem; color: var(--muted); font-size: 0.875rem; }
-.skills dd { margin: 0; }
+.skills dt { margin-bottom: 0.4rem; font-size: 0.9rem; }
 
 .highlights {
   display: grid;
@@ -204,8 +206,8 @@ a { color: var(--accent); }
   gap: 1rem;
   margin: 0;
 }
-.highlights dt { color: var(--muted); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
-.highlights dd { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.9rem; }
+.highlights dt { font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.highlights dd { margin-top: 0.25rem; color: var(--muted); font-size: 0.9rem; }
 .highlights strong { display: block; color: var(--text); font-weight: 600; }
 
 /* Footer */
